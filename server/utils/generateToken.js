@@ -1,0 +1,1 @@
+/* Aqui van algunas utilidades que podran servir a lo largo del proyecto */
