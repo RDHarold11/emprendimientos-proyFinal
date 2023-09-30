@@ -1,11 +1,12 @@
 # Notas para iniciar el servidor
 
 Antes de todo, deben posicionarse en la carpeta server, de esta manera:
--Abrir la terminal --> Terminal (Arriba lo ven) -> new terminal y hacen lo de abajo
--cd server
--npm i
--npm start
-Este último comando es para iniciar la aplicación. Si ya quieren dejar de correrla, solo presionen control + c
+
+- Abrir la terminal --> Terminal (Arriba lo ven) -> new terminal y hacen lo de abajo
+- cd server
+- npm i
+- npm start
+  Este último comando es para iniciar la aplicación. Si ya quieren dejar de correrla, solo presionen control + c
 
 Es importante que solo la primera vez ejecuten npm i, ya que esto instala todas las dependencias y librerias.
 
