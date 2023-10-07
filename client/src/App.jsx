@@ -3,6 +3,9 @@ import './App.css'
 
 /* Importacion de las paginas que se estableceran en las rutas de abajo */
 import Home from "./pages/Home"
+import Login from "./pages/Login"
+import Registro from "./pages/registro/Registro"
+import Navbar from "./components/Navbar"
 
 function App() {
 
@@ -10,11 +13,15 @@ function App() {
     <>
     {/* Aqui se ejecuta todo el codigo */}
       <Router>
+        <Navbar></Navbar>
         <Routes>
           {/* Aqui dentro se colocaran todas las rutas del proyecto */}
           {/* path indica la ruta, es decir, si colocamos path="/products" en la url, podremos ver la pagina correspondiente a esa ruta */}
           {/* Dentro de element se coloca la pagina */}
           <Route path="/" index={true} element={<Home/>}></Route>
+          <Route path="/login"  element={<Login/>}></Route>
+          <Route path="/home"  element={<Home/>}></Route>
+          <Route path="/registro"  element={<Registro/>}></Route>
         </Routes>
       </Router>
     </>
