@@ -900,3 +900,9 @@ textarea {
 .another {
   margin-left: 25px;
 }
+
+.logout-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
