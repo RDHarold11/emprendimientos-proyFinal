@@ -47,12 +47,12 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <a className="nav-link" href="services.html">
+                <a className="nav-link" href="/producto">
                   Servicios
                 </a>
               </li>
               <li>
-                <a className="nav-link" href="blog.html">
+                <a className="nav-link" href="/emprendimiento">
                   Emprendimientos
                 </a>
               </li>

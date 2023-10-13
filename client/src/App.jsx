@@ -4,8 +4,12 @@ import './App.css'
 /* Importacion de las paginas que se estableceran en las rutas de abajo */
 import Home from "./pages/Home"
 import Login from "./pages/Login"
+import Producto from './pages/productos/Producto'; 
+import CrearProducto from './pages/productos/CrearProducto'; 
+import Emprendimiento from './pages/emprendimientos/Emprendimiento'; 
 import Registro from "./pages/registro/Registro"
 import Navbar from "./components/Navbar"
+
 
 function App() {
 
@@ -22,6 +26,10 @@ function App() {
           <Route path="/login"  element={<Login/>}></Route>
           <Route path="/home"  element={<Home/>}></Route>
           <Route path="/registro"  element={<Registro/>}></Route>
+          <Route path="/producto" element={<Producto />} > </Route>
+          <Route path="/crearProducto" element={<CrearProducto />} > </Route>
+          <Route path="/emprendimiento" element={<Emprendimiento/>} > </Route>
+        
         </Routes>
       </Router>
     </>
