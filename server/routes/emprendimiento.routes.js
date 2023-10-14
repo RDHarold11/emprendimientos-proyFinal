@@ -1,15 +1,10 @@
 import express from "express";
 const router = express.Router();
 
-import {
-    createProduct,
-    getProducts,
-
-}
-from "../controllers/productController.js";
+import { createEmpreindimiento } from "../controllers/emprendimientoController.js";
 import { protect, emprendedor } from "../middleware/authMiddleware.js";
 
-router.route("/").get(getProducts).post(protect, createProduct);
+router.route("/").post(protect, createProduct);
 
 export default router;
 

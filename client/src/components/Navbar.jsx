@@ -58,16 +58,16 @@ const Navbar = () => {
                   Sobre Nosotros
                 </a>
               </li>
-              <li>
-                <a className="nav-link" href="/producto">
+              {user && (
+                <Link className="nav-link" to="/producto">
                   Servicios
-                </a>
-              </li>
-              <li>
-                <a className="nav-link" href="/emprendimiento">
+                </Link>
+                )}
+              {user && (
+                <Link className="nav-link" to="/emprendimiento">
                   Emprendimientos
-                </a>
-              </li>
+                </Link>
+            )}
               {!user && (
                 <Link to="/login" className="nav-link">
                   Iniciar Sesión
