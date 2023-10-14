@@ -1,15 +1,20 @@
 import asyncHandler from "../middleware/asyncHandler.js";
-import Emprendimiento from "../models/emprendimientoModel.js";
+import Emprendimiento from "../models/emprendimientosModel.js";
 
+const getEmprendimientos = asyncHandler(async(req, res) => {
+
+    const emprendimiento = await Emprendimiento.find({});
+
+
+    res.json(emprendimiento);
+
+});
 const createEmprendimiento = asyncHandler(async(req, res) => {
     const emprendimiento = new Emprendimiento({
-        name: "Sample name",
+        title: "Sample title",
         user: req.user._id,
-        price: 0,
-        category: "category sample",
-        countInStock: 0,
-        numReviews: 0,
         description: "Sample description",
+        numReviews: 0,
         rating: 0,
         image: "Sample img",
     });
@@ -22,4 +27,4 @@ const createEmprendimiento = asyncHandler(async(req, res) => {
     }
 });
 
-export { createEmprendimiento };
+export { createEmprendimiento, getEmprendimientos };

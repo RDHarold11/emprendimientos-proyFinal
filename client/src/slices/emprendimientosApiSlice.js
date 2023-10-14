@@ -1,17 +1,17 @@
-import { EMPRENDIMIENTO_URL } from "../utils/constants";
+import { EMPRENDIMIENTOS_URL } from "../utils/constants";
 import { apiSlice } from "./apiSlice";
 
 export const emprendimientoApiSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
-        createProduct: builder.mutation({
+        createEmprendimiento: builder.mutation({
             query: () => ({
-                url: `${EMPRENDIMIENTO_URL}`,
+                url: `${EMPRENDIMIENTOS_URL}`,
                 method: 'POST',
             })
         }),
-        getEmprendimiento: builder.query({
+        getEmprendimientos: builder.query({
             query: () => ({
-                url: EMPRENDIMIENTO_URL,
+                url: EMPRENDIMIENTOS_URL,
             }),
             providesTags: ['Product'],
 
@@ -19,4 +19,4 @@ export const emprendimientoApiSlice = apiSlice.injectEndpoints({
     })
 });
 
-export const { useCreateEmprendimientoMutation, useGetEmprendimientoQuery } = emprendimientoApiSlice;
+export const { useCreateEmprendimientoMutation, useGetEmprendimientosQuery } = emprendimientoApiSlice;
