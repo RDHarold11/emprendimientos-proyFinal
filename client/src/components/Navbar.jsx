@@ -1,16 +1,28 @@
-import img from "/cart.svg";
-import img2 from "/user.svg";
+import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  AiOutlineShoppingCart,
+  AiOutlineUser,
+  AiOutlineLogout,
+} from "react-icons/ai";
+import { useLogoutMutation } from "../slices/usersApiSlice";
+import { logout } from "../slices/authSlice";
 
 const Navbar = () => {
+  const { userInfo: user } = useSelector((state) => state.auth);
+
+  const dispatch = useDispatch();
+  const [logoutApiCall] = useLogoutMutation();
+
+  const handleLogout = async () => {
+    try {
+      await logoutApiCall().unwrap();
+      dispatch(logout());
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
-    /* Esta es la estructura para todas las paginas y componentes, dentro del return va la estructura
-    del html de toda la vida */
-    /* Todo elemento dentro del return debe estar dentro de un elemento padre.
-    Es decir, si vas a colocar html con su diseño, todo debe estar dentro de una etiqueta contenedora
-    Ejemplo:  
-    <div> 
-        Resto del contenido
-    </div> */
     <div>
       {" "}
       <nav
@@ -56,24 +68,26 @@ const Navbar = () => {
                   Emprendimientos
                 </a>
               </li>
-              <li>
-                <a className="nav-link" href="/login">
+              {!user && (
+                <Link to="/login" className="nav-link">
                   Iniciar Sesión
-                </a>
-              </li>
+                </Link>
+              )}
             </ul>
-
             <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-              <li>
-                <a className="nav-link" href="#">
-                  <img src={img} />
-                </a>
-              </li>
-              <li>
-                <a className="nav-link" href="cart.html">
-                  <img src={img2} />
-                </a>
-              </li>
+              <Link className="nav-link">
+                <AiOutlineShoppingCart size={30} />
+              </Link>
+              {user && (
+                <Link className="nav-link user" to="/cart">
+                  <AiOutlineUser size={30} />
+                </Link>
+              )}
+              {user && (
+                <div className="logout-link nav-link" onClick={handleLogout}>
+                  <AiOutlineLogout size={30} color="white" cursor="pointer" />
+                </div>
+              )}
             </ul>
           </div>
         </div>

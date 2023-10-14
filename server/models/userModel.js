@@ -8,10 +8,16 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    lastName: {
+      type: String,
+    },
     email: {
       type: String,
       required: true,
       unique: true,
+    },
+    image: {
+      type: String,
     },
     password: {
       type: String,
@@ -25,7 +31,7 @@ const userSchema = new Schema(
     isEmprendedor: {
       type: Boolean,
       required: true,
-      default: false,
+      default: true,
     },
     isEmpresa: {
       type: Boolean,
@@ -41,7 +47,7 @@ userSchema.methods.matchPassword = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
 
-userSchema.prev("save", async function (next) {
+userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {
     next();
   }

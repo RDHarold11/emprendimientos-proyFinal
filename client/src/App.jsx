@@ -1,5 +1,6 @@
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
 import './App.css'
+import { Toaster } from "sonner"
 
 /* Importacion de las paginas que se estableceran en las rutas de abajo */
 import Home from "./pages/Home"
@@ -17,6 +18,7 @@ function App() {
     <>
     {/* Aqui se ejecuta todo el codigo */}
       <Router>
+        <Toaster richColors position="top-right"></Toaster>
         <Navbar></Navbar>
         <Routes>
           {/* Aqui dentro se colocaran todas las rutas del proyecto */}
