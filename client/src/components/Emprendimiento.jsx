@@ -6,6 +6,7 @@ const Emprendimiento = ({ id, titulo, image, description, rating}) => {
       <img src={image} className="img-fluid product-thumbnail" alt={titulo} />
       <h3 className="product-title">
         <strong>{titulo}</strong>
+
       </h3>
       <p>{description}</p>
       <p>Rating: {rating}</p>

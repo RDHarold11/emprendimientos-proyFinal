@@ -1,5 +1,5 @@
 import asyncHandler from "../middleware/asyncHandler.js";
-import Emprendimiento from "../models/emprendimientosModel.js";
+import Emprendimiento from "../models/pubsModel.js";
 
 const getEmprendimientos = asyncHandler(async(req, res) => {
 
@@ -14,9 +14,9 @@ const createEmprendimiento = asyncHandler(async(req, res) => {
         title: "Sample title",
         user: req.user._id,
         description: "Sample description",
-        numReviews: 0,
         rating: 0,
         image: "Sample img",
+        numReviews: 0,
     });
     const createdEmprendimiento = await emprendimiento.save();
     if (createEmprendimiento) {

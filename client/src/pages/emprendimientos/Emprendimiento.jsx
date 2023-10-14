@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Emprendimiento.css';
+import '../productos/Producto.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useCreateEmprendimientoMutation, useGetEmprendimientosQuery } from '../../slices/emprendimientosApiSlice';
@@ -46,7 +46,7 @@ if (emprendimientos) {
   // Si hay un término de búsqueda, aplicar filtro adicional por nombre
   if (searchTerm) {
     filteredEmprendimientos = filteredEmprendimientosByUser.filter(emprendimiento =>
-      emprendimiento.name.toLowerCase().includes(searchTerm.toLowerCase())
+      emprendimiento.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
   } else {
     // Si no hay término de búsqueda, mostrar todos los Emprendimientoos del usuario
@@ -101,10 +101,11 @@ if (emprendimientos) {
               <div key={emprendimiento.id} className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
                 <Emprendimiento
                   id={emprendimiento.id}
-                  name={emprendimiento.titulo}
+                  titulo={emprendimiento.title}
                   image={emprendimiento.image}
                   description={emprendimiento.description}
-                  rating={emprendimiento.rating}
+                  rating={emprendimiento. numReviews}
+             
                 />
               </div>
             ))

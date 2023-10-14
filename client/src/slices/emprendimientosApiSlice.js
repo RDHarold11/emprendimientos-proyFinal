@@ -13,7 +13,7 @@ export const emprendimientoApiSlice = apiSlice.injectEndpoints({
             query: () => ({
                 url: EMPRENDIMIENTOS_URL,
             }),
-            providesTags: ['Product'],
+            providesTags: ['Emprendimiento'],
 
         })
     })
