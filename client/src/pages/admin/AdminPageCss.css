@@ -1,0 +1,45 @@
+h3 {
+  font-size: 20px;
+}
+.admin-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 20px 10px;
+  gap: 10px;
+}
+.admin-container div {
+  padding: 40px 50px;
+  border-radius: 6px;
+  transition: all 0.2s ease-in;
+}
+div h3 {
+  color: #fff;
+}
+
+.admin-container div:hover {
+  background-color: #6ba991;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+.products {
+  background-color: #2e4374;
+}
+.users {
+  background-color: #088395;
+}
+.orders {
+  background-color: #9400ff;
+}
+.pubs {
+  background-color: #4f709c;
+}
+.business {
+  background-color: #aed2ff;
+}
+.requets {
+  background-color: #053b50;
+}

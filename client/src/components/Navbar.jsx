@@ -75,11 +75,14 @@ const Navbar = () => {
               )}
             </ul>
             <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-              <Link className="nav-link">
+              <Link className="nav-link cart-amount">
                 <AiOutlineShoppingCart size={30} />
+                <div>
+                  1
+                </div>
               </Link>
               {user && (
-                <Link className="nav-link user" to="/cart">
+                <Link className="nav-link user" to="/admin">
                   <AiOutlineUser size={30} />
                 </Link>
               )}
