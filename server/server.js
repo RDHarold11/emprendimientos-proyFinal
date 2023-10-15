@@ -10,6 +10,7 @@ import connectDb from "./config/config.js";
 //Rutas
 import userRoutes from "./routes/userRoutes.routes.js";
 import productsRouter from "./routes/products.routes.js";
+import emprendimientosRouter from "./routes/emprendimiento.routes.js";
 
 connectDb();
 /* Aqui podremos establecer el servidor, asi como llamar a todas las rutas */
@@ -22,10 +23,11 @@ app.use(cookieParser());
 
 app.use("/api/users", userRoutes);
 app.use("/api/products", productsRouter);
+app.use("/api/emprendimientos", emprendimientosRouter);
 
 app.use(notFound);
 app.use(errorHandler);
 
 app.listen(PORT, () => {
-  console.log(`Server running, port: ${PORT}`);
+    console.log(`Server running, port: ${PORT}`);
 });

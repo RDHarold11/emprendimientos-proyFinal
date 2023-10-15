@@ -5,6 +5,7 @@ import {
   AiOutlineUser,
   AiOutlineLogout,
 } from "react-icons/ai";
+import { RiUserSettingsLine } from "react-icons/ri";
 import { useLogoutMutation } from "../slices/usersApiSlice";
 import { logout } from "../slices/authSlice";
 
@@ -58,16 +59,16 @@ const Navbar = () => {
                   Sobre Nosotros
                 </a>
               </li>
-              <li>
-                <a className="nav-link" href="services.html">
+              {user && (
+                <Link className="nav-link" to="/">
                   Servicios
-                </a>
-              </li>
-              <li>
-                <a className="nav-link" href="blog.html">
+                </Link>
+              )}
+              {user && (
+                <Link className="nav-link" to="/emprendimiento">
                   Emprendimientos
-                </a>
-              </li>
+                </Link>
+              )}
               {!user && (
                 <Link to="/login" className="nav-link">
                   Iniciar Sesión
@@ -77,12 +78,15 @@ const Navbar = () => {
             <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
               <Link className="nav-link cart-amount">
                 <AiOutlineShoppingCart size={30} />
-                <div>
-                  1
-                </div>
+                <div>1</div>
               </Link>
-              {user && (
+              {user?.isAdmin && (
                 <Link className="nav-link user" to="/admin">
+                  <RiUserSettingsLine size={30} />
+                </Link>
+              )}
+              {user?.isEmprendedor && (
+                <Link className="nav-link user" to="/emprendedor">
                   <AiOutlineUser size={30} />
                 </Link>
               )}
