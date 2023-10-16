@@ -6,6 +6,7 @@ import img3 from "/web.png";
 import fotter from "/fotter.png";
 import img4 from "/cross.svg";
 import imgprincipal from "/diparate2.png";
+import provisional from "/mujerempresaria.jpg";
 
 const Home = () => {
   return (
@@ -119,6 +120,150 @@ const Home = () => {
           </div>
         </div>
       </div>
+
+      <div className="product-section">
+        <h1 className="titulo-publicaciones">Publicaciones más Recientes</h1>
+      <div className="container">
+          <div className="row">
+
+          <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+              <a className="product-item" href="/home">
+                <img src={provisional} className="imagen img-fluid product-thumbnail" />
+                <h3 className="product-title">
+                  <strong>Titulo</strong>
+                </h3>
+                <h5>Subtitulo de la publicación</h5>
+                <p>
+                  Descripcion de la publicación
+                </p>
+
+                <span className="icon-cross">
+                  <img src={img4} className="img-fluid" />
+                </span>
+              </a>
+            </div>
+
+            <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+              <a className="product-item" href="/home">
+                <img src={provisional} className="imagen img-fluid product-thumbnail" />
+                <h3 className="product-title">
+                  <strong>Titulo</strong>
+                </h3>
+                <h5>Subtitulo de la publicación</h5>
+                <p>
+                  Descripcion de la publicación
+                </p>
+
+                <span className="icon-cross">
+                  <img src={img4} className="img-fluid" />
+                </span>
+              </a>
+            </div>
+
+            <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+              <a className="product-item" href="/home">
+                <img src={provisional} className="imagen img-fluid product-thumbnail" />
+                <h3 className="product-title">
+                  <strong>Titulo</strong>
+                </h3>
+                <h5>Subtitulo de la publicación</h5>
+                <p>
+                  Descripcion de la publicación
+                </p>
+
+                <span className="icon-cross">
+                  <img src={img4} className="img-fluid" />
+                </span>
+              </a>
+            </div>
+            <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+              <a className="product-item" href="/home">
+                <img src={provisional} className="imagen img-fluid product-thumbnail" />
+                <h3 className="product-title">
+                  <strong>Titulo</strong>
+                </h3>
+                <h5>Subtitulo de la publicación</h5>
+                <p>
+                  Descripcion de la publicación
+                </p>
+
+                <span className="icon-cross">
+                  <img src={img4} className="img-fluid" />
+                </span>
+              </a>
+            </div>
+
+            <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+              <a className="product-item" href="/home">
+                <img src={provisional} className="imagen img-fluid product-thumbnail" />
+                <h3 className="product-title">
+                  <strong>Titulo</strong>
+                </h3>
+                <h5>Subtitulo de la publicación</h5>
+                <p>
+                  Descripcion de la publicación
+                </p>
+
+                <span className="icon-cross">
+                  <img src={img4} className="img-fluid" />
+                </span>
+              </a>
+            </div>
+
+            <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+              <a className="product-item" href="/home">
+                <img src={provisional} className="imagen img-fluid product-thumbnail" />
+                <h3 className="product-title">
+                  <strong>Titulo</strong>
+                </h3>
+                <h5>Subtitulo de la publicación</h5>
+                <p>
+                  Descripcion de la publicación
+                </p>
+
+                <span className="icon-cross">
+                  <img src={img4} className="img-fluid" />
+                </span>
+              </a>
+            </div>
+
+            <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+              <a className="product-item" href="/home">
+                <img src={provisional} className="imagen img-fluid product-thumbnail" />
+                <h3 className="product-title">
+                  <strong>Titulo</strong>
+                </h3>
+                <h5>Subtitulo de la publicación</h5>
+                <p>
+                  Descripcion de la publicación
+                </p>
+
+                <span className="icon-cross">
+                  <img src={img4} className="img-fluid" />
+                </span>
+              </a>
+            </div>
+
+            <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+              <a className="product-item" href="/home">
+                <img src={provisional} className="imagen img-fluid product-thumbnail" />
+                <h3 className="product-title">
+                  <strong>Titulo</strong>
+                </h3>
+                <h5>Subtitulo de la publicación</h5>
+                <p>
+                  Descripcion de la publicación
+                </p>
+
+                <span className="icon-cross">
+                  <img src={img4} className="img-fluid" />
+                </span>
+              </a>
+            </div>
+            </div>
+      </div>
+      </div>
+
       <footer className="footer-section">
         <div className="container relative">
           <div className="fotter-img">
