@@ -1,0 +1,28 @@
+.instructor__section {
+  background-color: #f1eeff;
+}
+.instructor__container img {
+  width: 100%;
+}
+.instructor__container {
+  padding: 32px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+.inst__title {
+  color: #b5ace3;
+  font-weight: bold;
+}
+
+.inst__btn {
+  background-color: #5743c0;
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  border-radius: 8px;
+}

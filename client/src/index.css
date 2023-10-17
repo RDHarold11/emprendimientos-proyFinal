@@ -1,22 +1,15 @@
-/*
-* Template Name: UntreeStore
-* Template Author: Untree.co
-* Author URI: https://untree.co/
-* License: https://creativecommons.org/licenses/by/3.0/
-*/
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
 body {
   overflow-x: hidden;
   position: relative;
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
   line-height: 28px;
   color: #6a6a6a;
   font-size: 14px;
-  background-color: #eff2f1;
+  background-color: #fff;
 }
 
 a {
@@ -205,7 +198,7 @@ a.more {
   }
 }
 
-.imagen{
+.imagen {
   border-radius: 15px;
 }
 
@@ -845,11 +838,10 @@ textarea {
   width: 200px;
 }
 
-
-.titulo-publicaciones{
-text-align: center;
-margin-top: -150px;
-margin-bottom: 50px
+.titulo-publicaciones {
+  text-align: center;
+  margin-top: -150px;
+  margin-bottom: 50px;
 }
 
 .site-blocks-table .btn {
@@ -958,4 +950,24 @@ margin-bottom: 50px
   border-radius: 50%;
   text-align: center;
   margin: 0 auto;
+}
+.producti-section {
+  background-color: #f1eeff;
+}
+
+.pubs-container {
+  max-width: 650px;
+  margin: 0 auto;
+}
+.titulo-publicaciones {
+  font-size: 32px;
+  padding: 0;
+  margin: 0;
+}
+.pubs-container p {
+  margin: 30px 0;
+  text-align: center;
+}
+.pubs-container {
+  padding: 10px 0;
 }

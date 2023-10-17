@@ -1,358 +1,59 @@
-import React from "react";
-import Navbar from "../components/Navbar";
-import img1 from "/comida.png";
-import img2 from "/carrito.png";
-import img3 from "/web.png";
-import fotter from "/fotter.png";
-import img4 from "/cross.svg";
-import imgprincipal from "/diparate2.png";
-import provisional from "/mujerempresaria.jpg";
+import Footer from "../components/Footer";
+import Hero from "../components/Hero";
+import MejoresEmprendimientos from "../components/MejoresEmprendimientos";
+import Recientes from "../components/Recientes";
+import Skills from "../components/Skills/Skills";
+import Conviertete from "../components/Conviertete/Conviertete";
+import { Fade } from "react-awesome-reveal";
 
 const Home = () => {
   return (
-    /* Esta es la estructura para todas las paginas y componentes, dentro del return va la estructura
-    del html de toda la vida */
-    /* Todo elemento dentro del return debe estar dentro de un elemento padre.
-    Es decir, si vas a colocar html con su diseño, todo debe estar dentro de una etiqueta contenedora
-    Ejemplo:  
-    <div> 
-        Resto del contenido
-    </div> */
-
     <div>
-      <div className="hero">
-        <div className="container">
-          <div className="row justify-content-between">
-            <div className="col-lg-5">
-              <div className="intro-excerpt">
-                <h1 className="titulo">Descubre Servicios y Emprendimientos</h1>
-                <p className="mb-4">
-                  Explora una variedad de emprendimientos y servicios
-                  innovadores que han surgido en tu comunidad. ¡Encuentra
-                  productos únicos y apoya a los emprendedores locales!{" "}
-                </p>
-                <p>
-                  <a href="" className="btn btn-secondary me-2">
-                    Emprendimientos
-                  </a>
-                  <a href="#" className="btn btn-white-outline">
-                    Servicios
-                  </a>
-                </p>
-              </div>
+      <Fade direction="left" cascade>
+        <Hero></Hero>
+      </Fade>
+      <Fade direction="left" cascade>
+        <MejoresEmprendimientos></MejoresEmprendimientos>
+      </Fade>
+      <Fade direction="left" cascade>
+        <div className="product-section products-container">
+          <div className="pubs-container">
+            <h1 className="titulo-publicaciones">
+              Descubre entre las publicaciones más recientes
+            </h1>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut
+              laboriosam voluptatibus quae culpa expedita quod eos aspernatur
+              facere debitis! Tempore eligendi totam iste? Facilis cum, quos et
+              commodi tempora inventore?
+            </p>
+          </div>
+          <div className="cards__products-container">
+            <div className="cards__row">
+              <Recientes></Recientes>
+              <Recientes></Recientes>
+              <Recientes></Recientes>
+              <Recientes></Recientes>
+              <Recientes></Recientes>
+              <Recientes></Recientes>
+              <Recientes></Recientes>
+              <Recientes></Recientes>
             </div>
-            <div className="col-lg-7">
-              <div className="hero-img-wrap">
-                <img src={imgprincipal} className="img-fluid" />
-              </div>
+            <div className="btn_container">
+              <button className="products-btn">
+                Ver Todas Las Publicaciones
+              </button>
             </div>
           </div>
         </div>
-      </div>
-      <div className="product-section">
-        <div className="container">
-          <div className="row">
-            <div className="col-md-12 col-lg-3 mb-5 mb-lg-0">
-              <h2 className="mb-4 section-title">
-                Mejores Emprendimientos en el Mercado
-              </h2>
-              <p className="mb-4">
-                Explora las mejores oportunidades de emprendimiento y da vida a
-                tu visión empresarial. ¡El futuro te espera!"
-              </p>
-              <p>
-                <a href="/home" className="btn another">
-                  Otros Servicios
-                </a>
-              </p>
-            </div>
-
-            <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-              <a className="product-item" href="/home">
-                <img src={img1} className="img-fluid product-thumbnail" />
-                <h3 className="product-title">
-                  <strong>Cocina Gourmet</strong>
-                </h3>
-                <p>
-                  Aprende los Conceptos básicos, Intermedios y Avanzados de la
-                  cocina con otros emprendedores.
-                </p>
-
-                <span className="icon-cross">
-                  <img src={img4} className="img-fluid" />
-                </span>
-              </a>
-            </div>
-
-            <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-              <a className="product-item" href="/home">
-                <img src={img2} className="img-fluid product-thumbnail" />
-                <h3 className="product-title">
-                  <strong>Tu Propio Super Mercado</strong>
-                </h3>
-                <p>
-                  Levanta tu propio negocio desde Cero, y aumenta tus
-                  posiblidades de exito.
-                </p>
-
-                <span className="icon-cross">
-                  <img src={img4} className="img-fluid" />
-                </span>
-              </a>
-            </div>
-
-            <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-              <a className="product-item" href="/home">
-                <img src={img3} className="img-fluid product-thumbnail" />
-                <h3 className="product-title">
-                  <strong>Desarrollo de Sitios Web</strong>
-                </h3>
-                <p>
-                  Aprende a desarollar Sitios Web desde Cero, y vuelvete alguien
-                  capaz de ayudar a otros.
-                </p>
-
-                <span className="icon-cross">
-                  <img src={img4} className="img-fluid" />
-                </span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="product-section">
-        <h1 className="titulo-publicaciones">Publicaciones más Recientes</h1>
-      <div className="container">
-          <div className="row">
-
-          <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-              <a className="product-item" href="/home">
-                <img src={provisional} className="imagen img-fluid product-thumbnail" />
-                <h3 className="product-title">
-                  <strong>Titulo</strong>
-                </h3>
-                <h5>Subtitulo de la publicación</h5>
-                <p>
-                  Descripcion de la publicación
-                </p>
-
-                <span className="icon-cross">
-                  <img src={img4} className="img-fluid" />
-                </span>
-              </a>
-            </div>
-
-            <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-              <a className="product-item" href="/home">
-                <img src={provisional} className="imagen img-fluid product-thumbnail" />
-                <h3 className="product-title">
-                  <strong>Titulo</strong>
-                </h3>
-                <h5>Subtitulo de la publicación</h5>
-                <p>
-                  Descripcion de la publicación
-                </p>
-
-                <span className="icon-cross">
-                  <img src={img4} className="img-fluid" />
-                </span>
-              </a>
-            </div>
-
-            <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-              <a className="product-item" href="/home">
-                <img src={provisional} className="imagen img-fluid product-thumbnail" />
-                <h3 className="product-title">
-                  <strong>Titulo</strong>
-                </h3>
-                <h5>Subtitulo de la publicación</h5>
-                <p>
-                  Descripcion de la publicación
-                </p>
-
-                <span className="icon-cross">
-                  <img src={img4} className="img-fluid" />
-                </span>
-              </a>
-            </div>
-            <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-              <a className="product-item" href="/home">
-                <img src={provisional} className="imagen img-fluid product-thumbnail" />
-                <h3 className="product-title">
-                  <strong>Titulo</strong>
-                </h3>
-                <h5>Subtitulo de la publicación</h5>
-                <p>
-                  Descripcion de la publicación
-                </p>
-
-                <span className="icon-cross">
-                  <img src={img4} className="img-fluid" />
-                </span>
-              </a>
-            </div>
-
-            <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-              <a className="product-item" href="/home">
-                <img src={provisional} className="imagen img-fluid product-thumbnail" />
-                <h3 className="product-title">
-                  <strong>Titulo</strong>
-                </h3>
-                <h5>Subtitulo de la publicación</h5>
-                <p>
-                  Descripcion de la publicación
-                </p>
-
-                <span className="icon-cross">
-                  <img src={img4} className="img-fluid" />
-                </span>
-              </a>
-            </div>
-
-            <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-              <a className="product-item" href="/home">
-                <img src={provisional} className="imagen img-fluid product-thumbnail" />
-                <h3 className="product-title">
-                  <strong>Titulo</strong>
-                </h3>
-                <h5>Subtitulo de la publicación</h5>
-                <p>
-                  Descripcion de la publicación
-                </p>
-
-                <span className="icon-cross">
-                  <img src={img4} className="img-fluid" />
-                </span>
-              </a>
-            </div>
-
-            <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-              <a className="product-item" href="/home">
-                <img src={provisional} className="imagen img-fluid product-thumbnail" />
-                <h3 className="product-title">
-                  <strong>Titulo</strong>
-                </h3>
-                <h5>Subtitulo de la publicación</h5>
-                <p>
-                  Descripcion de la publicación
-                </p>
-
-                <span className="icon-cross">
-                  <img src={img4} className="img-fluid" />
-                </span>
-              </a>
-            </div>
-
-            <div className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
-              <a className="product-item" href="/home">
-                <img src={provisional} className="imagen img-fluid product-thumbnail" />
-                <h3 className="product-title">
-                  <strong>Titulo</strong>
-                </h3>
-                <h5>Subtitulo de la publicación</h5>
-                <p>
-                  Descripcion de la publicación
-                </p>
-
-                <span className="icon-cross">
-                  <img src={img4} className="img-fluid" />
-                </span>
-              </a>
-            </div>
-            </div>
-      </div>
-      </div>
-
-      <footer className="footer-section">
-        <div className="container relative">
-          <div className="fotter-img">
-            <img src={fotter} alt="Image" className="img-fluid" />
-          </div>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <br></br>
-          <div className="row g-5 mb-5">
-            <div className="col-lg-4">
-              <div className="mb-4 footer-logo-wrap">
-                <a href="#" className="footer-logo">
-                  Catalyst<span></span>
-                </a>
-              </div>
-              <p className="mb-4">
-                Explora una variedad de emprendimientos y servicios innovadores
-                que han surgido en tu comunidad. ¡Encuentra productos únicos y
-                apoya a los emprendedores locales!
-              </p>
-            </div>
-
-            <div className="col-lg-8">
-              <div className="row links-wrap">
-                <div className="col-6 col-sm-6 col-md-3">
-                  <ul className="list-unstyled">
-                    <li>
-                      <a href="#">Sobre Nosotros</a>
-                    </li>
-                    <li>
-                      <a href="#">Servicios</a>
-                    </li>
-                    <li>
-                      <a href="#">Emprendimientos</a>
-                    </li>
-                    <li>
-                      <a href="/login">Iniciar Sesión</a>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="col-6 col-sm-6 col-md-3">
-                  <ul className="list-unstyled">
-                    <li>
-                      <a href="#">Soporte</a>
-                    </li>
-                    <li>
-                      <a href="#">Valores</a>
-                    </li>
-                    <li>
-                      <a href="#">Contactenos</a>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="col-6 col-sm-6 col-md-3">
-                  <ul className="list-unstyled">
-                    <li>
-                      <a href="#">Nuestro Equipo</a>
-                    </li>
-                    <li>
-                      <a href="#">Liderazgo</a>
-                    </li>
-                    <li>
-                      <a href="#">Politíca de Privacidad</a>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="col-6 col-sm-6 col-md-3">
-                  <ul className="list-unstyled">
-                    <li>
-                      <a href="#">Tecnologías</a>
-                    </li>
-                    <li>
-                      <a href="#">Deportivo</a>
-                    </li>
-                    <li>
-                      <a href="#">Inmobiliarios</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      </Fade>
+      <Fade direction="left" cascade>
+        <Skills></Skills>
+      </Fade>
+      <Fade direction="left" cascade>
+        <Conviertete></Conviertete>
+        <Footer></Footer>
+      </Fade>
     </div>
   );
 };
