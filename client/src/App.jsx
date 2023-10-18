@@ -6,6 +6,8 @@ import { Toaster } from "sonner";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Registro from "./pages/registro/Registro";
+import CuentaPage from "./pages/cuenta/cuenta";
+import  EditarCuentapage from "./pages/cuenta/EditarCuenta";
 import Navbar from "./components/Navbar";
 
 import ProtectAdminRoute from "./components/ProtectAdminRoute";
@@ -43,6 +45,8 @@ function App() {
             <Route path="/crearProducto" element={<CrearProducto />}></Route>
             <Route path="/emprendimiento" element={<Emprendimiento />}></Route>
             <Route path="/emprendedor" element={<EmprendedorPage />}></Route>
+            <Route path="/micuenta" element={<CuentaPage />}></Route>
+            <Route path="/editcuenta" element={<EditarCuentapage />}></Route>
           </Route>
         </Routes>
       </Router>

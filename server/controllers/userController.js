@@ -64,4 +64,40 @@ const logoutUser = asyncHandler(async (req, res) => {
   res.status(200).json({ message: "Logged out succesfully" });
 });
 
-export { authUser, registerUser, logoutUser };
+
+const editUser = asyncHandler(async (req, res) => {
+
+  const { name, lastName, email, id } = req.body;
+
+  try {
+    // Busca al usuario por su ID en la base de datos
+    const user = await User.findById(id);
+
+    if (!user) {
+      res.status(404);
+      throw new Error('Usuario no encontrado');
+    }
+
+    // Actualiza los campos del usuario con los nuevos valores
+    user.name = name || user.name;
+    user.lastName = lastName || user.lastName;
+    user.email = email || user.email;
+
+    // Guarda los cambios en la base de datos
+    await user.save();
+
+    res.status(200).json({
+      _id: user._id,
+      name: user.name,
+      lastName: user.lastName,
+      email: user.email,
+      // Otros campos de usuario que desees incluir
+    });
+  } catch (error) {
+    res.status(400);
+    throw new Error('Error al editar el usuario');
+  }
+});
+
+
+export { authUser, registerUser, logoutUser, editUser };

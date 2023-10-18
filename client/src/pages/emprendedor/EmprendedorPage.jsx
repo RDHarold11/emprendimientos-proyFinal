@@ -11,7 +11,9 @@ const EmprendedorPage = () => {
     <section className="admin-container">
         <div className="products">
           <>
+          <Link to="/micuenta" style={{textDecoration: "none"}}>
             <h3>Mi cuenta</h3>
+          </Link>
           </>
         </div>
 
