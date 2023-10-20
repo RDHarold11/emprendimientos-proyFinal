@@ -99,15 +99,14 @@ function LoginForm() {
                       <button className="btn btn-primary w-100" type="submit">
                         Iniciar sesión
                       </button>
-                    </div>
-                  </form>
-                  <div className="col-12">
-                    <button className="btn btn-primary w-100">
+                      <button className="btn btn-primary w-100">
                       <Link to="/registro" className="link">
                         Registrate
                       </Link>
                     </button>
-                  </div>
+                    </div>
+                  </form>
+
                 </div>
               </div>
             </div>

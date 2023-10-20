@@ -1,41 +1,50 @@
 import "./cuenta.css";
 import img1 from "/icono.jpg";
 import { useEffect, useState } from "react";
-import { useRegisterMutation } from "../../slices/usersApiSlice";
+import { useUpdateProfileMutation } from "../../slices/usersApiSlice";
 import { setCredentials } from "../../slices/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
-import { useNavigate } from "react-router-dom";
 
 const EditarCuentapage = () => {
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const dispatch = useDispatch();
-  const {userInfo} = useSelector((state) => state.auth)
-  const [register, { isLoading }] = useRegisterMutation();
+  const { userInfo } = useSelector((state) => state.auth);
+  const [updateProfile, { isLoading }] = useUpdateProfileMutation();
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    try {
-      if (!name || !lastName || !email || !id) {
-        toast.error("Debe completar los campos");
-      } else {
-        const res = await register({
+    if (!name || !lastName || !email) {
+      toast.error("Debe completar los campos");
+    } else if (password !== confirmPassword) {
+      toast.error("Las contraseñas no coinciden");
+    } else {
+      try {
+        const res = await updateProfile({
+          _id: userInfo._id,
           email,
           name,
           lastName,
-          id,
+          password,
         }).unwrap();
         dispatch(setCredentials({ ...res }));
-        toast.success("Bienvenido");
+        toast.success("Perfil actualizado");
+      } catch (error) {
+        toast.error(error?.data?.message || error?.error);
       }
-    } catch (error) {
-      toast.error(error?.data?.message || error?.error);
     }
   };
+
+  useEffect(() => {
+    setName(userInfo.name);
+    setLastName(userInfo.lastName);
+    setEmail(userInfo.email);
+  }, [userInfo]);
 
   return (
     <div className="container">
@@ -59,7 +68,8 @@ const EditarCuentapage = () => {
                       <strong>Edita tus datos</strong>
                     </h5>
                     <p className="text-center small">
-                      Introduzca los Datos Requeridos para editar los datos de tu cuenta
+                      Introduzca los Datos Requeridos para editar los datos de
+                      tu cuenta
                     </p>
                   </div>
                   <form
@@ -73,7 +83,7 @@ const EditarCuentapage = () => {
                         type="text"
                         placeholder="Introduzca su Nombre Completo"
                         onChange={(e) => setName(e.target.value)}
-                        value={userInfo.name}
+                        value={name}
                       />
                     </div>
                     <div className="col-12">
@@ -83,7 +93,7 @@ const EditarCuentapage = () => {
                         type="text"
                         placeholder="Introduzca su apellido Completo"
                         onChange={(e) => setLastName(e.target.value)}
-                        value={userInfo.lastName}
+                        value={lastName}
                       />
                     </div>
                     <div className="col-12">
@@ -93,15 +103,27 @@ const EditarCuentapage = () => {
                         className="form-control"
                         placeholder="Introduzca su Correo Electroníco"
                         onChange={(e) => setEmail(e.target.value)}
-                        value={userInfo.email}
+                        value={email}
                       />
                     </div>
                     <div className="col-12">
+                      <label className="form-label">Contraseña</label>
                       <input
-                        type="hidden"
+                        type="password"
                         className="form-control"
-                        onChange={(e) => setId(e.target.value)}
-                        value={userInfo._id}
+                        placeholder="Introduzca su Correo Electroníco"
+                        onChange={(e) => setPassword(e.target.value)}
+                        value={password}
+                      />
+                    </div>
+                    <div className="col-12">
+                      <label className="form-label">Confirmar Contraseña</label>
+                      <input
+                        type="password"
+                        className="form-control"
+                        placeholder="Introduzca su Correo Electroníco"
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        value={confirmPassword}
                       />
                     </div>
                     <div className="col-12">

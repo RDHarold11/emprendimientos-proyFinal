@@ -23,20 +23,19 @@ export const usersApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
-    editData: builder.mutation({
-      query: () => ({
-        url: `${USERS_URL}/micuenta`,
-        method: "POST",
-      }),
-    }),
-    editPass: builder.mutation({
-      query: () => ({
-        url: `${USERS_URL}/myacount`,
-        method: "POST",
+    updateProfile: builder.mutation({
+      query: (data) => ({
+        url: `${USERS_URL}/profile`,
+        method: "PUT",
+        body: data,
       }),
     }),
   }),
 });
 
-export const { useLoginMutation, useLogoutMutation, useRegisterMutation, useEditDataMutation, useEditPassMutation, } =
-  usersApiSlice;
+export const {
+  useLoginMutation,
+  useLogoutMutation,
+  useRegisterMutation,
+  useUpdateProfileMutation,
+} = usersApiSlice;
