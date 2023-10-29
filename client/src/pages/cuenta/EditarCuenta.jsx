@@ -1,7 +1,7 @@
 import "./cuenta.css";
 import img1 from "/icono.jpg";
 import { useEffect, useState } from "react";
-import { useUpdateProfileMutation } from "../../slices/usersApiSlice";
+import { useUpdateProfileMutation, useUploadUserImageMutation } from "../../slices/usersApiSlice";
 import { setCredentials } from "../../slices/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
@@ -12,10 +12,13 @@ const EditarCuentapage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [image, setImage] = useState("")
+
 
   const dispatch = useDispatch();
   const { userInfo } = useSelector((state) => state.auth);
   const [updateProfile, { isLoading }] = useUpdateProfileMutation();
+  const [uploadUserImage, {isLoading: loadingUpload}] = useUploadUserImageMutation()
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -31,6 +34,7 @@ const EditarCuentapage = () => {
           name,
           lastName,
           password,
+          image
         }).unwrap();
         dispatch(setCredentials({ ...res }));
         toast.success("Perfil actualizado");
@@ -39,8 +43,23 @@ const EditarCuentapage = () => {
       }
     }
   };
+  console.log(image)
+  const uploadImageHandler = async (e) => {
+    const formData = new FormData()
+    formData.append("image", e.target.files[0])
+
+    try {
+      const res = await uploadUserImage(formData).unwrap()
+      toast.success(res.message)
+      setImage(res.image)
+    } catch (error) {
+      console.log(error)
+      toast.error(error?.data?.message)
+    }
+  }
 
   useEffect(() => {
+    setImage(userInfo.image ? userInfo.image : "")
     setName(userInfo.name);
     setLastName(userInfo.lastName);
     setEmail(userInfo.email);
@@ -94,6 +113,23 @@ const EditarCuentapage = () => {
                         placeholder="Introduzca su apellido Completo"
                         onChange={(e) => setLastName(e.target.value)}
                         value={lastName}
+                      />
+                    </div>
+                    <div className="col-12">
+                      <label className="form-label">Imagen</label>
+                      <input
+                        className="form-control"
+                        type="text"
+                        placeholder="Seleccione una imagen"
+                        onChange={(e) => setImage}
+                        value={image}
+                        accept=".png, .jpg"
+                      />
+                      <input
+                        className="form-control"
+                        type="file"
+                        label="Seleccione una imagen"
+                        onChange={uploadImageHandler}
                       />
                     </div>
                     <div className="col-12">

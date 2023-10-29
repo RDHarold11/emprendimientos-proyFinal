@@ -1,3 +1,4 @@
+import path from "path";
 import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
@@ -11,6 +12,7 @@ import connectDb from "./config/config.js";
 import userRoutes from "./routes/userRoutes.routes.js";
 import productsRouter from "./routes/products.routes.js";
 import emprendimientosRouter from "./routes/emprendimiento.routes.js";
+import uploadRoutes from "./routes/uploads.routes.js";
 
 connectDb();
 /* Aqui podremos establecer el servidor, asi como llamar a todas las rutas */
@@ -24,10 +26,15 @@ app.use(cookieParser());
 app.use("/api/users", userRoutes);
 app.use("/api/products", productsRouter);
 app.use("/api/emprendimientos", emprendimientosRouter);
+app.use("/api/upload", uploadRoutes);
+
+//Acceder a la carpeta uploads donde se guardaran las imagenes
+const __dirname = path.resolve();
+app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 app.use(notFound);
 app.use(errorHandler);
 
 app.listen(PORT, () => {
-    console.log(`Server running, port: ${PORT}`);
+  console.log(`Server running, port: ${PORT}`);
 });

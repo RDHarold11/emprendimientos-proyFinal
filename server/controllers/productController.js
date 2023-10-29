@@ -16,7 +16,7 @@ const createProduct = asyncHandler(async (req, res) => {
     numReviews: 0,
     description: "Sample description",
     rating: 0,
-    image: "Sample img",
+    image: "/images/sample.jpg",
   });
   const createdProduct = await product.save();
   if (createProduct) {

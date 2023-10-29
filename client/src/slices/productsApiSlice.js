@@ -8,12 +8,13 @@ export const productsApiSlice = apiSlice.injectEndpoints({
         url: `${PRODUCTS_URL}`,
         method: "POST",
       }),
+      providesTags: ["Product"],
     }),
     getProducts: builder.query({
       query: () => ({
         url: PRODUCTS_URL,
       }),
-      providesTags: ["Product"],
+      providesTags: ["Products"],
     }),
   }),
 });

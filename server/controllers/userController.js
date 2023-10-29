@@ -65,7 +65,7 @@ const logoutUser = asyncHandler(async (req, res) => {
 });
 
 const editUser = asyncHandler(async (req, res) => {
-  const { name, lastName, email, password } = req.body;
+  const { name, lastName, email, password, image } = req.body;
   // Busca al usuario por su ID en la base de datos
   const user = await User.findById(req.user._id);
 
@@ -74,6 +74,7 @@ const editUser = asyncHandler(async (req, res) => {
     user.name = name || user.name;
     user.lastName = lastName || user.lastName;
     user.email = email || user.email;
+    user.image = image || user.image;
     if (password) {
       user.password = password;
     }
@@ -84,6 +85,7 @@ const editUser = asyncHandler(async (req, res) => {
       name: updatedUser.name,
       lastName: updatedUser.lastName,
       email: updatedUser.email,
+      image: updatedUser.image,
       isAdmin: updatedUser.isAdmin,
       isEmprendedor: updatedUser.isEmprendedor,
       isEmpresa: updatedUser.isEmpresa,
