@@ -8,7 +8,6 @@ import {
 import { protect, emprendedor } from "../middleware/authMiddleware.js";
 
 router.route("/").get(getProducts).post(protect, createProduct);
-
 export default router;
 
 //chequear el tema del protect de emprendedor

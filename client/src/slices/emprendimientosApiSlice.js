@@ -15,8 +15,17 @@ export const emprendimientoApiSlice = apiSlice.injectEndpoints({
       }),
       providesTags: ["Emprendimiento"],
     }),
+    getSingleEmp: builder.query({
+      query: (empId) => ({
+        url: `${EMPRENDIMIENTOS_URL}/${empId}`,
+      }),
+      keepUnusedDataFor: 5,
+    }),
   }),
 });
 
-export const { useCreateEmprendimientoMutation, useGetEmprendimientosQuery } =
-  emprendimientoApiSlice;
+export const {
+  useCreateEmprendimientoMutation,
+  useGetEmprendimientosQuery,
+  useGetSingleEmpQuery,
+} = emprendimientoApiSlice;

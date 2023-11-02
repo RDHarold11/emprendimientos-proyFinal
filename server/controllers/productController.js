@@ -19,7 +19,7 @@ const createProduct = asyncHandler(async (req, res) => {
     image: "/images/sample.jpg",
   });
   const createdProduct = await product.save();
-  if (createProduct) {
+  if (createdProduct) {
     res.json(201).json(createdProduct);
   } else {
     res.status(404);

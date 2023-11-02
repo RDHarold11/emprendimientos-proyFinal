@@ -1,17 +1,19 @@
-import React from 'react';
+import React from "react";
+import { Link } from "react-router-dom";
 
-const Emprendimiento = ({ id, titulo, image, description, rating}) => {
+const Emprendimiento = ({ id, titulo, image, description, rating }) => {
   return (
     <div className="product-item">
       <img src={image} className="img-fluid product-thumbnail" alt={titulo} />
       <h3 className="product-title">
         <strong>{titulo}</strong>
-
       </h3>
       <p>{description}</p>
       <p>Rating: {rating}</p>
       <div className="product-buttons">
-        <button className="btn btn-secondary">Editar</button>
+        <button className="btn btn-secondary">
+          <Link to={`/edit/publicaciones/${id}`}>Editar</Link>
+        </button>
         <button className="btn btn-danger">Eliminar</button>
       </div>
       <span className="icon-cross">

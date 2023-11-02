@@ -13,7 +13,10 @@ import Navbar from "./components/Navbar";
 import ProtectAdminRoute from "./components/ProtectAdminRoute";
 import Protect from "./components/Protect";
 
+/* Rutas de emprendimiento */
 import EmprendedorPage from "./pages/emprendedor/EmprendedorPage";
+import EditarEmprendimientoPage from "./pages/emprendedor/EditarEmprendimientoPage";
+
 
 /* Rutas del admin */
 import AdminPage from "./pages/admin/AdminPage";
@@ -47,6 +50,7 @@ function App() {
             <Route path="/emprendedor" element={<EmprendedorPage />}></Route>
             <Route path="/micuenta" element={<CuentaPage />}></Route>
             <Route path="/editcuenta" element={<EditarCuentapage />}></Route>
+            <Route path="/edit/publicaciones/:id" element={<EditarEmprendimientoPage />}></Route>
           </Route>
         </Routes>
       </Router>

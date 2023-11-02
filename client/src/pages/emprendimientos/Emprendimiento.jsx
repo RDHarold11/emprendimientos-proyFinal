@@ -110,11 +110,11 @@ const Emprendimientos = () => {
           ) : (
             filteredEmprendimientos.map((emprendimiento) => (
               <div
-                key={emprendimiento.id}
+                key={emprendimiento._id}
                 className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0"
               >
                 <Emprendimiento
-                  id={emprendimiento.id}
+                  id={emprendimiento._id}
                   titulo={emprendimiento.title}
                   image={emprendimiento.image}
                   description={emprendimiento.description}
