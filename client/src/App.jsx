@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Registro from "./pages/registro/Registro";
 import CuentaPage from "./pages/cuenta/cuenta";
+import DetallePublicacionPage from "./pages/detallePublicacion/detallePublicacion";
 import  EditarCuentapage from "./pages/cuenta/EditarCuenta";
 import Navbar from "./components/Navbar";
 
@@ -49,6 +50,7 @@ function App() {
             <Route path="/emprendimiento" element={<Emprendimiento />}></Route>
             <Route path="/emprendedor" element={<EmprendedorPage />}></Route>
             <Route path="/micuenta" element={<CuentaPage />}></Route>
+            <Route path="/publicacion/detalle" element={<DetallePublicacionPage />}></Route>
             <Route path="/editcuenta" element={<EditarCuentapage />}></Route>
             <Route path="/edit/publicaciones/:id" element={<EditarEmprendimientoPage />}></Route>
           </Route>

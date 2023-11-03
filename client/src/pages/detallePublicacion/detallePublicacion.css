@@ -1,0 +1,23 @@
+.centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrado horizontal */
+    margin-top: 5px;
+  }
+  .img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Hace que la imagen sea circular */
+  }
+  
+  .btn-bottom {
+    margin-bottom: 10px;
+  }
+  
+  .card {
+    width: 500px;
+  }
+  .btn {
+    margin: 10px 0;
+  }
+  
