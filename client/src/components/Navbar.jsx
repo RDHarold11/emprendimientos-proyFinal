@@ -76,7 +76,7 @@ const Navbar = () => {
               )}
             </ul>
             <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
-              <Link className="nav-link cart-amount">
+              <Link className="nav-link cart-amount" to="/carrito">
                 <AiOutlineShoppingCart size={30} />
                 <div>1</div>
               </Link>

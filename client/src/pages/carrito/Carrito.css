@@ -1,0 +1,99 @@
+/* Carrito.css */
+.cart-container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .cart-div {
+    text-align: left;
+    padding: 20px;
+    margin-left: 200px;
+  }
+  
+  .cart-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .product {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-right: 850px;
+  }
+  
+  .product-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    margin-right: 80px;
+  }
+  
+  .product-details {
+    flex-grow: 1;
+  }
+  
+  .product-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .product-price {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 5px;
+  }
+  
+  .quantity-input {
+    width: 40px;
+    padding: 5px;
+    margin-right: 10px;
+    text-align: center;
+  }
+  
+  .remove-icon {
+    cursor: pointer;
+    font-size: 20px;
+    color: red;
+  }
+  
+  .carrito-total {
+    position: fixed;
+    margin-top: 190px;
+    margin-right: 350px;
+    top: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    width: 300px;
+    height: 200px;
+  }
+  
+  .fila {
+    
+    justify-content: space-between;
+    margin-bottom: 10px;
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  .carrito-precio-total {
+    font-weight: bold;
+  }
+  
+  .btn-pagar {
+    background: #314d43;
+    color: #fff;
+    border: none;
+    text-align: center;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 250px;
+  }
+  

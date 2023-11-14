@@ -1,0 +1,70 @@
+
+.container-pago {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.card__container{
+  width: 300px;
+}
+.price h1 {
+  font-weight: 300;
+  color: #18C2C0;
+  letter-spacing: 2px;
+}
+.img-container{
+  margin: 0 auto;
+  max-width: 150px;
+}
+.img-container img {
+  width: 100%;
+}
+.card-pago{
+  display: flex;
+  gap: 70px;
+  height: 200px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+input[type=radio]:checked ~ .radio {
+  border: 3px solid #90E1E3;
+  background-color: #18C2C0;
+}
+input[type=radio]:checked ~ .radio::before {
+  background-color: #fff;
+}
+
+.button button {
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  width: 520px;
+  background-color: #18C2C0;
+  border: none;
+  color: #fff;
+  padding: 18px;
+  border-radius: 5px;
+  outline: none;
+  transition: background-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.button button:hover {
+  background-color: #15aeac;
+}
+.button button:active {
+  background-color: #139b99;
+}
+.button button i {
+  font-size: 1.2rem;
+  margin-right: 5px;
+}

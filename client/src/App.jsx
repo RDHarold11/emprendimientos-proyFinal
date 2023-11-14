@@ -10,6 +10,13 @@ import CuentaPage from "./pages/cuenta/cuenta";
 import DetallePublicacionPage from "./pages/detallePublicacion/detallePublicacion";
 import  EditarCuentapage from "./pages/cuenta/EditarCuenta";
 import Navbar from "./components/Navbar";
+import Carrito from "./pages/carrito/Carrito"
+import Direccion from "./pages/direccion/Direccion"
+import Pago from "./pages/pago/Pago"
+
+import Usuario from "./pages/admin/usuario/Usuario"
+import Edituser from "./pages/admin/usuario/edituser/Edituser"
+
 
 import ProtectAdminRoute from "./components/ProtectAdminRoute";
 import Protect from "./components/Protect";
@@ -38,6 +45,13 @@ function App() {
           <Route path="/login" element={<Login />}></Route>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/registro" element={<Registro />}></Route>
+          <Route path="/carrito" element={<Carrito />}></Route>
+          <Route path="/direccion" element={<Direccion />}></Route>
+          <Route path="/pago" element={<Pago />}></Route>
+
+          <Route path="/usuario" element={<Usuario />}></Route>
+          <Route path="/edituser" element={<Edituser />}></Route>
+
 
           {/* Rutas del admin */}
           <Route path="" element={<ProtectAdminRoute />}>
