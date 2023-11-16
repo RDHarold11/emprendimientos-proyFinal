@@ -2,6 +2,7 @@
 import asyncHandler from "../middleware/asyncHandler.js";
 import User from "../models/userModel.js";
 import generateToken from "../utils/generateToken.js";
+import { sendEmail } from "../utils/nodemailer.js";
 
 const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
@@ -41,6 +42,7 @@ const registerUser = asyncHandler(async (req, res) => {
   });
   if (user) {
     generateToken(res, user._id);
+    sendEmail(email);
     res.status(201).json({
       _id: user._id,
       name: user.name,

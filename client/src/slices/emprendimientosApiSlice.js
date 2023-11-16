@@ -1,4 +1,4 @@
-import { EMPRENDIMIENTOS_URL } from "../utils/constants";
+import { EMPRENDIMIENTOS_URL, UPLOAD_URL } from "../utils/constants";
 import { apiSlice } from "./apiSlice";
 
 export const emprendimientoApiSlice = apiSlice.injectEndpoints({
@@ -21,6 +21,21 @@ export const emprendimientoApiSlice = apiSlice.injectEndpoints({
       }),
       keepUnusedDataFor: 5,
     }),
+    updateEmp: builder.mutation({
+      query: (data) => ({
+        url: `${EMPRENDIMIENTOS_URL}/${data.id}`,
+        method: "PUT",
+        body: data,
+      }),
+      invalidatesTags: ["Emprendimiento"],
+    }),
+    uploadEmpImage: builder.mutation({
+      query: (data) => ({
+        url: `${UPLOAD_URL}`,
+        method: "POST",
+        body: data,
+      }),
+    }),
   }),
 });
 
@@ -28,4 +43,6 @@ export const {
   useCreateEmprendimientoMutation,
   useGetEmprendimientosQuery,
   useGetSingleEmpQuery,
+  useUpdateEmpMutation,
+  useUploadEmpImageMutation,
 } = emprendimientoApiSlice;

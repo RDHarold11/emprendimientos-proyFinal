@@ -1,5 +1,6 @@
 import "./AdminPageCss.css";
 import Header from "../../components/Header/Header";
+import {Link} from "react-router-dom"
 
 const AdminPage = () => {
   return (
@@ -13,7 +14,9 @@ const AdminPage = () => {
         </div>
         <div className="users">
           <>
+          <Link  to="/usuario">
             <h3>Usuarios</h3>
+          </Link>
           </>
         </div>
         <div className="orders">

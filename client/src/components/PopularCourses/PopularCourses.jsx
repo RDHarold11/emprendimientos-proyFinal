@@ -1,0 +1,63 @@
+import React from "react";
+import "./popular.css";
+import PopularCard from "./PopularCard";
+import { Fade } from "react-awesome-reveal";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import img from "../../../public/images/dots.webp"
+
+const PopularCourses = () => {
+  return (
+    <section className="popular__section">
+      <div className="popular_section__container">
+        <div>
+          <header className="popular__header">
+            <h4 className="popular__title">Publicaciones más populares</h4>
+            <p className="popular__p">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta,
+              error! Quidem, odio adipisci!
+            </p>
+          </header>
+          <Fade>
+            <div className="popular_card__container">
+              <Swiper
+                slidesPerView={4}
+                spaceBetween={30}
+                pagination={{
+                  clickable: true,
+                }}
+                modules={[Pagination]}
+                className="mySwiper"
+              >
+                <SwiperSlide>
+                  <PopularCard></PopularCard>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <PopularCard></PopularCard>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <PopularCard></PopularCard>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <PopularCard></PopularCard>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <PopularCard></PopularCard>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <PopularCard></PopularCard>
+                </SwiperSlide>
+              </Swiper>
+            </div>
+          </Fade>
+        </div>
+      </div>
+      <img src={img} className="absolute__img__1" alt="" />
+      <img src={img} className="absolute__img__2" alt="" />
+    </section>
+  );
+};
+
+export default PopularCourses;

@@ -1,0 +1,38 @@
+.people__container {
+  max-width: 1200px;
+
+  margin: 0 auto;
+  padding: 30px 0;
+}
+.mySwiper {
+  padding: 40px 0;
+}
+.people__card {
+  padding: 10px 30px;
+  border-radius: 10px;
+  background-color: #f2f1ff;
+}
+.people__card img {
+  width: 16%;
+  height: auto;
+}
+.people-card__content {
+  display: flex;
+  align-items: center;
+}
+.people-card__content div {
+  margin-left: 12px;
+}
+.people-container__header {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+
+  padding: 20px 0;
+}
+.people__container h3 {
+  color: #6a59c9;
+}
+.people__card h5 {
+  margin: 0;
+}

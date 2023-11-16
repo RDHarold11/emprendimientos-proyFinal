@@ -1,10 +1,15 @@
 import "./cuenta.css";
 import img1 from "/icono.jpg";
 import { useEffect, useState } from "react";
-import { useUpdateProfileMutation, useUploadUserImageMutation } from "../../slices/usersApiSlice";
+import {
+  useUpdateProfileMutation,
+  useUploadUserImageMutation,
+} from "../../slices/usersApiSlice";
 import { setCredentials } from "../../slices/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
+import Header from "../../components/Header/Header";
 
 const EditarCuentapage = () => {
   const [name, setName] = useState("");
@@ -12,13 +17,14 @@ const EditarCuentapage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [image, setImage] = useState("")
-
+  const [image, setImage] = useState("");
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { userInfo } = useSelector((state) => state.auth);
   const [updateProfile, { isLoading }] = useUpdateProfileMutation();
-  const [uploadUserImage, {isLoading: loadingUpload}] = useUploadUserImageMutation()
+  const [uploadUserImage, { isLoading: loadingUpload }] =
+    useUploadUserImageMutation();
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -34,39 +40,40 @@ const EditarCuentapage = () => {
           name,
           lastName,
           password,
-          image
+          image,
         }).unwrap();
         dispatch(setCredentials({ ...res }));
         toast.success("Perfil actualizado");
+        navigate("/micuenta");
       } catch (error) {
         toast.error(error?.data?.message || error?.error);
       }
     }
   };
-  console.log(image)
+
   const uploadImageHandler = async (e) => {
-    const formData = new FormData()
-    formData.append("image", e.target.files[0])
+    const formData = new FormData();
+    formData.append("image", e.target.files[0]);
 
     try {
-      const res = await uploadUserImage(formData).unwrap()
-      toast.success(res.message)
-      setImage(res.image)
+      const res = await uploadUserImage(formData).unwrap();
+      toast.success(res.message);
+      setImage(res.image);
     } catch (error) {
-      console.log(error)
-      toast.error(error?.data?.message)
+      console.log(error);
+      toast.error(error?.data?.message);
     }
-  }
+  };
 
   useEffect(() => {
-    setImage(userInfo.image ? userInfo.image : "")
+    setImage(userInfo.image ? userInfo.image : "");
     setName(userInfo.name);
     setLastName(userInfo.lastName);
     setEmail(userInfo.email);
   }, [userInfo]);
 
   return (
-    <div className="container">
+    <div className="account__container">
       <section className="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
         <div className="container">
           <div className="row justify-content-center">

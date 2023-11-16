@@ -3,8 +3,10 @@ import img4 from "/cross.svg";
 import "./recientes.css";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { Fade } from "react-awesome-reveal";
+import { Link } from "react-router-dom";
 
 const Recientes = () => {
+
   return (
     <Fade>
       <div className="col-12 col-md-4 col-lg-3 recientes-container mb-5 mb-md-0">
@@ -27,7 +29,9 @@ const Recientes = () => {
                 <AiOutlineArrowRight size={22} />
               </div>
               <span className="icon-cross">
+                <Link to="/publicacion/2/detalle">
                 <img src={img4} className="img-fluid" />
+                </Link>
               </span>
             </div>
           </a>

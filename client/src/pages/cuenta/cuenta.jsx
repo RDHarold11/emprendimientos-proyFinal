@@ -10,7 +10,7 @@ const CuentaPage = () => {
     <>
       <div className="centered-container">
         <>
-          <img className="img" style={{marginBottom: "30px"}} src={userInfo.image ? `${userInfo.image}` : images} alt="User" />
+          <img className="img" style={{marginBottom: "30px", width: "200px", height: "200px"}} src={userInfo.image ? `${userInfo.image}` : images} alt="User" />
           <h4 className="center">
             {userInfo.name} {userInfo.lastName}
           </h4>
