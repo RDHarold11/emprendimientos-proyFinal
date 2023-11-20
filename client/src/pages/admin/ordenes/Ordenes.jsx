@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { BsPencilSquare, BsFillTrash3Fill } from "react-icons/bs";
+import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
 
 const Ordenes = () => {
   return (
@@ -14,8 +15,8 @@ const Ordenes = () => {
               <th>Usuario</th>
               <th>Fecha</th>
               <th>Total</th>
-              <th>Fecha de Pago</th>
-              <th>Fecha de Envío</th>
+              <th>Pagado</th>
+              <th>Envíado</th>
               <th>Detalles</th>
             </tr>
           </thead>
@@ -25,8 +26,12 @@ const Ordenes = () => {
               <td>Nombre del Usuario</td>
               <td>01/01/2023</td>
               <td>$500.00</td>
-              <td>02/01/2023</td>
-              <td>03/01/2023</td>
+              <td><Link className="nav-link user" to="/admin">
+                  <AiOutlineClose size={20} />
+                </Link></td>
+                <td><Link className="nav-link user" to="/admin">
+                  <AiOutlineClose size={20} />
+                </Link></td>
               <td>
                 <Link className="nav-link user" to="/detallesordenes">
                   Detalles
