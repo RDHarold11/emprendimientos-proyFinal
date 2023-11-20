@@ -3,6 +3,7 @@ import images from "/icono.jpg";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import { toast } from "sonner";
+import { Link } from "react-router-dom";
 
 const Comentarios = () => {
   const [commentText, setCommentText] = useState("");
@@ -50,6 +51,9 @@ const Comentarios = () => {
                       <button type="submit" className="btn btn-primary">
                         Enviar Comentario
                       </button>
+                      <Link to="/home" className="btn btn">
+    Volver Atrás
+  </Link>
                     </div>
                   </form>
                   <ul className="list-group list-group-flush mt-4 ">
@@ -66,6 +70,7 @@ const Comentarios = () => {
                             <p className="nombre">
                               {userInfo.name} <span>Hace 20 minutos</span>
                             </p>
+                            
                             <p className="comentario">
                               {item}
                               {/* Lorem ipsum dolor sit amet consectetur adipiscing

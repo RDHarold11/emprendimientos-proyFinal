@@ -32,7 +32,7 @@ const Navbar = () => {
       >
         <div className="container">
           <a className="navbar-brand" href="/home">
-            Catalyst<span></span>
+           <b>Catalyst</b><span></span>
           </a>
 
           <button
@@ -55,12 +55,12 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <a className="nav-link" href="about.html">
+              <Link className="nav-link" to="/acercade">
                   Sobre Nosotros
-                </a>
+              </Link>
               </li>
               {user && (
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="/producto">
                   Servicios
                 </Link>
               )}

@@ -8,6 +8,7 @@ import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
 const Usuario = () => {
   return (
     <div className="contenedor">
+      <h2>Administra Usuarios</h2>
       <form action="/" method="POST">
         <table className="table">
           <thead className="thead-dark">

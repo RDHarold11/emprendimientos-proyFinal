@@ -1,6 +1,6 @@
 import "./Edituser.css";
 import img1 from "/icono.jpg";
-
+import { Link } from "react-router-dom";
 import React from 'react'
 
 const Edituser = () => {
@@ -55,11 +55,14 @@ const Edituser = () => {
                       <input
                         type="checkbox" className="custom-checkbox"/>
                     </div>
-                    <div className="col-12">
-                      <button type="submit" className="btn btn-primary w-100">
-                        Guardar Cambios
-                      </button>
-                    </div>
+                    <div className="d-grid gap-2">
+                        <button type="submit" className="btn btn-primary mr-4 ">
+                          Guardar Cambios
+                        </button>
+                        <Link to="/productoadmin" className="btn btn">
+                          Volver Atrás
+                        </Link>
+                      </div>
                   </form>
                 </div>
               </div>

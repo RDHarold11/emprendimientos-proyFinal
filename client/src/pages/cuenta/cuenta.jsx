@@ -1,30 +1,41 @@
-import images from "/icono.jpg";
-import "./cuenta.css";
+import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import "./cuenta.css";
+import userImage from "/icono.jpg";
 
 const CuentaPage = () => {
   const { userInfo } = useSelector((state) => state.auth);
-  console.log(userInfo.image)
+
   return (
-    <>
-      <div className="centered-container">
-        <>
-          <img className="img" style={{marginBottom: "30px", width: "200px", height: "200px"}} src={userInfo.image ? `${userInfo.image}` : images} alt="User" />
-          <h4 className="center">
-            {userInfo.name} {userInfo.lastName}
-          </h4>
-          <h5 className="center">{userInfo.email}</h5>
-          <br></br>
-          <h6>{userInfo.isEmprendedor ? "Cuenta emprendedor" : userInfo.isEmpresa ? "Cuenta empresa" : "Cuenta administrador"}</h6>
-          <button className="btn btn-secondary btn-bottom">
-            <Link to="/editcuenta" style={{ textDecoration: "none" }}>
-              Editar
-            </Link>
-          </button>
-        </>
+    
+    <div className="centered-container">
+      
+      <div className="user-profile">
+      <h2>Tu Cuenta</h2>
+        <div className="profile-image-container">
+          <img
+            className="profile-image"
+            src={userInfo.image ? userInfo.image : userImage}
+            alt="User"
+          />
+        </div>
+        <h4 className="user-name">
+          {userInfo.name} {userInfo.lastName}
+        </h4>
+        <h5 className="user-email">{userInfo.email}</h5>
+        <p className="user-account-type">
+          {userInfo.isEmprendedor
+            ? "Cuenta Emprendedor"
+            : userInfo.isEmpresa
+            ? "Cuenta Empresa"
+            : "Cuenta Administrador"}
+        </p>
+        <Link to="/editcuenta" className="btn btn-primary">
+          Editar
+        </Link>
       </div>
-    </>
+    </div>
   );
 };
 

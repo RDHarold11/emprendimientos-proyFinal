@@ -8,6 +8,7 @@ import {
 import { setCredentials } from "../../slices/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
 
@@ -169,11 +170,14 @@ const EditarCuentapage = () => {
                         value={confirmPassword}
                       />
                     </div>
-                    <div className="col-12">
-                      <button type="submit" className="btn btn-secondary w-100">
-                        Editar
-                      </button>
-                    </div>
+                    <div className="col-12 d-flex mt-4">
+  <button type="submit" className="btn btn-secondary mr-4">
+    Editar
+  </button>
+  <Link to="/micuenta" className="btn btn">
+    Volver Atrás
+  </Link>
+</div>
                   </form>
                 </div>
               </div>

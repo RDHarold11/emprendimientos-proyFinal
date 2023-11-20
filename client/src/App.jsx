@@ -13,9 +13,13 @@ import Navbar from "./components/Navbar";
 import Carrito from "./pages/carrito/Carrito";
 import Direccion from "./pages/direccion/Direccion";
 import Pago from "./pages/pago/Pago";
+import AcercaDe from "./components/Acercade/AcercaDe";
 
 import Usuario from "./pages/admin/usuario/Usuario";
 import Edituser from "./pages/admin/usuario/edituser/Edituser";
+import Product from "./pages/admin/productos/Product";
+import EditProduct from "./pages/admin/productos/editproduct/Editproduct";
+import Ordenes from "./pages/admin/ordenes/Ordenes";
 
 import ProtectAdminRoute from "./components/ProtectAdminRoute";
 import Protect from "./components/Protect";
@@ -46,6 +50,7 @@ function App() {
           <Route path="/carrito" element={<Carrito />}></Route>
           <Route path="/direccion" element={<Direccion />}></Route>
           <Route path="/pago" element={<Pago />}></Route>
+          <Route path="/acercade" element={<AcercaDe/>}></Route>
           <Route
             path="/publicacion/:id/detalle"
             element={<DetallePublicacionPage />}
@@ -54,8 +59,11 @@ function App() {
           {/* Rutas del admin */}
           <Route path="" element={<ProtectAdminRoute />}>
             <Route path="/usuario" element={<Usuario />}></Route>
+            <Route path="/productoadmin" element={<Product />}></Route>
+            <Route path="/editproduct" element={<EditProduct/>}></Route>
             <Route path="/admin" element={<AdminPage />}></Route>
             <Route path="/edituser" element={<Edituser />}></Route>
+            <Route path="/ordenes" element={<Ordenes />}></Route>
           </Route>
           {/* Rutas para quienes iniciaron sesion */}
           <Route path="" element={<Protect />}>

@@ -9,7 +9,9 @@ const AdminPage = () => {
       <section className="admin-container">
         <div className="products">
           <>
+          <Link  to="/productoadmin">
             <h3>Productos</h3>
+            </Link>
           </>
         </div>
         <div className="users">
@@ -21,7 +23,9 @@ const AdminPage = () => {
         </div>
         <div className="orders">
           <>
+          <Link  to="/ordenes">
             <h3>Ordenes</h3>
+            </Link>
           </>
         </div>
         <div className="pubs">
