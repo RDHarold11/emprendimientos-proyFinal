@@ -65,8 +65,8 @@ const Navbar = () => {
                 </Link>
               )}
               {user && (
-                <Link className="nav-link" to="/emprendimiento">
-                  Emprendimientos
+                <Link className="nav-link" to="/ecommerce/home">
+                  Comprar ya
                 </Link>
               )}
               {!user && (

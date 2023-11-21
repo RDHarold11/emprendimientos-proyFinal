@@ -29,7 +29,18 @@ const updateEmprendimiento = asyncHandler(async (req, res) => {
     res.json(updatedEmp);
   } else {
     res.status(404);
-    throw new Error("Emprendimient no encontrado");
+    throw new Error("Emprendimiento no encontrado");
+  }
+});
+
+const deleteEmprendimiento = asyncHandler(async (req, res) => {
+  const emp = await Emprendimiento.findById(req.params.id);
+  if (emp) {
+    await Emprendimiento.deleteOne({ _id: emp.id });
+    res.status(200).json({ message: "Emprendimiento eliminado" });
+  } else {
+    res.status(400);
+    throw new Error("Recurso no encontrado");
   }
 });
 
@@ -56,4 +67,5 @@ export {
   getEmprendimientos,
   getEmprendimientoById,
   updateEmprendimiento,
+  deleteEmprendimiento,
 };
