@@ -106,7 +106,7 @@ const Productos = () => {
                 className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0"
               >
                 <Product
-                  id={product.id}
+                  id={product._id}
                   name={product.name}
                   image={product.image}
                   category={product.category}
