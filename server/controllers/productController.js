@@ -27,4 +27,35 @@ const createProduct = asyncHandler(async (req, res) => {
   }
 });
 
-export { createProduct, getProducts };
+const updateProduct = asyncHandler(async (req, res) => {
+  const { name, image, category, description, price, countInStock } = req.body;
+
+  const product = await Product.findById(req.params.id);
+  if (product) {
+    product.name = name;
+    product.price = price;
+    product.image = image;
+    product.category = category;
+    product.description = description;
+    product.countInStock = countInStock;
+
+    const updatedProduct = await product.save();
+    res.json(updateProduct);
+  } else {
+    res.status(404);
+    throw new Error("Recurso no encontrado");
+  }
+});
+
+const deleteProduct = asyncHandler(async (req, res) => {
+  const product = await Product.findById(req.params.id);
+  if (product) {
+    await Product.deleteOne({ _id: product.id });
+    res.status(200).json({ message: "Producto eliminado" });
+  } else {
+    res.status(400);
+    throw new Error("Recurso no encontrado");
+  }
+});
+
+export { createProduct, getProducts, deleteProduct };
