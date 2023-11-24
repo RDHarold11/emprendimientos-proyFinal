@@ -1,7 +1,7 @@
 import "./Peticiones.css";
 import img1 from "/icono.jpg";
 import React, { useState } from "react";
-import { toast } from "sonner"; 
+import { toast } from "sonner";
 
 const Peticiones = () => {
   const [tipo, setTipo] = useState("");
@@ -12,10 +12,9 @@ const Peticiones = () => {
     if (!tipo || !descripcion) {
       toast.error("Debe completar los campos");
     } else {
-    
       console.log("Tipo:", tipo);
       console.log("Descripción:", descripcion);
-   
+
       toast.success("Formulario enviado exitosamente");
     }
   };
@@ -27,7 +26,10 @@ const Peticiones = () => {
           <div className="row justify-content-center">
             <div className="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
               <div className="d-flex justify-content-center py-4">
-                <a href="/home" className="logo d-flex align-items-center w-auto">
+                <a
+                  href="/home"
+                  className="logo d-flex align-items-center w-auto"
+                >
                   <img src={img1} alt="" />
                   <span className="d-none d-lg-block">Catalyst</span>
                 </a>
@@ -42,7 +44,10 @@ const Peticiones = () => {
                       Complete los siguientes campos para crear una petición
                     </p>
                   </div>
-                  <form className="row g-3 needs-validation" onSubmit={handleSubmit}>
+                  <form
+                    className="row g-3 needs-validation"
+                    onSubmit={handleSubmit}
+                  >
                     <div className="col-12">
                       <label className="form-label">Tipo</label>
                       <select
@@ -55,7 +60,6 @@ const Peticiones = () => {
                         </option>
                         <option value="opcion1">Opción 1</option>
                         <option value="opcion2">Opción 2</option>
-               
                       </select>
                     </div>
                     <div className="col-12">
