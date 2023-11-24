@@ -14,6 +14,8 @@ import Carrito from "./pages/carrito/Carrito";
 import Direccion from "./pages/direccion/Direccion";
 import Pago from "./pages/pago/Pago";
 import AcercaDe from "./components/Acercade/AcercaDe";
+import Peticiones from "./pages/peticiones/Peticiones";
+
 
 import Usuario from "./pages/admin/usuario/Usuario";
 import Edituser from "./pages/admin/usuario/edituser/Edituser";
@@ -52,6 +54,7 @@ function App() {
           <Route path="/direccion" element={<Direccion />}></Route>
           <Route path="/pago" element={<Pago />}></Route>
           <Route path="/acercade" element={<AcercaDe/>}></Route>
+          <Route path="/peticiones" element={<Peticiones/>}></Route>
           <Route
             path="/publicacion/:id/detalle"
             element={<DetallePublicacionPage />}

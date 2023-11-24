@@ -95,6 +95,7 @@ const Navbar = () => {
                   <AiOutlineLogout size={30} color="white" cursor="pointer" />
                 </div>
               )}
+              
             </ul>
           </div>
         </div>
