@@ -27,6 +27,16 @@ const createProduct = asyncHandler(async (req, res) => {
   }
 });
 
+const getProductById = asyncHandler(async (req, res) => {
+  const product = await Product.findById(req.params.id);
+  if (product) {
+    return res.json(product);
+  } else {
+    res.status(404);
+    throw new Error("Producto no encontrado");
+  }
+});
+
 const updateProduct = asyncHandler(async (req, res) => {
   const { name, image, category, description, price, countInStock } = req.body;
 
@@ -40,7 +50,7 @@ const updateProduct = asyncHandler(async (req, res) => {
     product.countInStock = countInStock;
 
     const updatedProduct = await product.save();
-    res.json(updateProduct);
+    res.json(updatedProduct);
   } else {
     res.status(404);
     throw new Error("Recurso no encontrado");
@@ -58,4 +68,10 @@ const deleteProduct = asyncHandler(async (req, res) => {
   }
 });
 
-export { createProduct, getProducts, deleteProduct };
+export {
+  createProduct,
+  getProducts,
+  deleteProduct,
+  updateProduct,
+  getProductById,
+};

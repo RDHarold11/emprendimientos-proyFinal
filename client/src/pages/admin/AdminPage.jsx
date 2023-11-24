@@ -9,7 +9,7 @@ const AdminPage = () => {
       <section className="admin-container">
         <div className="products">
           <>
-          <Link  to="/productoadmin">
+          <Link  to="/admin/productos">
             <h3>Productos</h3>
             </Link>
           </>
@@ -30,7 +30,9 @@ const AdminPage = () => {
         </div>
         <div className="pubs">
           <>
+          <Link to="/admin/publicaciones">
             <h3>Publicaciones</h3>
+          </Link>
           </>
         </div>
         <div className="business">

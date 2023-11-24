@@ -1,17 +1,66 @@
 import "./Edituser.css";
 import img1 from "/icono.jpg";
-import { Link } from "react-router-dom";
-import React from 'react'
+import { Link, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import {
+  useGetUserByIdQuery,
+  useUpdateUserMutation,
+} from "../../../../slices/usersApiSlice";
+import { toast } from "sonner";
 
 const Edituser = () => {
+  const { id: userId } = useParams();
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isEmprendedor, setIsEmprendedor] = useState(false);
+  const [isEmpresa, setIsEmpresa] = useState(false);
+
+  const { data: user, isLoading, refetch, error } = useGetUserByIdQuery(userId);
+
+  const [updateUser, { isLoading: loadingUpdate }] = useUpdateUserMutation();
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      await updateUser({
+        userId,
+        name,
+        email,
+        isAdmin,
+        isEmprendedor,
+        isEmpresa,
+      }).unwrap();
+      refetch();
+      toast.success("Usuario actualizado");
+    } catch (error) {
+      toast.error(error?.data?.message || error?.error);
+    }
+  };
+
+  useEffect(() => {
+    if (user) {
+      setName(user.name);
+      setEmail(user.email);
+      setIsAdmin(user.isAdmin);
+      setIsEmprendedor(user.isEmprendedor);
+      setIsEmpresa(user.isEmpresa);
+    }
+  }, [user]);
+
   return (
     <div className="container">
+      {loadingUpdate && <h2>Cargando...</h2>}
       <section className="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-lg-6 col-md-8 d-flex flex-column align-items-center justify-content-center">
               <div className="d-flex justify-content-center py-4">
-                <a href="/home" className="logo d-flex align-items-center w-auto">
+                <a
+                  href="/home"
+                  className="logo d-flex align-items-center w-auto"
+                >
                   <img src={img1} alt="" />
                   <span className="d-none d-lg-block">Catalyst</span>
                 </a>
@@ -23,12 +72,17 @@ const Edituser = () => {
                       <strong>Editar Usuarios</strong>
                     </h5>
                   </div>
-                  <form className="row g-3 needs-validation">
+                  <form
+                    className="row g-3 needs-validation"
+                    onSubmit={submitHandler}
+                  >
                     <div className="col-12">
                       <label className="form-label">Nombre</label>
                       <input
                         className="form-control"
                         type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                         placeholder="Introduzca el Nombre"
                       />
                     </div>
@@ -37,32 +91,50 @@ const Edituser = () => {
                       <input
                         className="form-control"
                         type="text"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                         placeholder="Introduzca su Correo"
                       />
                     </div>
                     <div className="col-12">
-                      <label className="form-label">¿Es un Administrador?</label>
+                      <label className="form-label">
+                        ¿Es un Administrador?
+                      </label>
                       <input
-                        type="checkbox" className="custom-checkbox"/>
+                        type="checkbox"
+                        className="custom-checkbox"
+                        checked={isAdmin}
+                        onChange={(e) => setIsAdmin(e.target.checked)}
+                      />
                     </div>
                     <div className="col-12">
                       <label className="form-label">¿Es un Emprendedor?</label>
                       <input
-                        type="checkbox" className="custom-checkbox"/>
+                        type="checkbox"
+                        className="custom-checkbox"
+                        checked={isEmprendedor}
+                        onChange={(e) => setIsEmprendedor(e.target.checked)}
+                      />
                     </div>
                     <div className="col-12">
-                      <label className="form-label">¿Tiene un Empresa Registrada?</label>
+                      <label className="form-label">
+                        ¿Es cuenta empresa?
+                      </label>
                       <input
-                        type="checkbox" className="custom-checkbox"/>
+                        type="checkbox"
+                        className="custom-checkbox"
+                        checked={isEmpresa}
+                        onChange={(e) => setIsEmpresa(e.target.checked)}
+                      />
                     </div>
                     <div className="d-grid gap-2">
-                        <button type="submit" className="btn btn-primary mr-4 ">
-                          Guardar Cambios
-                        </button>
-                        <Link to="/productoadmin" className="btn btn">
-                          Volver Atrás
-                        </Link>
-                      </div>
+                      <button type="submit" className="btn btn-primary mr-4 ">
+                        Guardar Cambios
+                      </button>
+                      <Link to="/usuario" className="btn btn">
+                        Volver Atrás
+                      </Link>
+                    </div>
                   </form>
                 </div>
               </div>
@@ -71,7 +143,7 @@ const Edituser = () => {
         </div>
       </section>
     </div>
-  )
-}
+  );
+};
 
 export default Edituser;

@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./cuenta.css";
 import userImage from "/icono.jpg";
+import { IoCheckmarkCircle } from "react-icons/io5";
 
 const CuentaPage = () => {
   const { userInfo } = useSelector((state) => state.auth);
@@ -19,9 +20,11 @@ const CuentaPage = () => {
               alt="User"
             />
           </div>
-          <h4 className="user-name">
-            {userInfo.name} {userInfo.lastName}
-          </h4>
+          <div className="user__verify">
+            <h4 className="user-name">
+              {userInfo.name} {userInfo.lastName}
+            </h4>
+          </div>
           <h5 className="user-email">{userInfo.email}</h5>
           <p className="user-account-type">
             {userInfo.isEmprendedor
@@ -33,6 +36,13 @@ const CuentaPage = () => {
           <Link to="/editcuenta" className="btn btn-primary">
             Editar
           </Link>
+        </div>
+        <div className="verify">
+          {userInfo.isEmpresa && (
+            <div>
+              <IoCheckmarkCircle color="green" size={40} />
+            </div>
+          )}
         </div>
       </div>
     </div>

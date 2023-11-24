@@ -2,11 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { BsPencilSquare, BsFillTrash3Fill } from "react-icons/bs";
 import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
+import Header from "../../../components/Header/Header";
 
 const Ordenes = () => {
   return (
+    <>
+      <Header text="Administra las ordenes"/>
     <div className="contenedor">
-      <h2>Administra las Ordenes</h2>
       <form action="/" method="POST">
         <table className="table">
           <thead className="thead-dark">
@@ -43,6 +45,7 @@ const Ordenes = () => {
         </table>
       </form>
     </div>
+    </>
   );
 };
 

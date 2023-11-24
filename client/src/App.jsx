@@ -34,6 +34,7 @@ import AdminPage from "./pages/admin/AdminPage";
 import Producto from "./pages/productos/Producto";
 import CrearProducto from "./pages/productos/CrearProducto";
 import Emprendimiento from "./pages/emprendimientos/Emprendimiento";
+import PublicacionesAdminPage from "./pages/admin/Publicaciones/PublicacionesAdminPage";
 
 function App() {
   return (
@@ -59,10 +60,11 @@ function App() {
           {/* Rutas del admin */}
           <Route path="" element={<ProtectAdminRoute />}>
             <Route path="/usuario" element={<Usuario />}></Route>
-            <Route path="/productoadmin" element={<Product />}></Route>
-            <Route path="/editproduct" element={<EditProduct/>}></Route>
+            <Route path="/admin/publicaciones" element={<PublicacionesAdminPage />}></Route>
+            <Route path="/admin/productos" element={<Product />}></Route>
+            <Route path="/editar/:id" element={<EditProduct/>}></Route>
             <Route path="/admin" element={<AdminPage />}></Route>
-            <Route path="/edituser" element={<Edituser />}></Route>
+            <Route path="/admin/user/:id/edit" element={<Edituser />}></Route>
             <Route path="/ordenes" element={<Ordenes />}></Route>
           </Route>
           {/* Rutas para quienes iniciaron sesion */}

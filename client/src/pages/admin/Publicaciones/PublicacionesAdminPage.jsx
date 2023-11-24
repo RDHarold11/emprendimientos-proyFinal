@@ -1,14 +1,13 @@
+import Header from "../../../components/Header/Header";
 import { Link } from "react-router-dom";
 import { BsPencilSquare, BsFillTrash3Fill } from "react-icons/bs";
-import Header from "../../../components/Header/Header";
-import "./Productos.css";
-import { useGetProductsQuery } from "../../../slices/productsApiSlice";
-import { useDeleteProductMutation } from "../../../slices/productsApiSlice";
+import { useGetEmprendimientosQuery } from "../../../slices/emprendimientosApiSlice";
+import { useDeleteEmpMutation } from "../../../slices/emprendimientosApiSlice";
 import { toast } from "sonner";
 
-const Product = () => {
-  const { data: products, refetch, isLoading, error } = useGetProductsQuery();
-  const [deleteProduct] = useDeleteProductMutation();
+const PublicacionesAdminPage = () => {
+  const { data, isLoading, refetch, error } = useGetEmprendimientosQuery();
+  const [deleteEmp] = useDeleteEmpMutation()
 
   const handleDelete = async (id) => {
     toast("¿Estás seguro?", {
@@ -20,12 +19,12 @@ const Product = () => {
         label: "Cancelar",
       },
     });
-  };
+  }
 
   const deleteHandler = async (id) => {
     try {
-      await deleteProduct(id).unwrap();
-      toast.success("Producto eliminado");
+      await deleteEmp(id).unwrap();
+      toast.success("Publiacion eliminado");
       refetch();
     } catch (error) {
       toast.error(error?.data?.message);
@@ -35,45 +34,40 @@ const Product = () => {
   if (isLoading) {
     return <h2>Cargando...</h2>;
   }
-
   return (
     <>
-      <Header text="Administra todos los productos"></Header>
+      <Header text="Administra todos las publicaciones"></Header>
       <div className="contenedor">
         <form action="/" method="POST">
           <table className="table">
             <thead className="thead-dark">
               <tr>
                 <th>ID</th>
-                <th>Nombre</th>
-                <th>Precio</th>
-                <th>Categoria</th>
+                <th>Titulo</th>
+                <th>Descripción</th>
+                <th>Num reviews</th>
                 <th>Acciones</th>
               </tr>
             </thead>
             <tbody>
-              {products.map((product) => (
-                <tr key={product._id}>
-                  <td>{product._id}</td>
-                  <td>{product.name}</td>
-                  <td>{product.price}</td>
-                  <td>{product.category}</td>
-
+              {data.map((item) => (
+                <tr key={item._id}>
+                  <td>{item._id}</td>
+                  <td>{item.title}</td>
+                  <td>{item.description}</td>
+                  <td>{item.numReviews}</td>
                   <td>
                     <a href="/" className="btn border-shadow update">
                       <span className="text-gradient">
-                        <Link className="nav-link user" to={`/editar/${product._id}`}>
+                        <Link className="nav-link user" to={`/edit/publicaciones/${item._id}`}>
                           <BsPencilSquare size={20} />
                         </Link>
                       </span>
                     </a>
-                    <a
-                      className="btn botoncitos border-shadow delete"
-                      onClick={() => handleDelete(product._id)}
-                    >
-                      <div className="nav-link user">
-                        <BsFillTrash3Fill size={20} color="#333" />
-                      </div>
+                    <a className="btn botoncitos border-shadow delete" onClick={() => handleDelete(item._id)}>
+                      <Link className="nav-link user">
+                        <BsFillTrash3Fill size={20} />
+                      </Link>
                       <span className="text-gradient"></span>
                     </a>
                   </td>
@@ -87,4 +81,4 @@ const Product = () => {
   );
 };
 
-export default Product;
+export default PublicacionesAdminPage;

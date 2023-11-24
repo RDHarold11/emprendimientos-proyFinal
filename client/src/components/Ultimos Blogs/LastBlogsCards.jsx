@@ -1,4 +1,3 @@
-import React from 'react'
 import "./lastBlogs.css"
 import {AiOutlineArrowRight} from "react-icons/ai"
 import { Link } from 'react-router-dom'

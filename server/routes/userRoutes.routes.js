@@ -9,6 +9,7 @@ import {
   getUserById,
   updateUser,
   deleteUser,
+  getUsers,
 } from "../controllers/userController.js";
 import { protect, emprendedor, admin } from "../middleware/authMiddleware.js";
 
@@ -21,6 +22,7 @@ router.post("/logout", logoutUser);
 router.put("/profile", protect, editUser);
 
 //Rutas de ADMIN
+router.get("/", protect, admin, getUsers);
 router
   .route("/:id")
   .delete(protect, admin, deleteUser)

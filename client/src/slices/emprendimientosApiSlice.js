@@ -36,6 +36,12 @@ export const emprendimientoApiSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    deleteEmp: builder.mutation({
+      query: (empId) => ({
+        url: `${EMPRENDIMIENTOS_URL}/${empId}`,
+        method: "DELETE",
+      }),
+    }),
   }),
 });
 
@@ -45,4 +51,5 @@ export const {
   useGetSingleEmpQuery,
   useUpdateEmpMutation,
   useUploadEmpImageMutation,
+  useDeleteEmpMutation,
 } = emprendimientoApiSlice;
