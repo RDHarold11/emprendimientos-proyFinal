@@ -1,7 +1,7 @@
 import "./Usuario.css";
 import { Link } from "react-router-dom";
 
-import { BsPencilSquare, BsFillTrash3Fill   } from "react-icons/bs";
+import { BsPencilSquare, BsFillTrash3Fill } from "react-icons/bs";
 import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
 
 
@@ -27,25 +27,25 @@ const Usuario = () => {
               <td>Edwin Díaz</td>
               <td>edwin@gmail.com</td>
               <td><Link className="nav-link user" to="/admin">
-                  <AiOutlineCheck size={20} />
-                </Link></td>
+                <AiOutlineCheck size={20} />
+              </Link></td>
               <td><Link className="nav-link user" to="/admin">
-                  <AiOutlineClose size={20} />
-                </Link></td>
+                <AiOutlineClose size={20} />
+              </Link></td>
               <td><Link className="nav-link user" to="/admin">
-                  <AiOutlineClose size={20} />
-                </Link></td>
+                <AiOutlineClose size={20} />
+              </Link></td>
               <td>
                 <a href="" className="btn border-shadow update">
                   <span className="text-gradient"><Link className="nav-link user" to="/edituser">
-                  <BsPencilSquare size={20} />
-                </Link></span>
+                    <BsPencilSquare size={20} />
+                  </Link></span>
                 </a>
                 <a className="btn botoncitos border-shadow delete"><Link className="nav-link user" to="/admin">
                   <BsFillTrash3Fill size={20} />
-                  </Link>
+                </Link>
                   <span className="text-gradient">
-                    
+
                   </span>
                 </a>
               </td>
