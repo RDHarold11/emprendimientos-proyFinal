@@ -15,6 +15,8 @@ import Direccion from "./pages/direccion/Direccion";
 import Pago from "./pages/pago/Pago";
 import AcercaDe from "./components/Acercade/AcercaDe";
 import Peticiones from "./pages/peticiones/Peticiones";
+import PeticionesUser from "./pages/peticionesUser/peticionesUser";
+import PeticionesAdmin from "./pages/peticionesAdmin/peticionesAdmin";
 
 
 import Usuario from "./pages/admin/usuario/Usuario";
@@ -55,6 +57,8 @@ function App() {
           <Route path="/pago" element={<Pago />}></Route>
           <Route path="/acercade" element={<AcercaDe/>}></Route>
           <Route path="/peticiones" element={<Peticiones/>}></Route>
+          <Route path="/peticionesUser" element={<PeticionesUser/>}></Route>
+          <Route path="/peticionesAdmin" element={<PeticionesAdmin/>}></Route>
           <Route
             path="/publicacion/:id/detalle"
             element={<DetallePublicacionPage />}
