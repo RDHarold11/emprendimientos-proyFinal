@@ -1,5 +1,6 @@
 import "./AdminPageCss.css";
 import Header from "../../components/Header/Header";
+import {Link} from "react-router-dom"
 
 const AdminPage = () => {
   return (
@@ -8,22 +9,30 @@ const AdminPage = () => {
       <section className="admin-container">
         <div className="products">
           <>
+          <Link  to="/admin/productos">
             <h3>Productos</h3>
+            </Link>
           </>
         </div>
         <div className="users">
           <>
+          <Link  to="/usuario">
             <h3>Usuarios</h3>
+          </Link>
           </>
         </div>
         <div className="orders">
           <>
+          <Link  to="/ordenes">
             <h3>Ordenes</h3>
+            </Link>
           </>
         </div>
         <div className="pubs">
           <>
+          <Link to="/admin/publicaciones">
             <h3>Publicaciones</h3>
+          </Link>
           </>
         </div>
         <div className="business">

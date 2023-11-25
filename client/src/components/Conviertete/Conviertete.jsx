@@ -1,7 +1,9 @@
 import React from "react";
 import "./conviertete.css";
+import {useNavigate} from "react-router-dom"
 
 const Conviertete = () => {
+  const navigate = useNavigate()
   return (
     <section className="instructor__section">
       <div className="instructor__container">
@@ -22,7 +24,9 @@ const Conviertete = () => {
               Necessitatibus harum ullam reprehenderit.
             </p>
           </div>
-          <button className="inst__btn">Aplica Ahora</button>
+          <button className="inst__btn" onClick={() => navigate("/registro")}>
+            Aplica ahora
+          </button>
         </div>
       </div>
     </section>

@@ -1,29 +1,75 @@
+/* cuenta.css */
+
 .centered-container {
   display: flex;
-  flex-direction: column;
-  align-items: center; /* Centrado horizontal */
-  justify-content: center; /* Centrado vertical */
-  height: 100vh; /* Ajusta la altura al 100% de la ventana para centrar verticalmente */
-  padding-bottom: 20px;
-  margin-top: 30px;
-}
-.img {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%; /* Hace que la imagen sea circular */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.btn-bottom {
+.user-profile {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 400px;
+}
+.verify {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+}
+
+.user__content {
+  padding: 10px 30px;
+}
+
+.profile-image-container {
+  border-radius: 50%;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.user-name {
+  font-size: 1.5em;
+  margin-bottom: 5px;
+}
+
+.user-email {
+  color: #6c757d;
   margin-bottom: 10px;
 }
 
-.card {
-  width: 500px;
+.user-account-type {
+  font-style: italic;
+  color: #007bff;
+  margin-bottom: 20px;
 }
-.form-control,
-.form-label {
-  margin: 4px 0;
+
+.btn-primary {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  background-color: #007bff;
+  color: #fff;
+  border: 2px solid #007bff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
-.btn {
-  margin: 10px 0;
+
+.btn-primary:hover {
+  background-color: #0056b3;
 }

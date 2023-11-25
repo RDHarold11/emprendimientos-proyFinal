@@ -1,7 +1,8 @@
 import img1 from "/icono.jpg";
 import { useEffect, useState } from "react";
-import {useGetSingleEmpQuery} from "../../slices/emprendimientosApiSlice"
-import {useParams} from "react-router-dom"
+import {useGetSingleEmpQuery, useUpdateEmpMutation, useUploadEmpImageMutation} from "../../slices/emprendimientosApiSlice"
+import {useParams, useNavigate} from "react-router-dom"
+import {toast} from "sonner"
 
 const EditarEmprendimientoPage = () => {
   const [title, setTitle] = useState("");
@@ -11,6 +12,40 @@ const EditarEmprendimientoPage = () => {
   const {id} = useParams()
 
   const {data:emp, refetch, error} = useGetSingleEmpQuery(id)
+  const [updateEmp, {isLoading: loadingUpdate}] = useUpdateEmpMutation()
+  const [uploadImg, {isLoading: loadingImgUpload}] = useUploadEmpImageMutation()
+
+  const navigate = useNavigate()
+
+  const submitHandler = async (e) => {
+    e.preventDefault()
+    try {
+      await updateEmp({
+        id, 
+        title,
+        description,
+        image
+      }).unwrap()
+      toast.success("Emprendimiento actualizado")
+      refetch()
+      navigate("/emprendimiento")
+    } catch (error) {
+      toast.error(error?.data?.message)
+    }
+  }
+
+  const uploadImageHandler = async (e) => {
+    const formData = new FormData()
+    formData.append("image", e.target.files[0])
+
+    try {
+      const res = await uploadImg(formData).unwrap()
+      toast.success(res.message)
+      setImage(res.image)
+    } catch (error) {
+     toast.error(error?.data?.message) 
+    }
+  }
   
   useEffect(() => {
     if(emp){
@@ -20,7 +55,6 @@ const EditarEmprendimientoPage = () => {
     }
   },[id, emp])
 
-  const handleRegister = () => {};
   return (
     <div className="container">
       <section className="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
@@ -49,7 +83,7 @@ const EditarEmprendimientoPage = () => {
                   </div>
                   <form
                     className="row g-3 needs-validation"
-                    onSubmit={handleRegister}
+                    onSubmit={submitHandler}
                   >
                     <div className="col-12">
                       <label className="form-label">Titulo</label>
@@ -85,7 +119,7 @@ const EditarEmprendimientoPage = () => {
                         className="form-control"
                         type="file"
                         label="Seleccione una imagen"
-                        //onChange={uploadImageHandler}
+                        onChange={uploadImageHandler}
                       />
                     </div>
                     <div className="col-12">

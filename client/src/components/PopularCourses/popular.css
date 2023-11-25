@@ -1,0 +1,58 @@
+.popular__section {
+  background-color: #161541;
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+.absolute__img__1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.absolute__img__2 {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.popular_section__container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.popular__card img {
+  width: 100%;
+}
+
+.popular__title {
+  color: #fff;
+  text-align: center;
+  font-weight: 900;
+  font-size: 35px;
+}
+.popular__header {
+  padding-top: 68px;
+  margin: 0 auto;
+  max-width: 460px;
+}
+.popular__p {
+  text-align: center;
+  color: white;
+  text-align: center;
+}
+.popular__card {
+  border-radius: 10px;
+  background-color: #f6f4ff;
+}
+.popular_card__container {
+  padding: 30px 0;
+}
+.popular_card__content {
+  padding: 15px 20px;
+}
+.popular__card h4 {
+  font-size: 16px;
+}
+.popular__more {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

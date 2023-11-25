@@ -32,7 +32,7 @@ const Navbar = () => {
       >
         <div className="container">
           <a className="navbar-brand" href="/home">
-            Catalyst<span></span>
+           <b>Catalyst</b><span></span>
           </a>
 
           <button
@@ -55,18 +55,18 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <a className="nav-link" href="about.html">
+              <Link className="nav-link" to="/acercade">
                   Sobre Nosotros
-                </a>
+              </Link>
               </li>
               {user && (
-                <Link className="nav-link" to="/">
+                <Link className="nav-link" to="/producto">
                   Servicios
                 </Link>
               )}
               {user && (
-                <Link className="nav-link" to="/emprendimiento">
-                  Emprendimientos
+                <Link className="nav-link" to="/ecommerce/home">
+                  Comprar ya
                 </Link>
               )}
               {!user && (
@@ -95,6 +95,7 @@ const Navbar = () => {
                   <AiOutlineLogout size={30} color="white" cursor="pointer" />
                 </div>
               )}
+              
             </ul>
           </div>
         </div>

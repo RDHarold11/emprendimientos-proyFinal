@@ -9,14 +9,12 @@ import {
 import { toast } from "sonner";
 import { useDispatch, useSelector } from "react-redux";
 import Product from "../../components/Product";
+import { useDeleteProductMutation } from "../../slices/productsApiSlice";
 
 const Productos = () => {
   const [createProduct] = useCreateProductMutation();
   const { data: products, isLoading, error, refetch } = useGetProductsQuery();
-  console.log(products);
-
-  console.log(products);
-  console.log(error);
+  const [deleteProduct] = useDeleteProductMutation();
 
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -29,6 +27,16 @@ const Productos = () => {
       toast.error(err.message);
     }
   };
+
+  async function onDelete(id) {
+    try {
+      await deleteProduct(id).unwrap();
+      refetch()
+      toast.success("Producto eliminado")
+    } catch (error) {
+      toast.error(error?.data?.message)
+    }
+  }
 
   let userId = 0;
   const { userInfo: user } = useSelector((state) => state.auth);
@@ -106,12 +114,13 @@ const Productos = () => {
                 className="col-12 col-md-4 col-lg-3 mb-5 mb-md-0"
               >
                 <Product
-                  id={product.id}
+                  id={product._id}
                   name={product.name}
                   image={product.image}
                   category={product.category}
                   description={product.description}
                   price={product.price}
+                  deleteProductHandler={() => onDelete(product._id)}
                   stock={product.countInStock}
                 />
               </div>

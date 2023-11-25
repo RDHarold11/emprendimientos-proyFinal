@@ -5,6 +5,9 @@ import Recientes from "../components/Recientes";
 import Skills from "../components/Skills/Skills";
 import Conviertete from "../components/Conviertete/Conviertete";
 import { Fade } from "react-awesome-reveal";
+import PopularCourses from "../components/PopularCourses/PopularCourses";
+import PeopleSay from "../components/PeopleSay/PeopleSay";
+import LastBlogs from "../components/Ultimos Blogs/LastBlogs";
 
 const Home = () => {
   return (
@@ -48,10 +51,13 @@ const Home = () => {
         </div>
       </Fade>
       <Fade direction="left" cascade>
-        <Skills></Skills>
+        <PopularCourses/>
       </Fade>
       <Fade direction="left" cascade>
+        <Skills></Skills>
         <Conviertete></Conviertete>
+        <PeopleSay/>
+        <LastBlogs/>
         <Footer></Footer>
       </Fade>
     </div>

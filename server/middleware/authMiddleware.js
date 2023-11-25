@@ -23,17 +23,19 @@ const protect = asyncHandler(async (req, res, next) => {
 const admin = (req, res, next) => {
   if (req.user && req.user.isAdmin) {
     next();
+  } else {
+    res.status(401);
+    throw new Error("No autorizado como admin");
   }
-  res.status(401);
-  throw new Error("No autorizado como admin");
 };
 
 const emprendedor = (req, res, next) => {
   if (req.user && req.user.isEmprendedor) {
     next();
+  } else {
+    res.status(401);
+    throw new Error("No autorizado como emprendedor");
   }
-  res.status(401);
-  throw new Error("No autorizado como emprendedor");
 };
 
 export { protect, admin, emprendedor };

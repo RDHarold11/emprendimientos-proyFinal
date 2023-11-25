@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../productos/Producto.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import {
   useCreateEmprendimientoMutation,
   useGetEmprendimientosQuery,
+  useDeleteEmpMutation
 } from "../../slices/emprendimientosApiSlice";
 import { toast } from "sonner";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import Emprendimiento from "../../components/Emprendimiento";
 
 const Emprendimientos = () => {
@@ -18,9 +19,8 @@ const Emprendimientos = () => {
     error,
     refetch,
   } = useGetEmprendimientosQuery();
-
-  console.log(emprendimientos);
-  console.log(error);
+  
+  const [deleteEmp] = useDeleteEmpMutation()
 
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -33,6 +33,27 @@ const Emprendimientos = () => {
       toast.error(err.message);
     }
   };
+  const handleDelete = async (id) => {
+    toast("¿Estás seguro?", {
+      action: {
+        label: "Eliminar",
+        onClick: () => deleteProductHandler(id),
+      },
+      cancel: {
+        label: "Cancelar",
+      },
+    });
+  }
+
+  const deleteProductHandler = async (id) => {
+    try {
+      await deleteEmp(id).unwrap()
+      toast.success("Publicación eliminada")
+      refetch()
+    } catch (error) {
+      toast.error(error?.data?.message)
+    }
+  }
 
   let userId = 0;
   const { userInfo: user } = useSelector((state) => state.auth);
@@ -119,6 +140,7 @@ const Emprendimientos = () => {
                   image={emprendimiento.image}
                   description={emprendimiento.description}
                   rating={emprendimiento.numReviews}
+                  handleDelete={handleDelete}
                 />
               </div>
             ))

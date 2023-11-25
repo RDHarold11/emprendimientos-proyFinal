@@ -1,0 +1,31 @@
+.last__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+.last__container h2 {
+  text-align: center;
+  padding: 10px 0;
+  font-size: 30px;
+}
+.lastblogs__cards img {
+  width: 90%;
+  border-radius: 10px;
+  height: 200px;
+}
+.last__cards-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.lastblogs__cards h4 {
+  max-width: 220px;
+  font-size: 20px;
+}
+.lastblogs__cards p {
+  color: #371bc5;
+}
+.lastBlogs__footer p {
+  display: inline-block;
+  margin-right: 10px;
+}
