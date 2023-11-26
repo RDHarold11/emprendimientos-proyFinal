@@ -59,7 +59,7 @@ const createPeticion = asyncHandler(async (req, res) => {
   const createdPeticion = await peticion.save();
   if (createdPeticion) {
     res.json(201).json(createdPeticion);
-    peticionRecibidaEmail(req.user.email);
+    /*  peticionRecibidaEmail(req.user.email); */
   } else {
     res.status(404);
     throw new Error("No se pudo crear la peticion");
