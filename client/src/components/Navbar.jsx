@@ -8,6 +8,7 @@ import {
 import { RiUserSettingsLine } from "react-icons/ri";
 import { useLogoutMutation } from "../slices/usersApiSlice";
 import { logout } from "../slices/authSlice";
+import { resetCart } from "../slices/cartSlice";
 
 const Navbar = () => {
   const { userInfo: user } = useSelector((state) => state.auth);
@@ -19,6 +20,7 @@ const Navbar = () => {
     try {
       await logoutApiCall().unwrap();
       dispatch(logout());
+      dispatch(resetCart())
     } catch (error) {
       console.log(error);
     }

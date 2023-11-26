@@ -37,7 +37,16 @@ const EmprendedorPage = () => {
         </div>
         <div className="requets">
           <>
+          <Link to="/peticiones" style={{textDecoration: "none"}}>
             <h3>Crear Peticiones</h3>
+          </Link>
+          </>
+        </div>
+        <div className="requets">
+          <>
+          <Link to="/peticionesUser" style={{textDecoration: "none"}}>
+            <h3>Mis Peticiones</h3>
+          </Link>
           </>
         </div>
       </section>

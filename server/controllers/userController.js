@@ -123,6 +123,16 @@ const getUserById = asyncHandler(async (req, res) => {
   }
 });
 
+const getEmpresas = asyncHandler(async (req, res) => {
+  const empresas = await User.find({ isEmpresa: true });
+  if (empresas) {
+    res.status(200).json(empresas);
+  } else {
+    res.status(400);
+    throw new Error("No existen empresas");
+  }
+});
+
 // @desc delete users
 //@route DELETE /api/users/users/:id
 //@access Private/Admin
@@ -176,4 +186,5 @@ export {
   getUsers,
   deleteUser,
   updateUser,
+  getEmpresas,
 };

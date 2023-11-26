@@ -1,23 +1,34 @@
 import "./Peticiones.css";
 import img1 from "/icono.jpg";
-import React, { useState } from "react";
+import { useState } from "react";
 import { toast } from "sonner";
+import { useCreatePeticionMutation } from "../../slices/peticionesApiSlice";
 
 const Peticiones = () => {
-  const [tipo, setTipo] = useState("");
-  const [descripcion, setDescripcion] = useState("");
+  const [type, setType] = useState("");
+  const [description, setDescription] = useState("");
 
-  const handleSubmit = (e) => {
+  const [createPeticion, {isLoading, error}] = useCreatePeticionMutation()
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!tipo || !descripcion) {
+    if (!type || !description) {
       toast.error("Debe completar los campos");
     } else {
-      console.log("Tipo:", tipo);
-      console.log("Descripción:", descripcion);
-
-      toast.success("Formulario enviado exitosamente");
+      try {
+        await createPeticion({type, description}).unwrap()
+        toast.message('Petición enviada exitosamente', {
+          description: 'Te estaremos contactando lo más pronto posible',
+        })
+      } catch (error) {
+        toast.error(error?.data?.meessage)
+      }
     }
   };
+
+  if(isLoading){
+    return <h2>Cargando...</h2>
+  }
 
   return (
     <div className="container">
@@ -52,14 +63,14 @@ const Peticiones = () => {
                       <label className="form-label">Tipo</label>
                       <select
                         className="form-select-custom"
-                        onChange={(e) => setTipo(e.target.value)}
-                        value={tipo}
+                        onChange={(e) => setType(e.target.value)}
+                        value={type}
                       >
                         <option value="" disabled>
                           Seleccione un Tipo de Petición.
                         </option>
-                        <option value="opcion1">Opción 1</option>
-                        <option value="opcion2">Opción 2</option>
+                        <option value="Quiero ser empresa">Quiero ser empresa</option>
+                        <option value="Eliminar cuenta">Quiero eliminar mi cuenta</option>
                       </select>
                     </div>
                     <div className="col-12">
@@ -68,8 +79,8 @@ const Peticiones = () => {
                         className="form-control"
                         type="text"
                         placeholder="Introduzca la Descripción"
-                        onChange={(e) => setDescripcion(e.target.value)}
-                        value={descripcion}
+                        onChange={(e) => setDescription(e.target.value)}
+                        value={description}
                       />
                     </div>
                     <div className="col-12">

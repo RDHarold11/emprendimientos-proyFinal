@@ -9,28 +9,28 @@ const AdminPage = () => {
       <section className="admin-container">
         <div className="products">
           <>
-          <Link  to="/admin/productos">
+          <Link  to="/admin/productos" style={{textDecoration: "none"}}>
             <h3>Productos</h3>
             </Link>
           </>
         </div>
         <div className="users">
           <>
-          <Link  to="/usuario">
+          <Link  to="/usuario" style={{textDecoration: "none"}}>
             <h3>Usuarios</h3>
           </Link>
           </>
         </div>
         <div className="orders">
           <>
-          <Link  to="/ordenes">
+          <Link  to="/ordenes" style={{textDecoration: "none"}}>
             <h3>Ordenes</h3>
             </Link>
           </>
         </div>
         <div className="pubs">
           <>
-          <Link to="/admin/publicaciones">
+          <Link to="/admin/publicaciones" style={{textDecoration: "none"}}>
             <h3>Publicaciones</h3>
           </Link>
           </>
@@ -42,7 +42,9 @@ const AdminPage = () => {
         </div>
         <div className="requets">
           <>
+          <Link to="/peticionesAdmin" style={{textDecoration: "none"}}>
             <h3>Peticiones</h3>
+          </Link>
           </>
         </div>
       </section>
