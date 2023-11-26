@@ -54,7 +54,7 @@ const createEmprendimiento = asyncHandler(async (req, res) => {
     numReviews: 0,
   });
   const createdEmprendimiento = await emprendimiento.save();
-  if (createEmprendimiento) {
+  if (createdEmprendimiento) {
     res.json(201).json(createdEmprendimiento);
   } else {
     res.status(404);

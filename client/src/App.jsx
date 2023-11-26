@@ -15,7 +15,7 @@ import Direccion from "./pages/direccion/Direccion";
 import Pago from "./pages/pago/Pago";
 import AcercaDe from "./components/Acercade/AcercaDe";
 import Peticiones from "./pages/peticiones/Peticiones";
-import PeticionesUser from "./pages/peticionesUser/peticionesUser";
+import PeticionesUser from "./pages/peticionesUser/PeticionesUser";
 import PeticionesAdmin from "./pages/peticionesAdmin/peticionesAdmin";
 
 

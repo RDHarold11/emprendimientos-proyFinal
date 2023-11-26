@@ -15,6 +15,10 @@ const peticionesSchema = new Schema(
       type: String,
       required: true,
     },
+    resuelto: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );

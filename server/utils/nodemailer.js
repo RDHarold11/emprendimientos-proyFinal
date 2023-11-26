@@ -2,15 +2,15 @@ import nodemailer from "nodemailer";
 import dotenv from "dotenv";
 dotenv.config();
 
-const sendEmail = (email) => {
-  let transporter = nodemailer.createTransport({
-    service: "gmail",
-    auth: {
-      user: process.env.MAIL_USERNAME,
-      pass: process.env.MAIL_PASSWORD,
-    },
-  });
+let transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.MAIL_USERNAME,
+    pass: process.env.MAIL_PASSWORD,
+  },
+});
 
+const sendEmail = (email) => {
   let mailOptions = {
     from: "haroldaquino460@gmail.com",
     to: email,
@@ -33,4 +33,20 @@ const sendEmail = (email) => {
   });
 };
 
-export { sendEmail };
+const peticionRecibidaEmail = (email) => {
+  let mailOptions = {
+    from: "haroldaquino460@gmail.com",
+    to: email,
+    subject: "Hemos recibido tu peticion",
+    html: `<!DOCTYPE html><html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>@font-face{font-family:Inter;font-style:normal;font-weight:400;mso-font-alt:Verdana;src:url(https://rsms.me/inter/font-files/Inter-Regular.woff2?v=3.19) format('woff2')}*{font-family:Inter,Verdana}</style><style>blockquote,h1,h2,h3,img,li,ol,p,ul{margin-top:0;margin-bottom:0}</style></head><body><table align="center" width="100%" role="presentation" cellspacing="0" cellpadding="0" border="0" style="max-width:600px;margin-left:auto;margin-right:auto;padding:.5rem"><tbody><tr style="width:100%"><td><p style="font-size: 15px;line-height: 24px;margin: 16px 0;margin-top: 0px;margin-bottom: 20px;color: rgb(55, 65, 81);-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;text-align: left;">&nbsp;</p><h2 style="font-size: 30px;font-weight: 700;line-height: 40px;margin-bottom: 12px;color: rgb(17, 24, 39);text-align: left;"><strong>Petición recibida</strong></h2><hr style="width: 100%;border: none;border-top: 1px solid #eaeaea;margin-top: 32px;margin-bottom: 32px;"><p style="font-size: 15px;line-height: 24px;margin: 16px 0;margin-top: 0px;margin-bottom: 20px;color: rgb(55, 65, 81);-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;text-align: left;">¡Hola! Hemos recibido tu petición para solicitar el acceso a una cuenta empresa. Tan pronto hemos finalizado tu caso, nos pondremos en contacto contigo por esta misma vía. </p><p style="font-size: 15px;line-height: 24px;margin: 16px 0;margin-top: 0px;margin-bottom: 20px;color: rgb(55, 65, 81);-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;text-align: left;">Gracias por utilizar nuestra plataforma.</p><p style="font-size: 15px;line-height: 24px;margin: 16px 0;margin-top: 0px;margin-bottom: 20px;color: rgb(55, 65, 81);-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;text-align: left;">Atentamente,<br>Equipo de Catalyst</p></td></tr></tbody></table></body></html>`,
+  };
+  transporter.sendMail(mailOptions, function (err, data) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Gmail enviado");
+    }
+  });
+};
+
+export { sendEmail, peticionRecibidaEmail };

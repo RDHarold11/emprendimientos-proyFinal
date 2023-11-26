@@ -3,12 +3,59 @@ import { Link } from "react-router-dom";
 
 import { BsPencilSquare, BsFillTrash3Fill } from "react-icons/bs";
 import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
+import {
+  useDeletePeticionMutation,
+  useGetPeticionesByAdminQuery,
+  useMarkAsResolvedMutation,
+} from "../../slices/peticionesApiSlice";
+import { toast } from "sonner";
+import Header from "../../components/Header/Header";
 
+const PeticionesAdmin = () => {
+  const { data, error, isLoading, refetch } = useGetPeticionesByAdminQuery();
 
-const peticioesAdmin = () => {
+  const [deletePeticion] = useDeletePeticionMutation();
+  const [mark] = useMarkAsResolvedMutation();
+
+  const handleDelete = async (id) => {
+    toast("¿Estás seguro?", {
+      action: {
+        label: "Eliminar",
+        onClick: () => deletePeticionHandler(id),
+      },
+      cancel: {
+        label: "Cancelar",
+      },
+    });
+  };
+
+  const deletePeticionHandler = async (id) => {
+    try {
+      await deletePeticion(id).unwrap();
+      toast.success("Petición eliminada");
+      refetch();
+    } catch (error) {
+      toast.error(error?.data?.message);
+    }
+  };
+
+  const handleMark = async (id) => {
+    try {
+      await mark(id).unwrap();
+      refetch();
+      toast.success("Marcada como completada");
+    } catch (error) {
+      toast.error(error?.data?.message);
+    }
+  };
+
+  if (isLoading) {
+    return <h2>Cargando...</h2>;
+  }
   return (
-    <div className="contenedor">
-      <form action="/" method="POST">
+    <>
+      <Header text="Administra las peticiones" />
+      <div className="contenedor">
         <table className="table">
           <thead className="thead-dark">
             <tr>
@@ -20,38 +67,53 @@ const peticioesAdmin = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1dj3y38y18je11d1u139jed39</td>
-              <td>Solicitud de Empresa</td>
-              <td>Quiero agregar una empresa a esta plataforma.</td>
-              <td><Link className="nav-link user" to="/admin">
-              <AiOutlineClose size={20} />
-              </Link></td>
-              <td>
-                <a className="btn botoncitos border-shadow delete"><Link className="nav-link user" to="/admin">
-                <AiOutlineCheck size={20} />
-                </Link>
-                
-                  <span className="text-gradient">
+            {data.map((item) => (
+              <tr key={item._id}>
+                <td>{item._id}</td>
+                <td>{item.type}</td>
+                <td>{item.description}</td>
+                <td>
+                  {item.resuelto ? (
+                    <div className="nav-link user">
+                      <AiOutlineCheck size={20} color="#333" />
+                    </div>
+                  ) : (
+                    <div className="nav-link user">
+                      <AiOutlineClose size={20} />
+                    </div>
+                  )}
+                </td>
+                <td>
+                  {!item.resuelto && (
+                    <a className="btn botoncitos border-shadow delete">
+                      <div
+                        className="nav-link user"
+                        onClick={() => handleMark(item._id)}
+                      >
+                        <AiOutlineCheck size={20} color="#333" />
+                      </div>
 
-                  </span>
-                </a>
-                <a className="btn botoncitos border-shadow delete"><Link className="nav-link user" to="/admin">
-                  <BsFillTrash3Fill size={20} />
-                </Link>
-                
-                  <span className="text-gradient">
+                      <span className="text-gradient"></span>
+                    </a>
+                  )}
+                  <a className="btn botoncitos border-shadow delete">
+                    <div
+                      className="nav-link user"
+                      onClick={() => handleDelete(item._id)}
+                    >
+                      <BsFillTrash3Fill size={20} color="#333" />
+                    </div>
 
-                  </span>
-                </a>
-              </td>
-            </tr>
+                    <span className="text-gradient"></span>
+                  </a>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
-      </form>
-    </div>
+      </div>
+    </>
+  );
+};
 
-  )
-}
-
-export default peticioesAdmin;
+export default PeticionesAdmin;
