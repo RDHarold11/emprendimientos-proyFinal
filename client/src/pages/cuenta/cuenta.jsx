@@ -33,10 +33,17 @@ const CuentaPage = () => {
               ? "Cuenta Empresa"
               : "Cuenta Administrador"}
           </p>
-          <Link to="/editcuenta" className="btn btn-primary">
+          <div className="d-grid gap-2">
+          <Link to="/editcuenta" className="btn btn-primary mr-3">
             Editar
           </Link>
-        </div>
+                        <Link to="/emprendedor" className="btn btn">
+                          Volver Atrás
+                        </Link>
+                      </div>
+                    </div>
+        
+       
         <div className="verify">
           {userInfo.isEmpresa && (
             <div>

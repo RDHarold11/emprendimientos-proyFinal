@@ -61,11 +61,7 @@ const Navbar = () => {
                   Sobre Nosotros
               </Link>
               </li>
-              {user && (
-                <Link className="nav-link" to="/producto">
-                  Servicios
-                </Link>
-              )}
+              
               {user && (
                 <Link className="nav-link" to="/ecommerce/home">
                   Comprar ya

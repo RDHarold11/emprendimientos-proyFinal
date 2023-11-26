@@ -1,6 +1,4 @@
-import "./peticionesAdmin.css";
-import { Link } from "react-router-dom";
-
+import React, { useState } from "react";
 import { BsPencilSquare, BsFillTrash3Fill } from "react-icons/bs";
 import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
 import {
@@ -16,6 +14,10 @@ const PeticionesAdmin = () => {
 
   const [deletePeticion] = useDeletePeticionMutation();
   const [mark] = useMarkAsResolvedMutation();
+
+  const [searchTerm, setSearchTerm] = useState("");
+  const [quieroSerEmpresa, setQuieroSerEmpresa] = useState(false);
+  const [eliminarCuenta, setEliminarCuenta] = useState(false);
 
   const handleDelete = async (id) => {
     toast("¿Estás seguro?", {
@@ -52,10 +54,58 @@ const PeticionesAdmin = () => {
   if (isLoading) {
     return <h2>Cargando...</h2>;
   }
+
+  const filteredPeticiones = data.filter((peticion) => {
+    const matchDescription = peticion.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchTipoPeticion =
+      (!quieroSerEmpresa || peticion.type === "Quiero ser empresa") &&
+      (!eliminarCuenta || peticion.type === "Eliminar cuenta");
+
+    return matchDescription && matchTipoPeticion;
+  });
+
   return (
     <>
       <Header text="Administra las peticiones" />
       <div className="contenedor">
+      <div className="row">
+            <div className="input-group mb-3">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Buscar por descripción..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
+           
+          <div className="col-12 col-md-6 offset-md-3">
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                id="quieroSerEmpresa"
+                checked={quieroSerEmpresa}
+                onChange={() => setQuieroSerEmpresa(!quieroSerEmpresa)}
+              />
+              <label className="form-check-label" htmlFor="quieroSerEmpresa">
+                Quiero ser empresa
+              </label>
+            </div>
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="checkbox"
+                id="eliminarCuenta"
+                checked={eliminarCuenta}
+                onChange={() => setEliminarCuenta(!eliminarCuenta)}
+              />
+              <label className="form-check-label" htmlFor="eliminarCuenta">
+                Eliminar cuenta
+              </label>
+            </div>
+          </div>
+        </div>
         <table className="table">
           <thead className="thead-dark">
             <tr>
@@ -67,7 +117,7 @@ const PeticionesAdmin = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((item) => (
+            {filteredPeticiones.map((item) => (
               <tr key={item._id}>
                 <td>{item._id}</td>
                 <td>{item.type}</td>
@@ -92,7 +142,6 @@ const PeticionesAdmin = () => {
                       >
                         <AiOutlineCheck size={20} color="#333" />
                       </div>
-
                       <span className="text-gradient"></span>
                     </a>
                   )}
@@ -103,7 +152,6 @@ const PeticionesAdmin = () => {
                     >
                       <BsFillTrash3Fill size={20} color="#333" />
                     </div>
-
                     <span className="text-gradient"></span>
                   </a>
                 </td>
