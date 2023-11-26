@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { BsPencilSquare, BsFillTrash3Fill } from "react-icons/bs";
 import Header from "../../../components/Header/Header";
@@ -9,6 +10,7 @@ import { toast } from "sonner";
 const Product = () => {
   const { data: products, refetch, isLoading, error } = useGetProductsQuery();
   const [deleteProduct] = useDeleteProductMutation();
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleDelete = async (id) => {
     toast("¿Estás seguro?", {
@@ -36,10 +38,23 @@ const Product = () => {
     return <h2>Cargando...</h2>;
   }
 
+  // Filtrar productos por nombre
+  const filteredProducts = products.filter((product) =>
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <>
       <Header text="Administra todos los productos"></Header>
       <div className="contenedor">
+        <div className="text-center mt-2">
+          <input
+            type="text"
+            placeholder="Buscar por nombre..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
         <form action="/" method="POST">
           <table className="table">
             <thead className="thead-dark">
@@ -52,7 +67,7 @@ const Product = () => {
               </tr>
             </thead>
             <tbody>
-              {products.map((product) => (
+              {filteredProducts.map((product) => (
                 <tr key={product._id}>
                   <td>{product._id}</td>
                   <td>{product.name}</td>
