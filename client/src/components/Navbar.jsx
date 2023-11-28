@@ -20,7 +20,7 @@ const Navbar = () => {
     try {
       await logoutApiCall().unwrap();
       dispatch(logout());
-      dispatch(resetCart())
+      dispatch(resetCart());
     } catch (error) {
       console.log(error);
     }
@@ -34,7 +34,8 @@ const Navbar = () => {
       >
         <div className="container">
           <a className="navbar-brand" href="/home">
-           <b>Catalyst</b><span></span>
+            <b>Catalyst</b>
+            <span></span>
           </a>
 
           <button
@@ -57,9 +58,9 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-              <Link className="nav-link" to="/acercade">
+                <Link className="nav-link" to="/acercade">
                   Sobre Nosotros
-              </Link>
+                </Link>
               </li>
               {user && (
                 <Link className="nav-link" to="/producto">
@@ -97,7 +98,6 @@ const Navbar = () => {
                   <AiOutlineLogout size={30} color="white" cursor="pointer" />
                 </div>
               )}
-              
             </ul>
           </div>
         </div>

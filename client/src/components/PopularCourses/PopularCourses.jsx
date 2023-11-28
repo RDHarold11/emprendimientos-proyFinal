@@ -6,7 +6,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import img from "../../../public/images/dots.webp"
+import img from "/images/dots.webp"
 
 const PopularCourses = () => {
   return (

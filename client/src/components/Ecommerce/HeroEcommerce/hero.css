@@ -1,0 +1,40 @@
+.main__section {
+  background: url("/ecommerce/fondo.jpg");
+  width: 100vw;
+  height: 95vh;
+  background-position: center;
+  object-fit: cover;
+}
+.hero__flex {
+  display: flex;
+  padding: 0 200px;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 100vh;
+}
+.card__hero {
+  height: 400px;
+  padding: 60px 40px;
+  background-color: #fff;
+  border-bottom-right-radius: 50%;
+}
+.hero__title {
+  font-family: "Dancing Script", cursive;
+  color: #b8765f;
+  line-height: 60px;
+  font-size: 60px;
+}
+.hero__flex h2 {
+  max-width: 500px;
+  font-family: "Jost";
+  font-size: 30px;
+  line-height: 45px;
+}
+.hero__flex button {
+  background-color: #b8765f;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 10px 20px;
+}

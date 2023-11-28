@@ -1,0 +1,88 @@
+.bestSeller__container {
+  background-color: #f7f0ed;
+}
+.card__title {
+  color: #333;
+  font-family: "Jost";
+  line-height: 24px;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+}
+.card__container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+ecommerce__img-container img {
+  max-width: 200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tarjeta {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  color: white;
+  background-color: #539ab2;
+}
+.card__ecommerce img {
+  width: 250px !important;
+  margin: 0 auto;
+}
+.tarjeta h6 {
+  color: #fff;
+  display: inline-block;
+  font-family: "Jost";
+  font-size: 12px;
+  padding: 0 8px;
+  line-height: 18px;
+}
+.details__card {
+  display: flex;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  transition: 0.5s ease;
+  margin: 0 auto;
+  opacity: 0;
+  height: 0%;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.card__container:hover .details__card {
+  height: 90%;
+  width: 100%;
+  opacity: 0.9;
+}
+.details__card div {
+  padding: 5px 5px;
+  background-color: #333;
+}
+.details__card div:hover {
+  background-color: #b26b53;
+}
+.ecommerce__header {
+  margin: 30px 0;
+}
+.ecommerce__header h2 {
+  text-align: center;
+  font-family: "Jost";
+  font-weight: 400 !important;
+  font-size: 40px;
+  line-height: 48px;
+}
+.card__title:hover {
+  color: #b26b53;
+}
+.card__content {
+  margin: 10px 0;
+}
+.card__ecommerce {
+  width: 200px;
+}

@@ -18,7 +18,6 @@ import Peticiones from "./pages/peticiones/Peticiones";
 import PeticionesUser from "./pages/peticionesUser/PeticionesUser";
 import PeticionesAdmin from "./pages/peticionesAdmin/peticionesAdmin";
 
-
 import Usuario from "./pages/admin/usuario/Usuario";
 import Edituser from "./pages/admin/usuario/edituser/Edituser";
 import Product from "./pages/admin/productos/Product";
@@ -40,6 +39,10 @@ import CrearProducto from "./pages/productos/CrearProducto";
 import Emprendimiento from "./pages/emprendimientos/Emprendimiento";
 import PublicacionesAdminPage from "./pages/admin/Publicaciones/PublicacionesAdminPage";
 
+/* Rutas del Ecommerce */
+import HomeEcommerce from "./pages/ecommerce/Home/Home";
+import ProductDetail from "./pages/ecommerce/DetailsProduct/ProductDetail";
+
 function App() {
   return (
     <>
@@ -49,27 +52,35 @@ function App() {
         <Navbar></Navbar>
         <Routes>
           <Route path="/" index={true} element={<Home />}></Route>
+          <Route path="/ecommerce/home" element={<HomeEcommerce />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/home" element={<Home />}></Route>
           <Route path="/registro" element={<Registro />}></Route>
           <Route path="/carrito" element={<Carrito />}></Route>
           <Route path="/direccion" element={<Direccion />}></Route>
           <Route path="/pago" element={<Pago />}></Route>
-          <Route path="/acercade" element={<AcercaDe/>}></Route>
-          <Route path="/peticiones" element={<Peticiones/>}></Route>
-          <Route path="/peticionesUser" element={<PeticionesUser/>}></Route>
-          <Route path="/peticionesAdmin" element={<PeticionesAdmin/>}></Route>
+          <Route path="/acercade" element={<AcercaDe />}></Route>
+          <Route path="/peticiones" element={<Peticiones />}></Route>
+          <Route path="/peticionesUser" element={<PeticionesUser />}></Route>
+          <Route path="/peticionesAdmin" element={<PeticionesAdmin />}></Route>
           <Route
             path="/publicacion/:id/detalle"
             element={<DetallePublicacionPage />}
+          ></Route>
+          <Route
+            path="/producto/:id/detalle"
+            element={<ProductDetail />}
           ></Route>
 
           {/* Rutas del admin */}
           <Route path="" element={<ProtectAdminRoute />}>
             <Route path="/usuario" element={<Usuario />}></Route>
-            <Route path="/admin/publicaciones" element={<PublicacionesAdminPage />}></Route>
+            <Route
+              path="/admin/publicaciones"
+              element={<PublicacionesAdminPage />}
+            ></Route>
             <Route path="/admin/productos" element={<Product />}></Route>
-            <Route path="/editar/:id" element={<EditProduct/>}></Route>
+            <Route path="/editar/:id" element={<EditProduct />}></Route>
             <Route path="/admin" element={<AdminPage />}></Route>
             <Route path="/admin/user/:id/edit" element={<Edituser />}></Route>
             <Route path="/ordenes" element={<Ordenes />}></Route>

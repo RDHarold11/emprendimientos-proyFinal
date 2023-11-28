@@ -1,0 +1,46 @@
+.title__ecommerce {
+  color: #333;
+  font-family: "Jost";
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 400;
+  margin: 30px 0;
+}
+.ecommerce__flex {
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  /*  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); */
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.ecommerce__flex div:first-child {
+  max-width: 300px;
+}
+
+.ecommerce__flex h5 {
+  font-family: "Jost";
+  font-size: 20px;
+  margin: 10px 0;
+}
+.images__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  text-align: center;
+}
+.ecommerce__link {
+  font-family: "Jost";
+  font-size: 18px;
+  margin-top: 2px;
+  display: inline-block;
+  text-decoration: none;
+  line-height: 24px;
+}
+.ecommerce__link:hover {
+  text-decoration: underline;
+}

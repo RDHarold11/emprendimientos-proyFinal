@@ -1,13 +1,15 @@
 import "./Registro.css";
 import img1 from "/icono.jpg";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useRegisterMutation } from "../../slices/usersApiSlice";
 import { setCredentials } from "../../slices/authSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Registro = () => {
+  const recaptcha = useRef();
   const [name, setName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
@@ -24,14 +26,19 @@ const Registro = () => {
       if (!name || !lastName || !email || !password) {
         toast.error("Debe completar los campos");
       } else {
-        const res = await register({
-          email,
-          name,
-          lastName,
-          password,
-        }).unwrap();
-        dispatch(setCredentials({ ...res }));
-        toast.success("Bienvenido");
+        const captchaValue = recaptcha.current.getValue();
+        if (!captchaValue) {
+          toast.error("Debe completar el reCAPTCHA");
+        } else {
+          const res = await register({
+            email,
+            name,
+            lastName,
+            password,
+          }).unwrap();
+          dispatch(setCredentials({ ...res }));
+          toast.success("Bienvenido");
+        }
       }
     } catch (error) {
       toast.error(error?.data?.message || error?.error);
@@ -111,6 +118,21 @@ const Registro = () => {
                         placeholder="Introduzca una Nueva Contraseña"
                         onChange={(e) => setPassword(e.target.value)}
                         value={password}
+                      />
+                    </div>
+                    <div
+                      className="col-12"
+                      style={{
+                        marginTop: "20px",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        width: "100%",
+                        display: "flex",
+                      }}
+                    >
+                      <ReCAPTCHA
+                        ref={recaptcha}
+                        sitekey="6LdiNx0pAAAAADCX7TOavGWkRnMFWffgB1KtBcOl"
                       />
                     </div>
                     <div className="col-12">

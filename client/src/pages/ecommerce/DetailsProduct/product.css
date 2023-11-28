@@ -1,0 +1,45 @@
+.product__details .ecommerce__flex {
+  max-width: 1300px;
+}
+.product__flex {
+  gap: 50px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.product__img {
+  width: 500px;
+}
+.product__details > * {
+  font-family: "Jost";
+}
+.product__details h4 {
+  font-size: 18px;
+  color: #c17753;
+  line-height: 30px;
+}
+.product__title {
+  font-size: 30px;
+  color: #000;
+  line-height: 36px;
+}
+.detail__bottom {
+  font-size: 13px;
+  color: #999;
+}
+.bottom__select {
+  padding: 15px 20px;
+  color: #f4c340;
+  margin-right: 10px;
+}
+.bottom__btns button {
+  background-color: #000;
+  color: white;
+  padding: 10px 30px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+.bottom__btns button:hover {
+  background-color: #c17753;
+}

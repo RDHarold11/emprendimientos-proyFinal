@@ -8,7 +8,7 @@ const Hero = () => {
           <div className="row justify-content-between">
             <div className="col-lg-5">
               <div className="intro-excerpt">
-                <h1 className="titulo">Descubre Servicios y Emprendimientos</h1>
+                <h1 className="titulo ">Descubre Servicios y Emprendimientos</h1>
                 <p className="mb-4">
                   Explora una variedad de emprendimientos y servicios
                   innovadores que han surgido en tu comunidad. ¡Encuentra

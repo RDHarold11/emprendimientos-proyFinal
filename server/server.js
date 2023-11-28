@@ -14,6 +14,8 @@ import productsRouter from "./routes/products.routes.js";
 import emprendimientosRouter from "./routes/emprendimiento.routes.js";
 import uploadRoutes from "./routes/uploads.routes.js";
 import peticionesRoutes from "./routes/peticiones.routes.js";
+import orderRoutes from "./routes/order.routes.js";
+import asyncHandler from "./middleware/asyncHandler.js";
 
 connectDb();
 /* Aqui podremos establecer el servidor, asi como llamar a todas las rutas */
@@ -29,6 +31,7 @@ app.use("/api/products", productsRouter);
 app.use("/api/emprendimientos", emprendimientosRouter);
 app.use("/api/upload", uploadRoutes);
 app.use("/api/peticiones", peticionesRoutes);
+app.use("/api/orders", orderRoutes);
 
 //Acceder a la carpeta uploads donde se guardaran las imagenes
 const __dirname = path.resolve();

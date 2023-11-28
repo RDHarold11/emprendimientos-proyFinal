@@ -1,0 +1,51 @@
+.navbar__top h3 {
+  font-family: "Jost";
+  color: #333;
+  font-size: 50px;
+}
+nav .container__ecommerce {
+  padding: 10px 0;
+}
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #fff;
+}
+.navbar__top input {
+  border: none;
+  border-bottom: 1px solid #333;
+  padding: 5px 8px;
+}
+.img__container-navbar {
+  width: 400px;
+}
+.navbar__top img {
+  height: auto;
+  height: 140px !important;
+  max-width: 200px;
+}
+.navbar__top {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+}
+.input__navbar {
+  width: 100%;
+  outline: none;
+}
+.input__container {
+  width: 300px;
+  margin: 0 auto;
+}
+.navbar__icons {
+  display: flex;
+  gap: 20px;
+}
+.navbar__icons .ecommerce__link {
+  font-size: 16px;
+}
+.navbar__ecommerce {
+  border-bottom: 1px solid #e1e1e1;
+}

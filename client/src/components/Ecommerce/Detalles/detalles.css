@@ -1,0 +1,28 @@
+.detalles__card img {
+  width: 40px !important;
+  margin: 0 auto;
+}
+.detalles__section h4 {
+  font-family: "Jost";
+}
+.detalles__section .container__ecommerce {
+  padding: 100px 80px;
+}
+.detalles__card div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+}
+.detalles__section small {
+  font-size: 13px;
+  line-height: 20px;
+  color: #797979;
+}
+.detalles__content::after {
+  content: "";
+  height: 1px;
+  width: 100px;
+  background-color: #797979;
+}
