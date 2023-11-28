@@ -17,6 +17,7 @@ const Productos = () => {
   const [deleteProduct] = useDeleteProductMutation();
 
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("all");
 
   const handleCreateProduct = async () => {
     try {
@@ -31,10 +32,10 @@ const Productos = () => {
   async function onDelete(id) {
     try {
       await deleteProduct(id).unwrap();
-      refetch()
-      toast.success("Producto eliminado")
+      refetch();
+      toast.success("Producto eliminado");
     } catch (error) {
-      toast.error(error?.data?.message)
+      toast.error(error?.data?.message);
     }
   }
 
@@ -50,6 +51,8 @@ const Productos = () => {
 
   let filteredProducts = [];
   let filteredProductsByUser = [];
+  let userCategories = [];
+  let categories = [];
 
   if (products) {
     // Filtrar por usuario
@@ -57,7 +60,12 @@ const Productos = () => {
       (product) => product.user === userId
     );
 
-    // Si hay un término de búsqueda, aplicar filtro adicional por nombre
+    // Obtener las categorías del usuario
+    userCategories = [
+      ...new Set(filteredProductsByUser.map((product) => product.category)),
+    ];
+
+    // Filtrar por nombre
     if (searchTerm) {
       filteredProducts = filteredProductsByUser.filter((product) =>
         product.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -66,9 +74,19 @@ const Productos = () => {
       // Si no hay término de búsqueda, mostrar todos los productos del usuario
       filteredProducts = filteredProductsByUser;
     }
+
+    // Filtrar por categoría
+    if (selectedCategory !== "all") {
+      filteredProducts = filteredProducts.filter(
+        (product) => product.category === selectedCategory
+      );
+    }
+
+    // Obtener todas las categorías para el menú desplegable
+    categories = [...new Set(products.map((product) => product.category))];
   }
 
-  // filteredProducts ahora contendrá los productos filtrados por usuario y, si se proporciona, por nombre
+  // filteredProducts ahora contendrá los productos filtrados por usuario, nombre y categoría
 
   return (
     <div className="product-section">
@@ -77,9 +95,9 @@ const Productos = () => {
           <button className="btn btn-primary" onClick={handleCreateProduct}>
             Crear Producto
           </button>
-          <br></br>
-          <br></br>
-          <br></br>
+          <br />
+          <br />
+          <br />
         </div>
         <div className="row">
           <div className="col-12 col-md-6 offset-md-3">
@@ -97,9 +115,25 @@ const Productos = () => {
                 </span>
               </div>
             </div>
-            <br></br>
-            <br></br>
-            <br></br>
+            <br />
+            <div className="form-group">
+              <label htmlFor="categorySelect"><b>Filtrar por categoría:</b></label>
+              <select
+                id="categorySelect"
+                className="form-control"
+                value={selectedCategory}
+                onChange={(e) => setSelectedCategory(e.target.value)}
+              >
+                <option value="all">Todas las categorías</option>
+                {userCategories.map((category) => (
+                  <option key={category} value={category}>
+                    {category}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <br />
+            <br />
           </div>
         </div>
         <div className="row">

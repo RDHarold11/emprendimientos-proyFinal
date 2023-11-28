@@ -1,13 +1,18 @@
+import React, { useState } from "react";
 import Header from "../../../components/Header/Header";
 import { Link } from "react-router-dom";
 import { BsPencilSquare, BsFillTrash3Fill } from "react-icons/bs";
 import { useGetEmprendimientosQuery } from "../../../slices/emprendimientosApiSlice";
 import { useDeleteEmpMutation } from "../../../slices/emprendimientosApiSlice";
 import { toast } from "sonner";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+
 
 const PublicacionesAdminPage = () => {
   const { data, isLoading, refetch, error } = useGetEmprendimientosQuery();
-  const [deleteEmp] = useDeleteEmpMutation()
+  const [deleteEmp] = useDeleteEmpMutation();
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleDelete = async (id) => {
     toast("¿Estás seguro?", {
@@ -19,25 +24,47 @@ const PublicacionesAdminPage = () => {
         label: "Cancelar",
       },
     });
-  }
+  };
 
   const deleteHandler = async (id) => {
     try {
       await deleteEmp(id).unwrap();
-      toast.success("Publiacion eliminado");
+      toast.success("Publicación eliminada");
       refetch();
     } catch (error) {
-      toast.error(error?.data?.message);
+      toast.error(error);
     }
   };
 
   if (isLoading) {
     return <h2>Cargando...</h2>;
   }
+
+  // Filtrar publicaciones por título
+  const filteredData = data.filter((item) =>
+    item.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <>
-      <Header text="Administra todos las publicaciones"></Header>
+      <Header text="Administra todas las publicaciones" />
       <div className="contenedor">
+       
+            <div className="input-group mb-3">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Buscar por título..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <div className="input-group-append">
+                <span className="input-group-text">
+                  <FontAwesomeIcon icon={faSearch} />
+                </span>
+          
+          </div>
+        </div>
         <form action="/" method="POST">
           <table className="table">
             <thead className="thead-dark">
@@ -50,7 +77,7 @@ const PublicacionesAdminPage = () => {
               </tr>
             </thead>
             <tbody>
-              {data.map((item) => (
+              {filteredData.map((item) => (
                 <tr key={item._id}>
                   <td>{item._id}</td>
                   <td>{item.title}</td>
@@ -59,12 +86,18 @@ const PublicacionesAdminPage = () => {
                   <td>
                     <a href="/" className="btn border-shadow update">
                       <span className="text-gradient">
-                        <Link className="nav-link user" to={`/edit/publicaciones/${item._id}`}>
+                        <Link
+                          className="nav-link user"
+                          to={`/edit/publicaciones/${item._id}`}
+                        >
                           <BsPencilSquare size={20} />
                         </Link>
                       </span>
                     </a>
-                    <a className="btn botoncitos border-shadow delete" onClick={() => handleDelete(item._id)}>
+                    <a
+                      className="btn botoncitos border-shadow delete"
+                      onClick={() => handleDelete(item._id)}
+                    >
                       <Link className="nav-link user">
                         <BsFillTrash3Fill size={20} />
                       </Link>
@@ -79,6 +112,6 @@ const PublicacionesAdminPage = () => {
       </div>
     </>
   );
-};
+              };
 
 export default PublicacionesAdminPage;

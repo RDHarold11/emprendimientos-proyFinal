@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import {useGetSingleEmpQuery, useUpdateEmpMutation, useUploadEmpImageMutation} from "../../slices/emprendimientosApiSlice"
 import {useParams, useNavigate} from "react-router-dom"
 import {toast} from "sonner"
+import { Link } from "react-router-dom";
 
 const EditarEmprendimientoPage = () => {
   const [title, setTitle] = useState("");
@@ -122,13 +123,21 @@ const EditarEmprendimientoPage = () => {
                         onChange={uploadImageHandler}
                       />
                     </div>
-                    <div className="col-12">
-                      <button type="submit" className="btn btn-secondary w-100">
-                        Editar
-                      </button>
+                    <div className="col-12 mt-3">
+                      <div className="d-grid gap-2">
+                        <button type="submit" className="btn btn-primary mr-4 ">
+                          Guardar Cambios
+                        </button>
+                        <Link to="/emprendedor" className="btn btn">
+                          Volver Atrás
+                        </Link>
+                      </div>
                     </div>
+                    
                   </form>
+                  
                 </div>
+           
               </div>
             </div>
           </div>

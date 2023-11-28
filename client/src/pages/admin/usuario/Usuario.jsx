@@ -1,6 +1,6 @@
-import "./Usuario.css";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import Header from "../../../components/Header/Header";
+import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import {
   useGetUsersQuery,
@@ -8,10 +8,16 @@ import {
 } from "../../../slices/usersApiSlice";
 import { BsPencilSquare, BsFillTrash3Fill } from "react-icons/bs";
 import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const Usuario = () => {
   const { data: users, refetch, isLoading, error } = useGetUsersQuery();
   const [deleteUser, { isLoading: loadingDelete }] = useDeleteUserMutation();
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filterAdmin, setFilterAdmin] = useState(false);
+  const [filterEmprendedor, setFilterEmprendedor] = useState(false);
+  const [filterEmpresa, setFilterEmpresa] = useState(false);
 
   const deleteUserHandler = (id) => {
     toast("¿Estás seguro?", {
@@ -34,10 +40,77 @@ const Usuario = () => {
       toast.error(error?.data?.message);
     }
   };
+
+  if (isLoading) {
+    return <h2>Cargando...</h2>;
+  }
+
+  // Aplicar filtros
+  const filteredUsers = users
+    .filter((user) =>
+      user.name.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .filter((user) => (!filterAdmin || user.isAdmin) && (!filterEmprendedor || user.isEmprendedor) && (!filterEmpresa || user.isEmpresa));
+
   return (
     <>
       <Header text="Administra los usuarios" />
       <div className="contenedor">
+      
+      
+            <div className="input-group mb-3">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Buscar por nombre..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+              <div className="input-group-append">
+                <span className="input-group-text">
+                  <FontAwesomeIcon icon={faSearch} />
+                </span>
+              </div>
+       
+            <div className="row">
+            <div className="form-check form-check-inline ml-5">
+              <input
+                type="checkbox"
+                className="form-check-input"
+                id="adminFilter"
+                checked={filterAdmin}
+                onChange={() => setFilterAdmin(!filterAdmin)}
+              />
+              <label className="form-check-label" htmlFor="adminFilter">
+                Admin
+              </label>
+            </div>
+            <div className="form-check form-check-inline">
+              <input
+                type="checkbox"
+                className="form-check-input"
+                id="emprendedorFilter"
+                checked={filterEmprendedor}
+                onChange={() => setFilterEmprendedor(!filterEmprendedor)}
+              />
+              <label className="form-check-label" htmlFor="emprendedorFilter">
+                Emprendedor
+              </label>
+            </div>
+            <div className="form-check form-check-inline">
+              <input
+                type="checkbox"
+                className="form-check-input"
+                id="empresaFilter"
+                checked={filterEmpresa}
+                onChange={() => setFilterEmpresa(!filterEmpresa)}
+              />
+              <label className="form-check-label" htmlFor="empresaFilter">
+                Empresa
+              </label>
+            </div>
+          </div>
+        </div>
         <form action="/" method="POST">
           <table className="table">
             <thead className="thead-dark">
@@ -52,7 +125,7 @@ const Usuario = () => {
               </tr>
             </thead>
             <tbody>
-              {users?.map((user) => (
+              {filteredUsers.map((user) => (
                 <tr key={user._id}>
                   <td>{user._id}</td>
                   <td>{user.name}</td>

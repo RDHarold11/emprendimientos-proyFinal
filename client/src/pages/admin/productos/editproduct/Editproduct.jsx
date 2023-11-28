@@ -176,7 +176,7 @@ const Editproduct = () => {
                         <button type="submit" className="btn btn-primary mr-4 ">
                           Guardar Cambios
                         </button>
-                        <Link to="/productoadmin" className="btn btn">
+                        <Link to="/emprendedor" className="btn btn">
                           Volver Atrás
                         </Link>
                       </div>

@@ -1,6 +1,7 @@
 import "./Peticiones.css";
 import img1 from "/icono.jpg";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { useCreatePeticionMutation } from "../../slices/peticionesApiSlice";
 
@@ -83,11 +84,16 @@ const Peticiones = () => {
                         value={description}
                       />
                     </div>
-                    <div className="col-12">
-                      <button type="submit" className="btn btn-primary w-100">
-                        Enviar
-                      </button>
-                    </div>
+
+                    <div className="col-12 d-flex mt-4">
+  <button type="submit" className="btn btn-secondary mr-4">
+    Enviar
+  </button>
+  <Link to="/emprendedor" className="btn btn">
+    Volver Atrás
+  </Link>
+</div>
+                  
                   </form>
                 </div>
               </div>
