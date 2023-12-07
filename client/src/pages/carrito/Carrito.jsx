@@ -1,51 +1,97 @@
 import "./Carrito.css";
 import img1 from "/icono.jpg";
 import { FaTrash } from "react-icons/fa";
-
-import React, { useState } from 'react'
+import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { addToCart, removeFromCart } from "../../slices/cartSlice";
+import Header from "../../components/Header/Header";
 
 const Carrito = () => {
-  const [quantity, setQuantity] = useState(0)
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const addToCartHandler = async (c, qty) => {
+    dispatch(addToCart({ ...c, qty }));
+  };
+
+  const removeFromCartHandler = async (id) => {
+    dispatch(removeFromCart(id));
+  };
+
+  const checkoutHandler = () => {
+    navigate("/direccion");
+  };
+
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
   return (
-    <div className="cart-container">
-      <div className="cart-title">CARRITO DE COMPRAS</div>
-      <div className="cart-div">
-        <div className="product">
-          <img src={img1} alt="Producto 1" className="product-image" />
-          <div className="product-details">
-            <div className="product-name">Producto 1</div>
-            <div className="product-price">$19.99</div>
-          </div>
-          <input type="number" className="quantity-input" value="1" />
-          <FaTrash className="remove-icon" />
+    <>
+      <Header text="Tu carrito" />
+      <div className="cart-container">
+        <div className="cart-div">
+          {cartItems?.map((c) => (
+            <div className="product" key={c._id}>
+              <img
+                src={c.image}
+                alt={c.image}
+                className="product-image"
+                loading="lazy"
+              />
+              <div className="product-details">
+                <div className="product-name">
+                  <Link to={`/producto/${c._id}/detalle`}>{c.name}</Link>
+                </div>
+                <div className="product-price">${c.price}</div>
+              </div>
+              <select
+                className="bottom__select"
+                value={c.qty}
+                onChange={(e) => addToCartHandler(c, Number(e.target.value))}
+              >
+                {[...Array(c.countInStock).keys()].map((x) => (
+                  <option value={x + 1} key={x + 1}>
+                    {x + 1}
+                  </option>
+                ))}
+              </select>
+              <div
+                className="remove__item"
+                onClick={() => removeFromCartHandler(c._id)}
+              >
+                <FaTrash className="remove-icon" color="white" />
+              </div>
+            </div>
+          ))}
         </div>
-
-        <div className="product">
-          <img src={img1} alt="Producto 2" className="product-image" />
-          <div className="product-details">
-            <div className="product-name">Producto 2</div>
-            <div className="product-price">$24.99</div>
+        <div className="carrito-total">
+          <div className="fila">
+            <strong>
+              Subtotal ({cartItems.reduce((acc, item) => acc + item.qty, 0)})
+              articulos
+            </strong>
           </div>
-          <input type="number" className="quantity-input" onChange={(e) => setQuantity(e.target.value)} value={quantity} />
-          <FaTrash className="remove-icon" />
+          <br></br>
+          <div className="cualto">
+            <span className="carrito-precio-total">
+              Precio: $
+              {cartItems
+                .reduce((acc, item) => acc + item.qty * item.price, 0)
+                .toFixed(2)}
+            </span>
+          </div>
+          <br></br>
+          <button
+            className="btn-pagar"
+            disabled={cartItems.length === 0}
+            onClick={checkoutHandler}
+          >
+            Realizar Pago{" "}
+          </button>
         </div>
       </div>
-      <div class="carrito-total">
-        <div class="fila">
-          <strong>Tu Total</strong>
-        </div>
-        <br></br>
-        <div className="cualto">
-          <span class="carrito-precio-total">
-            $120.000,00
-          </span>
-        </div>
-        <br></br>
-
-        <button class="btn-pagar">Realizar Pago </button>
-      </div>
-    </div>
-  )
-}
+    </>
+  );
+};
 
 export default Carrito;

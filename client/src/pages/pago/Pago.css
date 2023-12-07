@@ -1,34 +1,38 @@
-
 .container-pago {
   display: flex;
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  height: 300px;
   justify-content: center;
-  height: 100vh;
   flex-direction: column;
 }
 
 * {
   box-sizing: border-box;
 }
+.card__pago {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-.card__container{
+.card__pago-container {
   width: 300px;
 }
 .price h1 {
   font-weight: 300;
-  color: #18C2C0;
+  color: #18c2c0;
   letter-spacing: 2px;
 }
-.img-container{
+.img-container {
   margin: 0 auto;
   max-width: 150px;
 }
 .img-container img {
   width: 100%;
 }
-.card-pago{
+.card__pago-container {
   display: flex;
   gap: 70px;
   height: 200px;
@@ -37,11 +41,11 @@
   justify-content: space-between;
 }
 
-input[type=radio]:checked ~ .radio {
-  border: 3px solid #90E1E3;
-  background-color: #18C2C0;
+input[type="radio"]:checked ~ .radio {
+  border: 3px solid #90e1e3;
+  background-color: #18c2c0;
 }
-input[type=radio]:checked ~ .radio::before {
+input[type="radio"]:checked ~ .radio::before {
   background-color: #fff;
 }
 
@@ -50,7 +54,7 @@ input[type=radio]:checked ~ .radio::before {
   font-weight: 400;
   letter-spacing: 1px;
   width: 520px;
-  background-color: #18C2C0;
+  background-color: #18c2c0;
   border: none;
   color: #fff;
   padding: 18px;
@@ -66,5 +70,5 @@ input[type=radio]:checked ~ .radio::before {
 }
 .button button i {
   font-size: 1.2rem;
-  margin-right: 5px;
+  margin-right: 5px;
 }

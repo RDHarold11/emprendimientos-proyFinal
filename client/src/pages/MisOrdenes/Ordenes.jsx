@@ -2,25 +2,24 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { BsPencilSquare, BsFillTrash3Fill } from "react-icons/bs";
 import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
-import Header from "../../../components/Header/Header";
-import { useGetOrdersQuery } from "../../../slices/ordersApiSlice";
+import Header from "../../components/Header/Header";
+import { useGetMyOrdersQuery } from "../../slices/ordersApiSlice";
 
 const Ordenes = () => {
-  const { data: orders, isLoading, error } = useGetOrdersQuery();
+  const { data: orders, isLoading, error } = useGetMyOrdersQuery();
 
   if (isLoading) {
     return <h2>Cargando...</h2>;
   }
   return (
     <>
-      <Header text="Administra las ordenes" />
+      <Header text="Tus ordenes" />
       <div className="contenedor">
         <form action="/" method="POST">
           <table className="table">
             <thead className="thead-dark">
               <tr>
                 <th>ID</th>
-                <th>Usuario</th>
                 <th>Fecha</th>
                 <th>Total</th>
                 <th>Pagado</th>
@@ -32,7 +31,6 @@ const Ordenes = () => {
               {orders.map((order) => (
                 <tr key={order._id}>
                   <td>{order._id}</td>
-                  <td>{order.user && order.user.name}</td>
                   <td>{order.createdAt.substring(0, 10)}</td>
                   <td>${order.totalPrice}</td>
                   <td>

@@ -4,6 +4,7 @@ import img1 from "/icono.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { saveShipping } from "../../slices/cartSlice";
 import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 
 const Direccion = () => {
   const cart = useSelector((state) => state.cart);
@@ -17,10 +18,12 @@ const Direccion = () => {
   const [country, setCountry] = useState(shippingAddress?.country || "");
 
   const dispatch = useDispatch();
+  const navigate = useNavigate()
 
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(saveShipping({ address, city, postalCode, country }));
+    navigate("/pago")
     toast.success("Dirección agregada");
   };
   return (

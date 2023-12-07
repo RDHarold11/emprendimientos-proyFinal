@@ -7,10 +7,14 @@ import { Provider } from 'react-redux'
 import store from './app/store.js'
 /* AQUI NO SE DEBERIA TOCAR NADA */
 
+import { PayPalScriptProvider } from '@paypal/react-paypal-js'
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <PayPalScriptProvider deferLoading={true}>
+        <App />
+      </PayPalScriptProvider>
     </Provider>
   </React.StrictMode>,
 )

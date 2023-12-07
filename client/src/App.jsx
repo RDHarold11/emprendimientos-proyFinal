@@ -42,7 +42,9 @@ import PublicacionesAdminPage from "./pages/admin/Publicaciones/PublicacionesAdm
 /* Rutas del Ecommerce */
 import HomeEcommerce from "./pages/ecommerce/Home/Home";
 import ProductDetail from "./pages/ecommerce/DetailsProduct/ProductDetail";
-
+import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
+import Order from "./pages/order/Order";
+import MisOrdenes from "./pages/MisOrdenes/Ordenes";
 function App() {
   return (
     <>
@@ -60,9 +62,6 @@ function App() {
           <Route path="/direccion" element={<Direccion />}></Route>
           <Route path="/pago" element={<Pago />}></Route>
           <Route path="/acercade" element={<AcercaDe />}></Route>
-          <Route path="/peticiones" element={<Peticiones />}></Route>
-          <Route path="/peticionesUser" element={<PeticionesUser />}></Route>
-          <Route path="/peticionesAdmin" element={<PeticionesAdmin />}></Route>
           <Route
             path="/publicacion/:id/detalle"
             element={<DetallePublicacionPage />}
@@ -97,6 +96,15 @@ function App() {
               path="/edit/publicaciones/:id"
               element={<EditarEmprendimientoPage />}
             ></Route>
+            <Route path="/peticiones" element={<Peticiones />}></Route>
+            <Route path="/peticionesUser" element={<PeticionesUser />}></Route>
+            <Route
+              path="/peticionesAdmin"
+              element={<PeticionesAdmin />}
+            ></Route>
+            <Route path="/placeorder" element={<PlaceOrder />}></Route>
+            <Route path="/order/:id" element={<Order />}></Route>
+            <Route path="/ordenes/me" element={<MisOrdenes />}></Route>
           </Route>
         </Routes>
       </Router>

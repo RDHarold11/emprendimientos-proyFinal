@@ -12,6 +12,7 @@ import { resetCart } from "../slices/cartSlice";
 
 const Navbar = () => {
   const { userInfo: user } = useSelector((state) => state.auth);
+  const { cartItems } = useSelector((state) => state.cart);
 
   const dispatch = useDispatch();
   const [logoutApiCall] = useLogoutMutation();
@@ -62,7 +63,7 @@ const Navbar = () => {
                   Sobre Nosotros
                 </Link>
               </li>
-              
+
               {user && (
                 <Link className="nav-link" to="/ecommerce/home">
                   Comprar ya
@@ -77,7 +78,9 @@ const Navbar = () => {
             <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
               <Link className="nav-link cart-amount" to="/carrito">
                 <AiOutlineShoppingCart size={30} />
-                <div>1</div>
+                {cartItems.length > 0 && (
+                  <div>{cartItems.reduce((a, c) => a + c.qty, 0)}</div>
+                )}
               </Link>
               {user?.isAdmin && (
                 <Link className="nav-link user" to="/admin">

@@ -57,6 +57,18 @@ const updateProduct = asyncHandler(async (req, res) => {
   }
 });
 
+const selectTopProducts = asyncHandler(async (req, res) => {
+  /* Lo que usare una vez tenga los rating */
+  /* const products = await Product.find({ rating: { $gt: 3.5 } }).limit(10); */
+  const products = await Product.find({}).limit();
+  if (products) {
+    return res.json(products);
+  } else {
+    res.status(404);
+    throw new Error("No existen producto");
+  }
+});
+
 const deleteProduct = asyncHandler(async (req, res) => {
   const product = await Product.findById(req.params.id);
   if (product) {
@@ -74,4 +86,5 @@ export {
   deleteProduct,
   updateProduct,
   getProductById,
+  selectTopProducts,
 };

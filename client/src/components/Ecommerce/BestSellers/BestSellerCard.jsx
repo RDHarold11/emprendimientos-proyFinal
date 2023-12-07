@@ -5,16 +5,16 @@ import { CiHeart } from "react-icons/ci";
 import { FiEye } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
 
-const BestSellerCard = () => {
+const BestSellerCard = ({item}) => {
   const navigate = useNavigate()
   return (
     <div className="card__ecommerce card__container">
       <div>
-        <img src="/ecommerce/10.png" alt="" />
+        <img src={item.image} alt="" />
       </div>
       <div className="card__content">
-        <h3 className="card__title">Village Candle Cinnamon</h3>
-        <p>$29.00</p>
+        <h3 className="card__title">{item.name}</h3>
+        <p>${item.price}</p>
       </div>
       <div className="tarjeta">
         <h6>New</h6>
@@ -26,7 +26,7 @@ const BestSellerCard = () => {
         <div>
           <CiHeart size={25} color="#fff" />
         </div>
-        <div onClick={() => navigate("/producto/2/detalle")}>
+        <div onClick={() => navigate(`/producto/${item._id}/detalle`)}>
           <FiEye size={25} color="#fff" />
         </div>
       </div>

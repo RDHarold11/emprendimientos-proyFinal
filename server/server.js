@@ -33,6 +33,10 @@ app.use("/api/upload", uploadRoutes);
 app.use("/api/peticiones", peticionesRoutes);
 app.use("/api/orders", orderRoutes);
 
+app.get("/api/config/paypal", (req, res) => {
+  res.send({ clientId: process.env.PAYPAL_CLIENT_ID });
+});
+
 //Acceder a la carpeta uploads donde se guardaran las imagenes
 const __dirname = path.resolve();
 app.use("/uploads", express.static(path.join(__dirname, "/uploads")));

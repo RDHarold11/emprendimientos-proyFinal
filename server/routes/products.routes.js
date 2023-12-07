@@ -7,10 +7,12 @@ import {
   getProductById,
   getProducts,
   updateProduct,
+  selectTopProducts,
 } from "../controllers/productController.js";
 import { protect, emprendedor, admin } from "../middleware/authMiddleware.js";
 
 router.route("/").get(getProducts).post(protect, createProduct);
+router.get("/top", selectTopProducts);
 router
   .route("/:id")
   .delete(protect, deleteProduct)
