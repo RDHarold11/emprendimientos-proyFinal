@@ -1,6 +1,7 @@
 import "./detallePublicacion.css";
 import { useSelector } from "react-redux";
 import Comentarios from "../../components/comentarios/comentarios";
+import Loading from "../../components/Loading";
 
 const DetallePublicacionPage = () => {
   return (
@@ -65,7 +66,7 @@ const DetallePublicacionPage = () => {
           </div>
         </div>
       </section>
-      <Comentarios></Comentarios>
+      {/* <Comentarios></Comentarios> */}
     </>
   );
 };

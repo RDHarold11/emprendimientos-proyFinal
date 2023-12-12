@@ -10,6 +10,7 @@ import { toast } from "sonner";
 import { useDispatch, useSelector } from "react-redux";
 import Product from "../../components/Product";
 import { useDeleteProductMutation } from "../../slices/productsApiSlice";
+import Loading from "../../components/Loading";
 
 const Productos = () => {
   const [createProduct] = useCreateProductMutation();
@@ -138,7 +139,7 @@ const Productos = () => {
         </div>
         <div className="row">
           {isLoading ? (
-            <p>Loading products...</p>
+            <Loading/>
           ) : error ? (
             <p>Error fetching products: {error.message}</p>
           ) : (

@@ -13,6 +13,7 @@ import {
 import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 
 import "./order.css";
+import Loading from "../../components/Loading";
 
 const Order = () => {
   const { id: orderId } = useParams();
@@ -102,7 +103,7 @@ const Order = () => {
   }, [order, paypal, paypalDispatch, loadingPayPal, errorPayPal]);
 
   if (isLoading) {
-    return <h2>Cargando...</h2>;
+    return <Loading/>
   }
   return (
     <>

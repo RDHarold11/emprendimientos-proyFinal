@@ -8,6 +8,7 @@ import {
 } from "../../slices/peticionesApiSlice";
 import { toast } from "sonner";
 import Header from "../../components/Header/Header";
+import Loading from "../../components/Loading";
 
 const PeticionesAdmin = () => {
   const { data, error, isLoading, refetch } = useGetPeticionesByAdminQuery();
@@ -52,7 +53,7 @@ const PeticionesAdmin = () => {
   };
 
   if (isLoading) {
-    return <h2>Cargando...</h2>;
+    return <Loading/>
   }
 
   const filteredPeticiones = data.filter((peticion) => {

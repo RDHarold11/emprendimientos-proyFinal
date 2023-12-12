@@ -4,21 +4,43 @@ import Navbar from "../../../components/Ecommerce/Navbar/Navbar";
 import { useNavigate, useParams } from "react-router-dom";
 import "./product.css";
 import Comentarios from "../../../components/comentarios/comentarios";
-import { useGetSingleProductQuery } from "../../../slices/productsApiSlice";
+import {
+  useGetSingleProductQuery,
+  useCreateReviewMutation,
+} from "../../../slices/productsApiSlice";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../../../slices/cartSlice";
 import { toast } from "sonner";
 import Rating from "../../../components/Rating";
+import Loading from "../../../components/Loading";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const [qty, setQty] = useState(1);
+  const [rating, setRating] = useState(0);
+  const [comment, setComment] = useState("");
 
-  const { data: product, isLoading } = useGetSingleProductQuery(id);
+  const { data: product, isLoading, refetch } = useGetSingleProductQuery(id);
+  const [createReview, { isLoading: loadingProductReview }] =
+    useCreateReviewMutation();
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      await createReview({
+        id,
+        rating,
+        comment,
+      }).unwrap();
+      refetch();
+      toast.success("Review creada");
+    } catch (error) {
+      toast.error(error?.data?.message || error.error);
+    }
+  };
   const addToCartHandler = () => {
     dispatch(addToCart({ ...product, qty }));
     toast.success("Agregado al carrito");
@@ -26,11 +48,12 @@ const ProductDetail = () => {
   };
 
   if (isLoading) {
-    return <h2>Cargando...</h2>;
+    return <Loading />;
   }
   return (
     <>
       <Navbar></Navbar>
+      {loadingProductReview && <Loading />}
       <section className="product__details">
         <div className="container__ecommerce">
           <div className="product__flex">
@@ -80,7 +103,14 @@ const ProductDetail = () => {
           </div>
         </div>
       </section>
-      <Comentarios />
+      <Comentarios
+        product={product}
+        setComment={setComment}
+        comment={comment}
+        rating={rating}
+        setRating={setRating}
+        submitHandler={submitHandler}
+      />
     </>
   );
 };

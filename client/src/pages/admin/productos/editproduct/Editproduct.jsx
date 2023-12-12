@@ -9,6 +9,7 @@ import {
   useGetSingleProductQuery,
   useUpdateProductMutation,
 } from "../../../../slices/productsApiSlice";
+import Loading from "../../../../components/Loading";
 
 const Editproduct = () => {
   const { id } = useParams();
@@ -73,11 +74,11 @@ const Editproduct = () => {
   }, [product]);
 
   if (isLoading) {
-    return <h2>Cargando...</h2>;
+    return <Loading/>;
   }
   return (
     <div className="container">
-      {loadingUpdate && <h2>Cargando...</h2>}
+      {loadingUpdate && <Loading/>}
       <section className="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
         <div className="container">
           <div className="row justify-content-center">

@@ -1019,3 +1019,62 @@ textarea {
 .pubs-container {
   padding: 10px 0;
 }
+.quill {
+  margin: 13px 0;
+}
+/* HTML: <div class="loader"></div> */
+.loader__container {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  background-color: #8d8d8d;
+}
+.loader {
+  --r1: 154%;
+  z-index: 1000;
+  --r2: 68.5%;
+  width: 60px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+      var(--r1) var(--r2) at top,
+      #0000 79.5%,
+      #269af2 80%
+    ),
+    radial-gradient(var(--r1) var(--r2) at bottom, #269af2 79.5%, #0000 80%),
+    radial-gradient(var(--r1) var(--r2) at top, #0000 79.5%, #269af2 80%), #ccc;
+  background-size: 50.5% 220%;
+  background-position: -100% 0%, 0% 0%, 100% 0%;
+  background-repeat: no-repeat;
+  animation: l9 2s infinite linear;
+}
+@keyframes l9 {
+  33% {
+    background-position: 0% 33%, 100% 33%, 200% 33%;
+  }
+  66% {
+    background-position: -100% 66%, 0% 66%, 100% 66%;
+  }
+  100% {
+    background-position: 0% 100%, 100% 100%, 200% 100%;
+  }
+}
+.media__comment {
+  display: flex;
+}
+.media__comment img {
+  margin-right: 20px;
+}
+.nombre span {
+  margin-left: 20px;
+}
+.options__comment {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 10px;
+  margin: 10px 0;
+  border: 1px solid #ced4da;
+}

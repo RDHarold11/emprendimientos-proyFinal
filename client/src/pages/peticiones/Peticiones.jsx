@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { useCreatePeticionMutation } from "../../slices/peticionesApiSlice";
+import Loading from "../../components/Loading";
 
 const Peticiones = () => {
   const [type, setType] = useState("");
@@ -28,7 +29,7 @@ const Peticiones = () => {
   };
 
   if(isLoading){
-    return <h2>Cargando...</h2>
+    return <Loading/>
   }
 
   return (
@@ -72,6 +73,7 @@ const Peticiones = () => {
                         </option>
                         <option value="Quiero ser empresa">Quiero ser empresa</option>
                         <option value="Eliminar cuenta">Quiero eliminar mi cuenta</option>
+                        <option value="Recogida de mercancia">Recoger mi mercancia</option>
                       </select>
                     </div>
                     <div className="col-12">

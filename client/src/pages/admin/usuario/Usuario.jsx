@@ -10,6 +10,7 @@ import { BsPencilSquare, BsFillTrash3Fill } from "react-icons/bs";
 import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import Loading from "../../../components/Loading";
 
 const Usuario = () => {
   const { data: users, refetch, isLoading, error } = useGetUsersQuery();
@@ -42,7 +43,7 @@ const Usuario = () => {
   };
 
   if (isLoading) {
-    return <h2>Cargando...</h2>;
+    return <Loading/>;
   }
 
   // Aplicar filtros
@@ -178,6 +179,7 @@ const Usuario = () => {
                       className="btn botoncitos border-shadow delete"
                       onClick={() => deleteUserHandler(user._id)}
                     >
+                      {loadingDelete && <Loading/>}
                       <div className="nav-link user" to="/admin">
                         <BsFillTrash3Fill size={20} color="#333" />
                       </div>

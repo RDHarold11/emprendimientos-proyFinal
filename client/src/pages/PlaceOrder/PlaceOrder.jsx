@@ -6,6 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { clearCartItems } from "../../slices/cartSlice";
 import { useNavigate, Link } from "react-router-dom";
 import {useCreateOrderMutation} from "../../slices/ordersApiSlice"
+import Loading from "../../components/Loading";
 
 const PlaceOrder = () => {
   const navigate = useNavigate();
@@ -40,7 +41,7 @@ const PlaceOrder = () => {
     }
   }
   if(isLoading){
-    return <h2>Cargando...</h2>
+    return <Loading/>
   }
   return (
     <>
