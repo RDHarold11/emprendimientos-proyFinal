@@ -11,6 +11,7 @@ import DetallePublicacionPage from "./pages/detallePublicacion/detallePublicacio
 import EditarCuentapage from "./pages/cuenta/EditarCuenta";
 import Navbar from "./components/Navbar";
 import Carrito from "./pages/carrito/Carrito";
+import Favorito from "./pages/wish/Wish";
 import Direccion from "./pages/direccion/Direccion";
 import Pago from "./pages/pago/Pago";
 import AcercaDe from "./components/Acercade/AcercaDe";
@@ -59,6 +60,7 @@ function App() {
           <Route path="/home" element={<Home />}></Route>
           <Route path="/registro" element={<Registro />}></Route>
           <Route path="/carrito" element={<Carrito />}></Route>
+          <Route path="/wish" element={<Favorito />}></Route>
           <Route path="/direccion" element={<Direccion />}></Route>
           <Route path="/pago" element={<Pago />}></Route>
           <Route path="/acercade" element={<AcercaDe />}></Route>

@@ -9,6 +9,7 @@ import { RiUserSettingsLine } from "react-icons/ri";
 import { useLogoutMutation } from "../slices/usersApiSlice";
 import { logout } from "../slices/authSlice";
 import { resetCart } from "../slices/cartSlice";
+import { FaStar } from 'react-icons/fa';
 
 const Navbar = () => {
   const { userInfo: user } = useSelector((state) => state.auth);
@@ -78,6 +79,12 @@ const Navbar = () => {
             <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
               <Link className="nav-link cart-amount" to="/carrito">
                 <AiOutlineShoppingCart size={30} />
+                {cartItems.length > 0 && (
+                  <div>{cartItems.reduce((a, c) => a + c.qty, 0)}</div>
+                )}
+              </Link>
+              <Link className="nav-link favorites" to="/wish">
+                <FaStar size={30} />
                 {cartItems.length > 0 && (
                   <div>{cartItems.reduce((a, c) => a + c.qty, 0)}</div>
                 )}
