@@ -6,7 +6,7 @@ import "./Productos.css";
 import { useGetProductsQuery } from "../../../slices/productsApiSlice";
 import { useDeleteProductMutation } from "../../../slices/productsApiSlice";
 import { toast } from "sonner";
-
+import Loading from "../../../components/Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
@@ -39,7 +39,7 @@ const Product = () => {
   };
 
   if (isLoading) {
-    return <h2>Cargando...</h2>;
+    return <Loading/>;
   }
 
   // Filtrar productos por nombre y categoría

@@ -1,4 +1,3 @@
-import React from "react";
 import "./best.css";
 import { LuShoppingBag } from "react-icons/lu";
 import { CiHeart } from "react-icons/ci";

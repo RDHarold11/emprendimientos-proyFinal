@@ -4,12 +4,13 @@ import { BsPencilSquare, BsFillTrash3Fill } from "react-icons/bs";
 import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
 import Header from "../../../components/Header/Header";
 import { useGetOrdersQuery } from "../../../slices/ordersApiSlice";
+import Loading from "../../../components/Loading";
 
 const Ordenes = () => {
   const { data: orders, isLoading, error } = useGetOrdersQuery();
 
   if (isLoading) {
-    return <h2>Cargando...</h2>;
+    return <Loading/>;
   }
   return (
     <>

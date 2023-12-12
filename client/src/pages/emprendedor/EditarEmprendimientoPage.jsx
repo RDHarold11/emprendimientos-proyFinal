@@ -1,60 +1,73 @@
 import img1 from "/icono.jpg";
 import { useEffect, useState } from "react";
-import {useGetSingleEmpQuery, useUpdateEmpMutation, useUploadEmpImageMutation} from "../../slices/emprendimientosApiSlice"
-import {useParams, useNavigate} from "react-router-dom"
-import {toast} from "sonner"
+import {
+  useGetSingleEmpQuery,
+  useUpdateEmpMutation,
+  useUploadEmpImageMutation,
+} from "../../slices/emprendimientosApiSlice";
+import { useParams, useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 import { Link } from "react-router-dom";
+
+import ReactQuill from "react-quill";
+import "../../../node_modules/react-quill/dist/quill.snow.css";
+import Loading from "../../components/Loading";
 
 const EditarEmprendimientoPage = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
 
-  const {id} = useParams()
+  const { id } = useParams();
 
-  const {data:emp, refetch, error} = useGetSingleEmpQuery(id)
-  const [updateEmp, {isLoading: loadingUpdate}] = useUpdateEmpMutation()
-  const [uploadImg, {isLoading: loadingImgUpload}] = useUploadEmpImageMutation()
+  const { data: emp, refetch, error } = useGetSingleEmpQuery(id);
+  const [updateEmp, { isLoading: loadingUpdate }] = useUpdateEmpMutation();
+  const [uploadImg, { isLoading: loadingImgUpload }] =
+    useUploadEmpImageMutation();
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const submitHandler = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
       await updateEmp({
-        id, 
+        id,
         title,
         description,
-        image
-      }).unwrap()
-      toast.success("Emprendimiento actualizado")
-      refetch()
-      navigate("/emprendimiento")
+        image,
+      }).unwrap();
+      toast.success("Emprendimiento actualizado");
+      refetch();
+      navigate("/emprendimiento");
     } catch (error) {
-      toast.error(error?.data?.message)
+      toast.error(error?.data?.message);
     }
-  }
+  };
 
   const uploadImageHandler = async (e) => {
-    const formData = new FormData()
-    formData.append("image", e.target.files[0])
+    const formData = new FormData();
+    formData.append("image", e.target.files[0]);
 
     try {
-      const res = await uploadImg(formData).unwrap()
-      toast.success(res.message)
-      setImage(res.image)
+      const res = await uploadImg(formData).unwrap();
+      toast.success(res.message);
+      setImage(res.image);
     } catch (error) {
-     toast.error(error?.data?.message) 
+      toast.error(error?.data?.message);
     }
-  }
-  
+  };
+
   useEffect(() => {
-    if(emp){
-      setTitle(emp.title)
-      setDescription(emp.description) 
-      setImage(emp.image)
+    if (emp) {
+      setTitle(emp.title);
+      setDescription(emp.description);
+      setImage(emp.image);
     }
-  },[id, emp])
+  }, [id, emp]);
+
+  if(loadingUpdate){
+    return <Loading/>
+  }
 
   return (
     <div className="container">
@@ -96,15 +109,21 @@ const EditarEmprendimientoPage = () => {
                         value={title}
                       />
                     </div>
-                    <div className="col-12">
-                      <label className="form-label">Descripcion</label>
+                    <div className="col-12 quill">
+                      <ReactQuill
+
+                        placeholder="Escribe algo"
+                        value={description}
+                        onChange={(e) => setDescription(e)}
+                      />
+                      {/* <label className="form-label">Descripcion</label>
                       <input
                         className="form-control"
                         type="textarea"
                         placeholder="Introduzca una descripcion"
                         onChange={(e) => setDescription(e.target.value)}
                         value={description}
-                      />
+                      /> */}
                     </div>
                     <div className="col-12">
                       <label className="form-label">Imagen</label>
@@ -122,6 +141,7 @@ const EditarEmprendimientoPage = () => {
                         label="Seleccione una imagen"
                         onChange={uploadImageHandler}
                       />
+                      {loadingImgUpload && <Loading/>}
                     </div>
                     <div className="col-12 mt-3">
                       <div className="d-grid gap-2">
@@ -133,11 +153,8 @@ const EditarEmprendimientoPage = () => {
                         </Link>
                       </div>
                     </div>
-                    
                   </form>
-                  
                 </div>
-           
               </div>
             </div>
           </div>

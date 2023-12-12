@@ -7,6 +7,7 @@ import {
   useUpdateUserMutation,
 } from "../../../../slices/usersApiSlice";
 import { toast } from "sonner";
+import Loading from "../../../../components/Loading";
 
 const Edituser = () => {
   const { id: userId } = useParams();
@@ -49,9 +50,13 @@ const Edituser = () => {
     }
   }, [user]);
 
+  if(isLoading){
+    return <Loading/>
+  }
+
   return (
     <div className="container">
-      {loadingUpdate && <h2>Cargando...</h2>}
+      {loadingUpdate &&  <Loading/>}
       <section className="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
         <div className="container">
           <div className="row justify-content-center">

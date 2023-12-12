@@ -7,6 +7,7 @@ import { useDeleteEmpMutation } from "../../../slices/emprendimientosApiSlice";
 import { toast } from "sonner";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import Loading from "../../../components/Loading";
 
 
 const PublicacionesAdminPage = () => {
@@ -37,7 +38,7 @@ const PublicacionesAdminPage = () => {
   };
 
   if (isLoading) {
-    return <h2>Cargando...</h2>;
+    return <Loading/>;
   }
 
   // Filtrar publicaciones por título

@@ -19,7 +19,15 @@ h3 {
 div h3 {
   color: #fff;
 }
-
+.graf__flex {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 50px 0;
+  display: flex;
+}
+.graf__flex span {
+  width: 300px;
+}
 .admin-container div:hover {
   background-color: #6ba991;
   transform: scale(1.1);

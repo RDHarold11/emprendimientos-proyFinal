@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLoginMutation } from "../slices/usersApiSlice";
 import { useNavigate } from "react-router-dom";
 import { setCredentials } from "../slices/authSlice";
+import Loading from "../components/Loading"
 
 function LoginForm() {
   const [email, setEmail] = useState("");
@@ -38,6 +39,9 @@ function LoginForm() {
     }
   }, [user, navigate]);
 
+  if(isLoading){
+    return <Loading/>
+  }
   return (
     <div className="container">
       <section className="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">

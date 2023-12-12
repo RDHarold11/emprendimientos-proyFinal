@@ -9,13 +9,14 @@ const Emprendimiento = ({
   rating,
   handleDelete,
 }) => {
+  const formattedDescription = { __html: description.replace(/^"(.*)"$/, "$1").slice(0,50) };
   return (
     <div className="product-item">
       <img src={image} className="img-fluid product-thumbnail" alt={titulo} />
       <h3 className="product-title">
         <strong>{titulo}</strong>
       </h3>
-      <p>{description}</p>
+      <p dangerouslySetInnerHTML={formattedDescription}></p>
       <p>Rating: {rating}</p>
       <div className="product-buttons">
         <button className="btn btn-secondary">

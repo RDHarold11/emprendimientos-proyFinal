@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
+import Loading from "../../components/Loading";
 
 const Registro = () => {
   const recaptcha = useRef();
@@ -50,6 +51,10 @@ const Registro = () => {
       navigate("/");
     }
   }, [navigate, userInfo]);
+
+  if(isLoading){
+    return <Loading/>
+  }
   return (
     <div className="container">
       <section className="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">

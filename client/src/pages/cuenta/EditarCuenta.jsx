@@ -11,6 +11,7 @@ import { toast } from "sonner";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
+import Loading from "../../components/Loading";
 
 const EditarCuentapage = () => {
   const [name, setName] = useState("");
@@ -73,6 +74,9 @@ const EditarCuentapage = () => {
     setEmail(userInfo.email);
   }, [userInfo]);
 
+  if(isLoading){
+    return <Loading/>
+  }
   return (
     <div className="account__container">
       <section className="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
@@ -139,6 +143,7 @@ const EditarCuentapage = () => {
                         label="Seleccione una imagen"
                         onChange={uploadImageHandler}
                       />
+                      {loadingUpload && <Loading/>}
                     </div>
                     <div className="col-12">
                       <label className="form-label">Correo Electroníco</label>

@@ -1,21 +1,18 @@
 import "./comentarios.css";
 import images from "/icono.jpg";
 import { useSelector } from "react-redux";
-import { useState } from "react";
-import { toast } from "sonner";
 import { Link } from "react-router-dom";
+import Rating from "../Rating";
 
-const Comentarios = () => {
-  const [commentText, setCommentText] = useState("");
-  const [comments, setComments] = useState([]);
+const Comentarios = ({
+  setComment,
+  rating,
+  comment,
+  setRating,
+  submitHandler,
+  product,
+}) => {
   const { userInfo } = useSelector((state) => state.auth);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setComments([...comments, commentText]);
-    setCommentText("");
-    toast.success("Comentario publicado");
-  };
 
   return (
     <div className="container-xl">
@@ -35,49 +32,61 @@ const Comentarios = () => {
                   </div>
                   <form
                     className="row justify-content-center g-3"
-                    onSubmit={handleSubmit}
+                    onSubmit={submitHandler}
                   >
                     <div className="col-8">
+                      <div>
+                        <select
+                          className="options__comment"
+                          value={rating}
+                          onChange={(e) => setRating(e.target.value)}
+                        >
+                          <option value="">Selecciona</option>
+                          <option value="1">1 - Meh..</option>
+                          <option value="2">2 - Algo justo</option>
+                          <option value="3">3 - Bueno</option>
+                          <option value="4">4 - Muy buena</option>
+                          <option value="5">5 - Excelente idea</option>
+                        </select>
+                      </div>
                       <textarea
                         className="form-control"
                         style={{ width: "100%" }}
                         placeholder="Escribe tu comentario"
                         rows="4"
-                        onChange={(e) => setCommentText(e.target.value)}
-                        value={commentText}
+                        value={comment}
+                        onChange={(e) => setComment(e.target.value)}
                       />
                     </div>
                     <div className="col-2 me-2">
                       <button type="submit" className="btn btn-primary">
                         Enviar Comentario
                       </button>
-                      <Link to="/home" className="btn btn">
-    Volver Atrás
-  </Link>
+                      {/*  <Link to="/home" className="btn btn">
+                        Volver Atrás
+                      </Link> */}
                     </div>
                   </form>
                   <ul className="list-group list-group-flush mt-4 ">
-                    {comments.map((item) => (
+                    {product.reviews.map((item) => (
                       <li className="list-group-item" key={item}>
-                        <div className="media">
+                        <div className="media__comment">
                           <img
                             className="img"
                             style={{ marginBottom: "30px" }}
-                            src={userInfo.image ? `${userInfo.image}` : images}
+                            src="/ecommerce/avatarc.svg"
                             alt="User"
                           />
                           <div className="media-body">
+                            <div className="rating__value">
+                              <Rating value={item.rating}></Rating>
+                            </div>
                             <p className="nombre">
-                              {userInfo.name} <span>Hace 20 minutos</span>
+                              {item.name}{" "}
+                              <span>{item.createdAt.substring(0, 10)}</span>
                             </p>
-                            
-                            <p className="comentario">
-                              {item}
-                              {/* Lorem ipsum dolor sit amet consectetur adipiscing
-                            elit libero porta, ultrices cursus felis justo netus
-                            sodales per neque, mauris donec potenti ridiculus
-                            blandit congue aptent sociosqu. */}
-                            </p>
+
+                            <p className="comentario">{item.comment}</p>
                           </div>
                         </div>
                       </li>

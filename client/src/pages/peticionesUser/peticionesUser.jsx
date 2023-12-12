@@ -8,6 +8,7 @@ import { BsFillTrash3Fill } from "react-icons/bs";
 import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
 import Header from "../../components/Header/Header";
 import { toast } from "sonner";
+import Loading from "../../components/Loading";
 
 const PeticionesUser = () => {
   const { data, isLoading, error, refetch } = useGetPeticionesQuery();
@@ -38,7 +39,7 @@ const PeticionesUser = () => {
   }
 
   if (isLoading) {
-    return <h2>Cargando...</h2>;
+    return <Loading/>
   }
 
   // Filtrar por descripción

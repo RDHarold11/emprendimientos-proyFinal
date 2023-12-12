@@ -10,6 +10,7 @@ import {
 import { toast } from "sonner";
 import { useSelector } from "react-redux";
 import Emprendimiento from "../../components/Emprendimiento";
+import Loading from "../../components/Loading";
 
 const Emprendimientos = () => {
   const [createEmprendimiento] = useCreateEmprendimientoMutation();
@@ -87,7 +88,6 @@ const Emprendimientos = () => {
   }
 
   // filteredEmprendimientos ahora contendrá los Emprendimientoos filtrados por usuario y, si se proporciona, por nombre
-
   return (
     <div className="product-section">
       <div className="container">
@@ -125,7 +125,7 @@ const Emprendimientos = () => {
         </div>
         <div className="row">
           {isLoading ? (
-            <p>Loading Emprendimientos...</p>
+            <Loading/>
           ) : error ? (
             <p>Error fetching Emprendimientos: {error.message}</p>
           ) : (
