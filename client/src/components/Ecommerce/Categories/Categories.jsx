@@ -11,7 +11,6 @@ const Categories = () => {
     return <h2>Cargando...</h2>;
   }
 
-  // Obtener categorías únicas de los productos
   const uniqueCategories = [...new Set(products.map((product) => product.category))];
 
   return (
@@ -35,7 +34,11 @@ const Categories = () => {
                   <div>
                     <h5>{category}</h5>
                   </div>
-                  <Link to={`/categoria/${category}`} className="ecommerce__link">
+                  <Link
+                    to={`/categoria/${category}`}
+                    className="ecommerce__link"
+                    state={{ products: products.filter((product) => product.category === category) }}
+                  >
                     Ver todo <IoIosArrowRoundForward size={25} />
                   </Link>
                 </div>

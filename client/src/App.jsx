@@ -46,6 +46,7 @@ import ProductDetail from "./pages/ecommerce/DetailsProduct/ProductDetail";
 import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
 import Order from "./pages/order/Order";
 import MisOrdenes from "./pages/MisOrdenes/Ordenes";
+import CategoryProducts from './components/Ecommerce/Categories/categoryproducts';
 function App() {
   return (
     <>
@@ -64,6 +65,10 @@ function App() {
           <Route path="/direccion" element={<Direccion />}></Route>
           <Route path="/pago" element={<Pago />}></Route>
           <Route path="/acercade" element={<AcercaDe />}></Route>
+                  {/* Ruta para mostrar productos de una categoría específica */}
+        <Route path="/categoria/:category" element={<CategoryProducts />} />
+        
+
           <Route
             path="/publicacion/:id/detalle"
             element={<DetallePublicacionPage />}

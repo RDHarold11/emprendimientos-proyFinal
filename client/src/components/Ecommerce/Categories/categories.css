@@ -7,6 +7,24 @@
     margin: 30px 0;
 }
 
+.title__Category {
+    color: #333;
+    font-family: "Jost";
+    font-size: 40px;
+    line-height: 48px;
+    font-weight: 400;
+    margin: 30px 0;
+}
+
+.title__Strong {
+    color: #333;
+    font-family: "Jost";
+    font-size: 34px;
+    line-height: 48px;
+    font-weight: bold;
+    margin: 30px 0;
+}
+
 .ecommerce__flex {
     padding: 0 20px;
     display: flex;
@@ -64,6 +82,25 @@
     font-size: 16px;
     height: 30px;
     margin-top: 8px;
+}
+
+.bestSeller__container {
+    background-color: #f7f0ed;
+}
+
+.card__title {
+    color: #333;
+    font-family: "Jost";
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
+}
+
+.card__container {
+    position: relative;
+    height: 100%;
+    width: 100%;
 }
 
 .ecommerce__flex div:first-child {

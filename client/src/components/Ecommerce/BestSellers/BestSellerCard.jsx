@@ -9,7 +9,11 @@ const BestSellerCard = ({item}) => {
   return (
     <div className="card__ecommerce card__container">
       <div>
-        <img src={item.image} alt="" />
+      <img
+  style={{ width: '250px', height: '250px' }} 
+  src={item.image}
+  alt={item.name}
+/>
       </div>
       <div className="card__content">
         <h3 className="card__title">{item.name}</h3>
