@@ -1,88 +1,199 @@
 .bestSeller__container {
-  background-color: #f7f0ed;
+    background-color: #f7f0ed;
 }
+
 .card__title {
-  color: #333;
-  font-family: "Jost";
-  line-height: 24px;
-  font-size: 16px;
-  font-weight: 400;
-  margin: 0;
+    color: #333;
+    font-family: "Jost";
+    line-height: 24px;
+    font-size: 16px;
+    font-weight: 400;
+    margin: 0;
 }
+
 .card__container {
-  position: relative;
-  height: 100%;
-  width: 100%;
+    position: relative;
+    height: 100%;
+    width: 100%;
 }
+
 ecommerce__img-container img {
-  max-width: 200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    max-width: 200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .tarjeta {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: inline-block;
-  color: white;
-  background-color: #539ab2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    color: white;
+    background-color: #539ab2;
 }
+
 .card__ecommerce img {
-  width: 250px !important;
-  margin: 0 auto;
+    width: 250px !important;
+    margin: 0 auto;
 }
+
 .tarjeta h6 {
-  color: #fff;
-  display: inline-block;
-  font-family: "Jost";
-  font-size: 12px;
-  padding: 0 8px;
-  line-height: 18px;
+    color: #fff;
+    display: inline-block;
+    font-family: "Jost";
+    font-size: 12px;
+    padding: 0 8px;
+    line-height: 18px;
 }
+
 .details__card {
-  display: flex;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  transition: 0.5s ease;
-  margin: 0 auto;
-  opacity: 0;
-  height: 0%;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+    display: flex;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    transition: 0.5s ease;
+    margin: 0 auto;
+    opacity: 0;
+    height: 0%;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
+
 .card__container:hover .details__card {
-  height: 90%;
-  width: 100%;
-  opacity: 0.9;
+    height: 90%;
+    width: 100%;
+    opacity: 0.9;
 }
+
 .details__card div {
-  padding: 5px 5px;
-  background-color: #333;
+    padding: 5px 5px;
+    background-color: #333;
 }
+
 .details__card div:hover {
-  background-color: #b26b53;
+    background-color: #b26b53;
 }
+
 .ecommerce__header {
-  margin: 30px 0;
+    margin: 30px 0;
 }
+
 .ecommerce__header h2 {
-  text-align: center;
-  font-family: "Jost";
-  font-weight: 400 !important;
-  font-size: 40px;
-  line-height: 48px;
+    text-align: center;
+    font-family: "Jost";
+    font-weight: 400 !important;
+    font-size: 40px;
+    line-height: 48px;
 }
+
 .card__title:hover {
-  color: #b26b53;
+    color: #b26b53;
 }
+
 .card__content {
-  margin: 10px 0;
+    margin: 10px 0;
 }
+
 .card__ecommerce {
-  width: 200px;
+    width: 200px;
+    margin-left: 43px;
+}
+
+.category-products__container {
+    background-color: #f7f0ed;
+    padding: 20px;
+    margin-bottom: 20px;
+    /* Aumenta el espacio entre la sección y el contenido siguiente */
+}
+
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 40px;
+    /* Aumenta el espacio entre los filtros y los productos */
+}
+
+.filter__item {
+    flex: 1;
+    margin-bottom: 10px;
+}
+
+.filter__item label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+}
+
+.filter__item input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.filter__buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.filter__button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #1f1f1f;
+    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
+    white-space: nowrap;
+    /* Evita que el texto se envuelva a la siguiente línea */
+}
+
+.filter__button.apply {
+    background-color: #7ac1f0;
+}
+
+.filter__button.clear {
+    background-color: #e74c3c;
+}
+
+.filter__button:hover {
+    background-color: #b0e0ff;
+}
+
+.ecommerce__flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.card__item:hover {
+    transform: translateY(-5px);
+}
+
+.card__content {
+    padding: 10px;
+}
+
+.card__title {
+    font-size: 16px;
+    color: #333;
+}
+
+.tarjeta {
+    background-color: #3498db;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+}
+
+.details__card {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
 }
