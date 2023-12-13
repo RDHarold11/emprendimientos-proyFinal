@@ -150,8 +150,10 @@ const AdminPage = () => {
           </>
         </div>
         <div className="business">
-          <>
+        <>
+        <Link to="/empresa" style={{ textDecoration: "none" }}>
             <h3>Empresas</h3>
+            </Link>
           </>
         </div>
         <div className="requets">
