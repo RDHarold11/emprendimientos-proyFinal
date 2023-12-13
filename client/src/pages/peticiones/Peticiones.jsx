@@ -96,13 +96,7 @@ const Peticiones = () => {
                       <button type="submit" className="btn btn-secondary mr-4">
                         Enviar
                       </button>
-                      <button
-                        type="button"
-                        className="btn btn-secondary"
-                        onClick={handleClearFilters}
-                      >
-                        Limpiar Filtros
-                      </button>
+                     
                       <Link to="/emprendedor" className="btn btn">
                         Volver Atrás
                       </Link>
