@@ -10,7 +10,7 @@ const Peticiones = () => {
   const [type, setType] = useState("");
   const [description, setDescription] = useState("");
 
-  const [createPeticion, {isLoading, error}] = useCreatePeticionMutation()
+  const [createPeticion, { isLoading, error }] = useCreatePeticionMutation();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,18 +18,23 @@ const Peticiones = () => {
       toast.error("Debe completar los campos");
     } else {
       try {
-        await createPeticion({type, description}).unwrap()
-        toast.message('Petición enviada exitosamente', {
-          description: 'Te estaremos contactando lo más pronto posible',
-        })
+        await createPeticion({ type, description }).unwrap();
+        toast.message("Petición enviada exitosamente", {
+          description: "Te estaremos contactando lo más pronto posible",
+        });
       } catch (error) {
-        toast.error(error?.data?.meessage)
+        toast.error(error?.data?.meessage);
       }
     }
   };
 
-  if(isLoading){
-    return <Loading/>
+  const handleClearFilters = () => {
+    setType("");
+    setDescription("");
+  };
+
+  if (isLoading) {
+    return <Loading />;
   }
 
   return (
@@ -88,14 +93,20 @@ const Peticiones = () => {
                     </div>
 
                     <div className="col-12 d-flex mt-4">
-  <button type="submit" className="btn btn-secondary mr-4">
-    Enviar
-  </button>
-  <Link to="/emprendedor" className="btn btn">
-    Volver Atrás
-  </Link>
-</div>
-                  
+                      <button type="submit" className="btn btn-secondary mr-4">
+                        Enviar
+                      </button>
+                      <button
+                        type="button"
+                        className="btn btn-secondary"
+                        onClick={handleClearFilters}
+                      >
+                        Limpiar Filtros
+                      </button>
+                      <Link to="/emprendedor" className="btn btn">
+                        Volver Atrás
+                      </Link>
+                    </div>
                   </form>
                 </div>
               </div>

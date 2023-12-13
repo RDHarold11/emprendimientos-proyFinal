@@ -19,6 +19,7 @@ const Editproduct = () => {
   const [countInStock, setCountInStock] = useState(0);
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
+  
   const {
     data: product,
     isLoading,
@@ -26,6 +27,104 @@ const Editproduct = () => {
     error,
   } = useGetSingleProductQuery(id);
 
+  const categories = [
+    "Electrónica",
+    "Ropa",
+    "Hogar",
+    "Juguetes",
+    "Deportes",
+    "Libros",
+    "Salud y Belleza",
+    "Alimentación",
+    "Automóviles",
+    "Herramientas",
+    "Jardinería",
+    "Mascotas",
+    "Joyería",
+    "Arte y Manualidades",
+    "Electrodomésticos",
+    "Muebles",
+    "Instrumentos Musicales",
+    "Fotografía",
+    "Videojuegos",
+    "Películas",
+    "Música",
+    "Computadoras",
+    "Teléfonos",
+    "Software",
+    "Ropa Deportiva",
+    "Calzado",
+    "Bolsos y Accesorios",
+    "Maquillaje",
+    "Artículos para Bebés",
+    "Deportes Acuáticos",
+    "Camping y Excursionismo",
+    "Electrodomésticos de Cocina",
+    "Bicicletas",
+    "Aparatos de Ejercicio",
+    "Hobbies",
+    "Instrumentos de Escritura",
+    "Ropa de Cama",
+    "Decoración del Hogar",
+    "Artículos de Oficina",
+    "Material de Arte",
+    "Cine en Casa",
+    "Aire Libre",
+    "Salud Mental",
+    "Suplementos Nutricionales",
+    "Productos Orgánicos",
+    "Instrumentos Culinarios",
+    "Cuidado del Cabello",
+    "Ropa Interior",
+    "Relojes",
+    "Gafas de Sol",
+    "Tecnología Vestible",
+    "Dispositivos Inteligentes para el Hogar",
+    "Robótica",
+    "Ciencia",
+    "Fotografía Digital",
+    "Idiomas Extranjeros",
+    "Viajes",
+    "Astronomía",
+    "Arqueología",
+    "Teatro",
+    "Arquitectura",
+    "Diseño",
+    "Belleza Natural",
+    "Arte Abstracto",
+    "Fotografía de Naturaleza",
+    "Drones",
+    "Programación",
+    "Realidad Virtual",
+    "Historia Antigua",
+    "Filosofía",
+    "Misterio",
+    "Literatura Clásica",
+    "Ciencia Ficción",
+    "Aventuras",
+    "Crimen y Detectives",
+    "Fantasía",
+    "Romance",
+    "Ciencia y Tecnología",
+    "Biotecnología",
+    "Innovación",
+    "Desarrollo Sostenible",
+    "Política",
+    "Economía",
+    "Psicología",
+    "Sociología",
+    "Educación",
+    "Energías Renovables",
+    "Medicina Natural",
+    "Mindfulness",
+    "Yoga",
+    "Vida Sana",
+    "Recetas Saludables",
+    "Vegetarianismo",
+    "Astrología",
+    "Viajes Espaciales",
+    "Consolas",
+  ];
   const [uploadImg] = useUploadEmpImageMutation();
   const [updateProduct, { isLoading: loadingUpdate }] =
     useUpdateProductMutation();
@@ -124,16 +223,22 @@ const Editproduct = () => {
                       />
                     </div>
                     <div className="col-12">
-                      <label className="form-label">Categoría</label>
-                      <input
-                        className="form-control"
-                        value={category}
-                        onChange={(e) => setCategory(e.target.value)}
-                        type="text"
-                        placeholder="Introduzca la Categoría"
-                      />
-                    </div>
-
+  <label className="form-label">Categoría</label>
+  <select
+    className="form-control"
+    value={category}
+    onChange={(e) => setCategory(e.target.value)}
+  >
+    <option value="" disabled>
+      Selecciona una categoría
+    </option>
+    {categories.map((cat, index) => (
+      <option key={index} value={cat}>
+        {cat}
+      </option>
+    ))}
+  </select>
+</div>
                     <div className="col-12">
                       <label className="form-label">
                         Cantidad en Inventario

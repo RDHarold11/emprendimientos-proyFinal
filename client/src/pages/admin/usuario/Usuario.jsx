@@ -11,6 +11,7 @@ import { AiOutlineCheck, AiOutlineClose } from "react-icons/ai";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import Loading from "../../../components/Loading";
+import "react-datepicker/dist/react-datepicker.css";
 
 const Usuario = () => {
   const { data: users, refetch, isLoading, error } = useGetUsersQuery();
@@ -42,8 +43,15 @@ const Usuario = () => {
     }
   };
 
+  const clearFilters = () => {
+    setSearchTerm("");
+    setFilterAdmin(false);
+    setFilterEmprendedor(false);
+    setFilterEmpresa(false);
+  };
+
   if (isLoading) {
-    return <Loading/>;
+    return <Loading />;
   }
 
   // Aplicar filtros
@@ -57,61 +65,70 @@ const Usuario = () => {
     <>
       <Header text="Administra los usuarios" />
       <div className="contenedor">
-      
-      
-            <div className="input-group mb-3">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Buscar por nombre..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-              <div className="input-group-append">
-                <span className="input-group-text">
-                  <FontAwesomeIcon icon={faSearch} />
-                </span>
-              </div>
-       
-            <div className="row">
-            <div className="form-check form-check-inline ml-5">
-              <input
-                type="checkbox"
-                className="form-check-input"
-                id="adminFilter"
-                checked={filterAdmin}
-                onChange={() => setFilterAdmin(!filterAdmin)}
-              />
-              <label className="form-check-label" htmlFor="adminFilter">
-                Admin
-              </label>
-            </div>
-            <div className="form-check form-check-inline">
-              <input
-                type="checkbox"
-                className="form-check-input"
-                id="emprendedorFilter"
-                checked={filterEmprendedor}
-                onChange={() => setFilterEmprendedor(!filterEmprendedor)}
-              />
-              <label className="form-check-label" htmlFor="emprendedorFilter">
-                Emprendedor
-              </label>
-            </div>
-            <div className="form-check form-check-inline">
-              <input
-                type="checkbox"
-                className="form-check-input"
-                id="empresaFilter"
-                checked={filterEmpresa}
-                onChange={() => setFilterEmpresa(!filterEmpresa)}
-              />
-              <label className="form-check-label" htmlFor="empresaFilter">
-                Empresa
-              </label>
-            </div>
+        <div className="input-group mb-3">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Buscar por nombre..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <div className="input-group-append">
+            <span className="input-group-text">
+              <FontAwesomeIcon icon={faSearch} />
+            </span>
           </div>
         </div>
+
+        <div className="row">
+          <div className="form-check form-check-inline ml-5">
+            <input
+              type="checkbox"
+              className="form-check-input"
+              id="adminFilter"
+              checked={filterAdmin}
+              onChange={() => setFilterAdmin(!filterAdmin)}
+            />
+            <label className="form-check-label" htmlFor="adminFilter">
+              Admin
+            </label>
+          </div>
+          <div className="form-check form-check-inline">
+            <input
+              type="checkbox"
+              className="form-check-input"
+              id="emprendedorFilter"
+              checked={filterEmprendedor}
+              onChange={() => setFilterEmprendedor(!filterEmprendedor)}
+            />
+            <label className="form-check-label" htmlFor="emprendedorFilter">
+              Emprendedor
+            </label>
+          </div>
+          <div className="form-check form-check-inline">
+            <input
+              type="checkbox"
+              className="form-check-input"
+              id="empresaFilter"
+              checked={filterEmpresa}
+              onChange={() => setFilterEmpresa(!filterEmpresa)}
+            />
+            <label className="form-check-label" htmlFor="empresaFilter">
+              Empresa
+            </label>
+          </div>
+
+          <div className="form-group ml-3">
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={clearFilters}
+            >
+              Limpiar Filtros
+            </button>
+          </div>
+        </div>
+
         <form action="/" method="POST">
           <table className="table">
             <thead className="thead-dark">
@@ -179,7 +196,7 @@ const Usuario = () => {
                       className="btn botoncitos border-shadow delete"
                       onClick={() => deleteUserHandler(user._id)}
                     >
-                      {loadingDelete && <Loading/>}
+                      {loadingDelete && <Loading />}
                       <div className="nav-link user" to="/admin">
                         <BsFillTrash3Fill size={20} color="#333" />
                       </div>
