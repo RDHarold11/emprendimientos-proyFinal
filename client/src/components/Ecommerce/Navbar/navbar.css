@@ -122,3 +122,11 @@ nav {
     /* Adjusted font size */
     color: #777;
 }
+
+.navbar__icons .ecommerce__link {
+    font-size: 16px;
+}
+
+.navbar__ecommerce {
+    border-bottom: 1px solid #e1e1e1;
+}
