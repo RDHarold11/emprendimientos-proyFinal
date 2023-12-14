@@ -38,6 +38,7 @@ import AdminPage from "./pages/admin/AdminPage";
 import Producto from "./pages/productos/Producto";
 import CrearProducto from "./pages/productos/CrearProducto";
 import Emprendimiento from "./pages/emprendimientos/Emprendimiento";
+import Empresa from "./pages/empresa/EmpresaPage";
 import PublicacionesAdminPage from "./pages/admin/Publicaciones/PublicacionesAdminPage";
 
 /* Rutas del Ecommerce */
@@ -62,7 +63,6 @@ function App() {
           <Route path="/registro" element={<Registro />}></Route>
           <Route path="/carrito" element={<Carrito />}></Route>
           <Route path="/wish" element={<Favorito />}></Route>
-
           <Route path="/acercade" element={<AcercaDe />}></Route>
           {/* Ruta para mostrar productos de una categoría específica */}
           <Route path="/categoria/:category" element={<CategoryProducts />} />

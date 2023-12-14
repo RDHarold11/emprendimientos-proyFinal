@@ -12,10 +12,8 @@ import Loading from "../../components/Loading";
 
 const PeticionesAdmin = () => {
   const { data, error, isLoading, refetch } = useGetPeticionesByAdminQuery();
-
   const [deletePeticion] = useDeletePeticionMutation();
   const [mark] = useMarkAsResolvedMutation();
-
   const [searchTerm, setSearchTerm] = useState("");
   const [quieroSerEmpresa, setQuieroSerEmpresa] = useState(false);
   const [eliminarCuenta, setEliminarCuenta] = useState(false);
@@ -52,8 +50,14 @@ const PeticionesAdmin = () => {
     }
   };
 
+  const handleClearFilters = () => {
+    setSearchTerm("");
+    setQuieroSerEmpresa(false);
+    setEliminarCuenta(false);
+  };
+
   if (isLoading) {
-    return <Loading/>
+    return <Loading />;
   }
 
   const filteredPeticiones = data.filter((peticion) => {
@@ -69,17 +73,17 @@ const PeticionesAdmin = () => {
     <>
       <Header text="Administra las peticiones" />
       <div className="contenedor">
-      <div className="row">
-            <div className="input-group mb-3">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Buscar por descripción..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
-           
+        <div className="row">
+          <div className="input-group mb-3">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Buscar por descripción..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
+
           <div className="col-12 col-md-6 offset-md-3">
             <div className="form-check">
               <input
@@ -106,7 +110,18 @@ const PeticionesAdmin = () => {
               </label>
             </div>
           </div>
+
+          <div className="col-12 d-flex mt-4 justify-content-center ">
+            <button
+              type="button"
+              className="btn btn-success"
+              onClick={handleClearFilters}
+            >
+              Limpiar Filtros
+            </button>
+          </div>
         </div>
+
         <table className="table">
           <thead className="thead-dark">
             <tr>

@@ -1,6 +1,7 @@
 .bestSeller__container {
   background-color: #f7f0ed;
 }
+
 .card__title {
   color: #333;
   font-family: "Jost";
@@ -9,11 +10,13 @@
   font-weight: 400;
   margin: 0;
 }
+
 .card__container {
   position: relative;
   height: 100%;
   width: 100%;
 }
+
 ecommerce__img-container img {
   max-width: 200px;
   margin: 0 auto;
@@ -30,10 +33,12 @@ ecommerce__img-container img {
   color: white;
   background-color: #539ab2;
 }
+
 .card__ecommerce img {
   width: 250px !important;
   margin: 0 auto;
 }
+
 .tarjeta h6 {
   color: #fff;
   display: inline-block;
@@ -42,6 +47,7 @@ ecommerce__img-container img {
   padding: 0 8px;
   line-height: 18px;
 }
+
 .details__card {
   display: flex;
   width: 100%;
@@ -55,21 +61,26 @@ ecommerce__img-container img {
   justify-content: center;
   gap: 10px;
 }
+
 .card__container:hover .details__card {
   height: 90%;
   width: 100%;
   opacity: 0.9;
 }
+
 .details__card div {
   padding: 5px 5px;
   background-color: #333;
 }
+
 .details__card div:hover {
   background-color: #b26b53;
 }
+
 .ecommerce__header {
   margin: 30px 0;
 }
+
 .ecommerce__header h2 {
   text-align: center;
   font-family: "Jost";
@@ -77,35 +88,208 @@ ecommerce__img-container img {
   font-size: 40px;
   line-height: 48px;
 }
+
 .card__title:hover {
   color: #b26b53;
 }
+
 .card__content {
   margin: 10px 0;
 }
+
 .card__ecommerce {
   width: 200px;
+  margin-left: 43px;
 }
-.input__filter {
-  margin: 0 5px;
-  border: none;
-  padding: 5px 10px;
-  width: 50px;
+
+.category-products__container {
+  background-color: #f7f0ed;
+  padding: 20px;
+  margin-bottom: 20px;
+  /* Aumenta el espacio entre la sección y el contenido siguiente */
 }
+
 .filters {
-  padding: 20px 0;
   display: flex;
-  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+  /* Aumenta el espacio entre los filtros y los productos */
+}
+
+.filter__item {
+  flex: 1;
+  margin-bottom: 10px;
+}
+
+.filter__item label {
+  display: block;
+  font-size: 14px;
+  color: #333;
+}
+
+.filter__item input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.filter__buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.filter__button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #1f1f1f;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  /* Evita que el texto se envuelva a la siguiente línea */
+}
+
+.filter__button.apply {
+  background-color: #7ac1f0;
+}
+
+.filter__button.clear {
+  background-color: #e74c3c;
+}
+
+.filter__button:hover {
+  background-color: #b0e0ff;
+}
+
+.ecommerce__flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
   justify-content: space-between;
 }
-.container__inputs {
-  display: flex;
-  gap: 20px;
-  padding: 0 15px;
+
+.card__item:hover {
+  transform: translateY(-5px);
 }
-.btn__filter {
-  border: none;
+
+.card__content {
+  padding: 10px;
+}
+
+.card__title {
+  font-size: 16px;
+  color: #333;
+}
+
+.tarjeta {
+  background-color: #3498db;
+  color: #fff;
+  padding: 5px;
+  text-align: center;
+}
+
+.details__card {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.category-products__container {
+  background-color: #f7f0ed;
+  padding: 20px;
+  margin-bottom: 20px;
+  /* Aumenta el espacio entre la sección y el contenido siguiente */
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+  /* Aumenta el espacio entre los filtros y los productos */
+}
+
+.filter__item {
+  flex: 1;
+  margin-bottom: 10px;
+}
+
+.filter__item label {
+  display: block;
+  font-size: 14px;
+  color: #333;
+}
+
+.filter__item input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.filter__buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.filter__button {
   padding: 10px 20px;
-  background-color: #5641c1;
-  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #1f1f1f;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  /* Evita que el texto se envuelva a la siguiente línea */
+}
+
+.filter__button.apply {
+  background-color: #7ac1f0;
+}
+
+.filter__button.clear {
+  background-color: #e74c3c;
+}
+
+.filter__button:hover {
+  background-color: #b0e0ff;
+}
+
+.ecommerce__flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.card__item:hover {
+  transform: translateY(-5px);
+}
+
+.card__content {
+  padding: 10px;
+}
+
+.card__title {
+  font-size: 16px;
+  color: #333;
+}
+
+.tarjeta {
+  background-color: #3498db;
+  color: #fff;
+  padding: 5px;
+  text-align: center;
+}
+
+.details__card {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
 }
