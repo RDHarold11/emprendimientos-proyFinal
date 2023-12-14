@@ -4,6 +4,8 @@ import { IoCheckmarkCircle } from 'react-icons/io5';
 import {
   useGetUsersQuery,
 } from "../../slices/usersApiSlice";
+import "./Empresa.css"
+import Header from '../../components/Header/Header';
 
 const EmpresaPage = () => {
   const { data: users, refetch, isLoading, error } = useGetUsersQuery();
@@ -26,7 +28,7 @@ const EmpresaPage = () => {
 
   return (
     <div className="empresa-page">
-    <h2>Usuarios Empresas</h2>
+      <Header text="Usuarios empresa"/>
     <div className="filter-container">
       <input
         type="text"

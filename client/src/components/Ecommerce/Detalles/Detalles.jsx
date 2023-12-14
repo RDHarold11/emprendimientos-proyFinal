@@ -3,7 +3,7 @@ import "./detalles.css"
 
 const Detalles = () => {
   return (
-    <section className='detalles__section'>
+    <section className='detalles__section' name="informacion">
       <div className="container__ecommerce">
         <div className="ecommerce__flex detalles__card">
           <div className='detalles__content'>

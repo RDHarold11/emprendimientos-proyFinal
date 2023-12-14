@@ -12,8 +12,6 @@ const Comentarios = ({
   submitHandler,
   product,
 }) => {
-  const { userInfo } = useSelector((state) => state.auth);
-
   return (
     <div className="container-xl">
       <section className="section comments min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">

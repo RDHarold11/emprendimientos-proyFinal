@@ -1,265 +1,265 @@
 .title__ecommerce {
-    color: #333;
-    font-family: "Jost";
-    font-size: 40px;
-    line-height: 48px;
-    font-weight: 400;
-    margin: 30px 0;
+  color: #333;
+  font-family: "Jost";
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 400;
+  margin: 30px 0;
 }
 
 .title__Category {
-    color: #333;
-    font-family: "Jost";
-    font-size: 40px;
-    line-height: 48px;
-    font-weight: 400;
-    margin: 30px 0;
+  color: #333;
+  font-family: "Jost";
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 400;
+  margin: 30px 0;
+}
+.categories p {
+  max-width: 300px;
 }
 
 .title__Strong {
-    color: #333;
-    font-family: "Jost";
-    font-size: 34px;
-    line-height: 48px;
-    font-weight: bold;
-    margin: 30px 0;
+  color: #333;
+  font-family: "Jost";
+  font-size: 34px;
+  line-height: 48px;
+  font-weight: bold;
+  margin: 30px 0;
 }
 
 .ecommerce__flex {
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    /*  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); */
-    justify-content: space-between;
-    gap: 30px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  /*  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); */
+  justify-content: space-between;
+  gap: 30px;
 }
 
 .images__container {
-    overflow-x: auto;
+  overflow-x: auto;
 }
 
 .category__wrapper {
-    display: flex;
-    flex-wrap: nowrap;
-    /* Evita que se desplace a la siguiente línea */
-    gap: 80px;
-    /* Espacio entre las categorías */
+  display: flex;
+  flex-wrap: nowrap;
+  /* Evita que se desplace a la siguiente línea */
+  gap: 80px;
+  /* Espacio entre las categorías */
 }
 
 .category__item {
-    flex: 0 0 auto;
-    /* Evita que las categorías se agranden */
-    text-align: center;
-    /* Centra el contenido dentro de cada categoría */
+  flex: 0 0 auto;
+  /* Evita que las categorías se agranden */
+  text-align: center;
+  /* Centra el contenido dentro de cada categoría */
 }
-
 
 /* Ajusta según tus necesidades */
 
 .images__container {
-    overflow-x: auto;
-    display: flex;
-    align-items: left;
-    justify-content: left;
-    flex-wrap: nowrap;
-    gap: 20px;
-    width: 940px;
-    /* Ajusta según tus necesidades */
+  overflow-x: auto;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  flex-wrap: nowrap;
+  gap: 20px;
+  width: 940px;
+  /* Ajusta según tus necesidades */
 }
 
 .images__container img {
-    max-width: 230px;
-    /* Reduzca el ancho máximo de las imágenes */
-    height: auto;
+  max-width: 230px;
+  /* Reduzca el ancho máximo de las imágenes */
+  height: auto;
 }
 
 .category__item h5 {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: 100%;
-    font-size: 16px;
-    height: 30px;
-    margin-top: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  font-size: 16px;
+  height: 30px;
+  margin-top: 8px;
 }
 
 .bestSeller__container {
-    background-color: #f7f0ed;
+  background-color: #f7f0ed;
 }
 
 .card__title {
-    color: #333;
-    font-family: "Jost";
-    line-height: 24px;
-    font-size: 16px;
-    font-weight: 400;
-    margin: 0;
+  color: #333;
+  font-family: "Jost";
+  line-height: 24px;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
 }
 
 .card__container {
-    position: relative;
-    height: 100%;
-    width: 100%;
+  position: relative;
+  height: 100%;
+  width: 100%;
 }
 
 .ecommerce__flex div:first-child {
-    max-width: 300px;
+  max-width: 300px;
 }
 
 .ecommerce__flex h5 {
-    font-family: "Jost";
-    font-size: 20px;
-    margin: 10px 0;
+  font-family: "Jost";
+  font-size: 20px;
+  margin: 10px 0;
 }
 
 .images__container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  text-align: center;
 }
 
 .ecommerce__link {
-    font-family: "Jost";
-    font-size: 18px;
-    margin-top: 2px;
-    display: inline-block;
-    text-decoration: none;
-    line-height: 24px;
+  font-family: "Jost";
+  font-size: 18px;
+  margin-top: 2px;
+  display: inline-block;
+  text-decoration: none;
+  line-height: 24px;
 }
 
 .ecommerce__link:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
-
 
 /* Agrega estos estilos a tu archivo de estilos */
 
 .category-products__container {
-    background-color: #f7f0ed;
-    padding: 20px;
-    margin-bottom: 20px;
-    /* Aumenta el espacio entre la sección y el contenido siguiente */
+  background-color: #f7f0ed;
+  padding: 20px;
+  margin-bottom: 20px;
+  /* Aumenta el espacio entre la sección y el contenido siguiente */
 }
 
 .filters {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 40px;
-    /* Aumenta el espacio entre los filtros y los productos */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+  /* Aumenta el espacio entre los filtros y los productos */
 }
 
 .filter__item {
-    flex: 1;
-    margin-bottom: 10px;
+  flex: 1;
+  margin-bottom: 10px;
 }
 
 .filter__item label {
-    display: block;
-    font-size: 14px;
-    color: #333;
+  display: block;
+  font-size: 14px;
+  color: #333;
 }
 
 .filter__item input {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
 }
 
 .filter__buttons {
-    display: flex;
-    gap: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .filter__button {
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 14px;
-    color: #1f1f1f;
-    transition: background-color 0.3s ease;
-    margin-bottom: 10px;
-    white-space: nowrap;
-    /* Evita que el texto se envuelva a la siguiente línea */
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #1f1f1f;
+  transition: background-color 0.3s ease;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  /* Evita que el texto se envuelva a la siguiente línea */
 }
 
 .filter__button.apply {
-    background-color: #7ac1f0;
+  background-color: #7ac1f0;
 }
 
 .filter__button.clear {
-    background-color: #e74c3c;
+  background-color: #e74c3c;
 }
 
 .filter__button:hover {
-    background-color: #b0e0ff;
+  background-color: #b0e0ff;
 }
 
 .ecommerce__flex {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
 }
 
 .card__item:hover {
-    transform: translateY(-5px);
+  transform: translateY(-5px);
 }
 
 .card__content {
-    padding: 10px;
+  padding: 10px;
 }
 
 .card__title {
-    font-size: 16px;
-    color: #333;
+  font-size: 16px;
+  color: #333;
 }
 
 .tarjeta {
-    background-color: #3498db;
-    color: #fff;
-    padding: 5px;
-    text-align: center;
+  background-color: #3498db;
+  color: #fff;
+  padding: 5px;
+  text-align: center;
 }
 
 .details__card {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
 }
 
 .card__item {
-    position: relative;
+  position: relative;
 }
 
 .product-overlay {
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 
 .overlay-options {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .card__item:hover .overlay-options {
-    opacity: 1;
+  opacity: 1;
 }
-
 
 /* Agrega más estilos según sea necesario */

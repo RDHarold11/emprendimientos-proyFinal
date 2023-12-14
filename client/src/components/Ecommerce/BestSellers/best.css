@@ -49,11 +49,12 @@ ecommerce__img-container img {
 }
 
 .details__card {
-  display: flex;
   width: 100%;
   position: absolute;
   top: 0;
+
   transition: 0.5s ease;
+  display: flex;
   margin: 0 auto;
   opacity: 0;
   height: 0%;
@@ -64,12 +65,17 @@ ecommerce__img-container img {
 
 .card__container:hover .details__card {
   height: 90%;
-  width: 100%;
+  margin: 0 auto;
+  width: 50%;
+  text-align: center;
   opacity: 0.9;
 }
 
 .details__card div {
   padding: 5px 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #333;
 }
 
@@ -113,6 +119,7 @@ ecommerce__img-container img {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  padding: 0 80px;
   margin-bottom: 40px;
   /* Aumenta el espacio entre los filtros y los productos */
 }
@@ -155,10 +162,12 @@ ecommerce__img-container img {
 
 .filter__button.apply {
   background-color: #7ac1f0;
+  color: white;
 }
 
 .filter__button.clear {
   background-color: #e74c3c;
+  color: white;
 }
 
 .filter__button:hover {
@@ -190,12 +199,6 @@ ecommerce__img-container img {
   color: #fff;
   padding: 5px;
   text-align: center;
-}
-
-.details__card {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
 }
 
 .category-products__container {

@@ -14,35 +14,37 @@ const Categories = () => {
   const uniqueCategories = [...new Set(products.map((product) => product.category))];
 
   return (
-    <section>
+    <section className="categories" name="categorias">
       <div className="container__ecommerce">
         <div className="ecommerce__flex">
           <div>
             <h3 className="title__ecommerce">Categorías de Catalyst</h3>
             <p>
-              Descubre una amplia variedad de productos diseñados para satisfacer tus necesidades.
-              Desde tecnología de vanguardia hasta accesorios elegantes, nuestras categorías
-              abarcan todo lo que necesitas para potenciar tu experiencia. Sumérgete en un mundo
-              de innovación y calidad. ¡Encuentra lo que estás buscando y eleva tu estilo de vida!
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod. Tempor incididunt ut labore...
             </p>
           </div>
           <div className="images__container">
-            <div className="category__wrapper">
-              {uniqueCategories.map((category) => (
-                <div key={category} className="category__item">
-                  <img src={`/ecommerce/6.png`} alt={category} />
-                  <div>
-                    <h5>{category}</h5>
-                  </div>
-                  <Link
-                    to={`/categoria/${category}`}
-                    className="ecommerce__link"
-                    state={{ products: products.filter((product) => product.category === category) }}
-                  >
-                    Ver todo <IoIosArrowRoundForward size={25} />
-                  </Link>
-                </div>
-              ))}
+            <div>
+              <img src="/ecommerce/6.png" alt="" />
+              <div>
+                <h5>Joyería</h5>
+              </div>
+             <p>Vistete a la moda</p>
+            </div>
+            <div>
+              <img src="/ecommerce/8.png" alt="" />
+              <div>
+                <h5>Accesorios</h5>
+              </div>
+              <p>Accesorios creativos para estar a la moda</p>
+            </div>
+            <div>
+              <img src="/ecommerce/9.png" alt="" />
+              <div>
+                <h5>Regalos</h5>
+              </div>
+              <p>Variedades de regalos para tus familiares y amigos</p>
             </div>
           </div>
         </div>

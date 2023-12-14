@@ -8,8 +8,28 @@ import { Fade } from "react-awesome-reveal";
 import PopularCourses from "../components/PopularCourses/PopularCourses";
 import PeopleSay from "../components/PeopleSay/PeopleSay";
 import LastBlogs from "../components/Ultimos Blogs/LastBlogs";
+import {
+  useGetEmprendimientosQuery,
+  useGetTopEightQuery,
+} from "../slices/emprendimientosApiSlice";
+import Loading from "../components/Loading";
+import { useState } from "react";
+import ReactPaginate from "react-paginate";
 
 const Home = () => {
+  const { data, isLoading } = useGetEmprendimientosQuery();
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 8; // Set the number of items per page
+  const offset = currentPage * itemsPerPage;
+  const currentData = data?.slice(offset, offset + itemsPerPage);
+
+  const handlePageChange = ({ selected }) => {
+    setCurrentPage(selected);
+  };
+
+  if (isLoading) {
+    return <Loading />;
+  }
   return (
     <div>
       <Fade direction="left" cascade>
@@ -33,31 +53,35 @@ const Home = () => {
           </div>
           <div className="cards__products-container">
             <div className="cards__row">
-              <Recientes></Recientes>
-              <Recientes></Recientes>
-              <Recientes></Recientes>
-              <Recientes></Recientes>
-              <Recientes></Recientes>
-              <Recientes></Recientes>
-              <Recientes></Recientes>
-              <Recientes></Recientes>
+              {currentData.map((item) => (
+                <Recientes key={item._id} {...item}></Recientes>
+              ))}
             </div>
-            <div className="btn_container">
-              <button className="products-btn">
-                Ver Todas Las Publicaciones
-              </button>
+            <div className="pagination-container">
+              <ReactPaginate
+                previousLabel={"Previo"}
+                nextLabel={"Siguiente"}
+                breakLabel={"..."}
+                pageCount={Math.ceil(data.length / itemsPerPage)}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={5}
+                onPageChange={handlePageChange}
+                containerClassName={"pagination"}
+                subContainerClassName={"pages pagination"}
+                activeClassName={"active"}
+              />
             </div>
           </div>
         </div>
       </Fade>
       <Fade direction="left" cascade>
-        <PopularCourses/>
+        <PopularCourses />
       </Fade>
       <Fade direction="left" cascade>
         <Skills></Skills>
         <Conviertete></Conviertete>
-        <PeopleSay/>
-        <LastBlogs/>
+        <PeopleSay />
+        <LastBlogs />
         <Footer></Footer>
       </Fade>
     </div>

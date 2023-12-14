@@ -39,7 +39,7 @@ const BestSellers = () => {
   );
 
   return (
-    <section className="category-products__container">
+    <section className="category-products__container" name="nuevo">
       <div className="container__ecommerce">
         <div className="ecommerce__header">
           <h2>Lo más nuevo</h2>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import imgprincipal from "/diparate2.png";
 
 const Hero = () => {
@@ -17,9 +18,9 @@ const Hero = () => {
                   <a href="" className="btn btn-secondary me-2">
                     Emprendimientos
                   </a>
-                  <a href="#" className="btn btn-white-outline">
-                    Servicios
-                  </a>
+                  <Link to="/ecommerce/home" className="btn btn-white-outline">
+                    Comprar
+                  </Link>
                 </p>
               </div>
             </div>

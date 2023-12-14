@@ -58,7 +58,7 @@ const ProductDetail = () => {
         <div className="container__ecommerce">
           <div className="product__flex">
             <div className="product__img">
-              <img src={product?.image} alt={product?.name} />
+              <img src={product.image ? product.image : "https://images.pexels.com/photos/209728/pexels-photo-209728.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"} alt={product.name} />
             </div>
             <div>
               <div className="detail__top">

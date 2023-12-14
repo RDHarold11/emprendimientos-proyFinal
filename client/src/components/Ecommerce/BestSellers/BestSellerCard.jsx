@@ -26,9 +26,6 @@ const BestSellerCard = ({ item }) => {
       </div>
       <div className="details__card">
         <div>
-          <LuShoppingBag size={25} color="#fff" />
-        </div>
-        <div>
           <CiHeart size={25} color="#fff" />
         </div>
         <div onClick={() => navigate(`/producto/${item._id}/detalle`)}>

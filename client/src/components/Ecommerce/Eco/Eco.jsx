@@ -3,7 +3,7 @@ import "./eco.css";
 
 const Eco = () => {
   return (
-    <section className="eco">
+    <section className="eco" name="mel">
       <div className="container__ecommerce">
         <div className="ecommerce__flex">
           <div>
