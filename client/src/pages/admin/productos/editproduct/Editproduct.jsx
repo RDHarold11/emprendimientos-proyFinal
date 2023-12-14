@@ -19,7 +19,7 @@ const Editproduct = () => {
   const [countInStock, setCountInStock] = useState(0);
   const [description, setDescription] = useState("");
   const [image, setImage] = useState(null);
-  
+
   const {
     data: product,
     isLoading,
@@ -173,11 +173,11 @@ const Editproduct = () => {
   }, [product]);
 
   if (isLoading) {
-    return <Loading/>;
+    return <Loading />;
   }
   return (
     <div className="container">
-      {loadingUpdate && <Loading/>}
+      {loadingUpdate && <Loading />}
       <section className="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
         <div className="container">
           <div className="row justify-content-center">
@@ -223,22 +223,22 @@ const Editproduct = () => {
                       />
                     </div>
                     <div className="col-12">
-  <label className="form-label">Categoría</label>
-  <select
-    className="form-control"
-    value={category}
-    onChange={(e) => setCategory(e.target.value)}
-  >
-    <option value="" disabled>
-      Selecciona una categoría
-    </option>
-    {categories.map((cat, index) => (
-      <option key={index} value={cat}>
-        {cat}
-      </option>
-    ))}
-  </select>
-</div>
+                      <label className="form-label">Categoría</label>
+                      <select
+                        className="form-control"
+                        value={category}
+                        onChange={(e) => setCategory(e.target.value)}
+                      >
+                        <option value="" disabled>
+                          Selecciona una categoría
+                        </option>
+                        {categories.map((cat, index) => (
+                          <option key={index} value={cat}>
+                            {cat}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
                     <div className="col-12">
                       <label className="form-label">
                         Cantidad en Inventario

@@ -6,47 +6,47 @@ const Rating = ({value, text}) => {
     <div className='rating'>
         <span>
         {value >= 1 ? (
-          <FaStar />
+          <FaStar color="#FFC436"/>
         ) : value >= 0.5 ? (
-          <FaStarHalfAlt />
+          <FaStarHalfAlt color="#FFC436"/>
         ) : (
-          <FaRegStar />
+          <FaRegStar color="#FFC436"/>
         )}
       </span>
       <span>
         {value >= 2 ? (
-          <FaStar />
+          <FaStar color="#FFC436"/>
         ) : value >= 1.5 ? (
-          <FaStarHalfAlt />
+          <FaStarHalfAlt color="#FFC436"/>
         ) : (
-          <FaRegStar />
+          <FaRegStar color="#FFC436"/>
         )}
       </span>
       <span>
         {value >= 3 ? (
-          <FaStar />
+          <FaStar color="#FFC436"/>
         ) : value >= 2.5 ? (
-          <FaStarHalfAlt />
+          <FaStarHalfAlt color="#FFC436"/>
         ) : (
-          <FaRegStar />
+          <FaRegStar color="#FFC436"/>
         )}
       </span>
       <span>
         {value >= 4 ? (
-          <FaStar />
+          <FaStar color="#FFC436"/>
         ) : value >= 3.5 ? (
-          <FaStarHalfAlt />
+          <FaStarHalfAlt color="#FFC436"/>
         ) : (
-          <FaRegStar />
+          <FaRegStar color="#FFC436"/>
         )}
       </span>
       <span>
         {value >= 5 ? (
-          <FaStar />
+          <FaStar color="#FFC436"/>
         ) : value >= 4.5 ? (
-          <FaStarHalfAlt />
+          <FaStarHalfAlt color="#FFC436"/>
         ) : (
-          <FaRegStar />
+          <FaRegStar color="#FFC436"/>
         )}
       </span>
       <span className="rating-text" style={{marginLeft: "10px"}}>{text && text}</span>

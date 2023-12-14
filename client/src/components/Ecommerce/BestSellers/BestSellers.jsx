@@ -42,7 +42,7 @@ const BestSellers = () => {
     <section className="category-products__container">
       <div className="container__ecommerce">
         <div className="ecommerce__header">
-          <h2>Los más vendidos</h2>
+          <h2>Lo más nuevo</h2>
         </div>
         <div className="filters">
           <div className="filter__item">

@@ -1,11 +1,10 @@
-import React from 'react'
 import imgprincipal from "/diparate2.png";
 
 const Hero = () => {
   return (
     <div className="hero">
         <div className="container">
-          <div className="row justify-content-between">
+          <div className="hero__row">
             <div className="col-lg-5">
               <div className="intro-excerpt">
                 <h1 className="titulo ">Descubre Servicios y Emprendimientos</h1>
