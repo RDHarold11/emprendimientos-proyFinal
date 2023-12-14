@@ -83,7 +83,9 @@ function App() {
               path="/admin/publicaciones"
               element={<PublicacionesAdminPage />}
             ></Route>
+
             <Route path="/admin/productos" element={<Product />}></Route>
+            <Route path="/empresa" element={<Empresa />}></Route>
             <Route path="/admin" element={<AdminPage />}></Route>
             <Route path="/admin/user/:id/edit" element={<Edituser />}></Route>
             <Route path="/ordenes" element={<Ordenes />}></Route>

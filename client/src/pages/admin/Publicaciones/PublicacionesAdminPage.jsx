@@ -82,7 +82,7 @@ const PublicacionesAdminPage = () => {
                 <tr key={item._id}>
                   <td>{item._id}</td>
                   <td>{item.title}</td>
-                  <td>{item.description}</td>
+                  <td>{item.description.slice(0, 20)}</td>
                   <td>{item.numReviews}</td>
                   <td>
                     <a href="/" className="btn border-shadow update">

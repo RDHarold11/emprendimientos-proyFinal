@@ -225,8 +225,9 @@ ecommerce__img-container img {
 }
 
 .filter__item input {
-  width: 100%;
+  width: 50px;
   padding: 8px;
+  margin: 0 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
