@@ -11,38 +11,35 @@ const Skills = () => {
           </h4>
           <div className="info">
             <div className="info__container">
-              <h2>900+</h2>
+              <h2>+1k</h2>
               <div>
                 <h6>
-                  <strong>Lorem ipsum dolor sit.</strong>
+                  <strong>Emprendedores Exitosos:</strong>
                 </h6>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Quaerat libero iusto laborum corrupti minima consequatur.
+                Descubre cómo más de 100 emprendedores han triunfado con Catalyst.
                 </p>
               </div>
             </div>
             <div className="info__container">
-              <h2>200+</h2>
+              <h2>+50</h2>
               <div>
                 <h6>
-                  <strong>Lorem ipsum dolor sit.</strong>
+                  <strong>Categorías Destacadas:</strong>
                 </h6>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Quaerat libero iusto laborum corrupti minima consequatur.
+                Explora más de 20 categorías para resaltar tu emprendimiento, ya sea en moda, tecnología, arte o servicios.
                 </p>
               </div>
             </div>
             <div className="info__container">
-              <h2>600+</h2>
+              <h2>+20</h2>
               <div>
                 <h6>
-                  <strong>Lorem ipsum dolor sit.</strong>
+                  <strong>Colaboraciones Exitosas</strong>
                 </h6>
                 <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Quaerat libero iusto laborum corrupti minima consequatur.
+                Únete a la red de más de 50 colaboraciones exitosas y lleva tu emprendimiento a nuevas alturas.
                 </p>
               </div>
             </div>

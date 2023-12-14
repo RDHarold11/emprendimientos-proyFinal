@@ -16,8 +16,7 @@ const PopularCourses = () => {
           <header className="popular__header">
             <h4 className="popular__title">Publicaciones más populares</h4>
             <p className="popular__p">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta,
-              error! Quidem, odio adipisci!
+            Descubre los artículos que están causando sensación y únete a la tendencia. Encuentra emprendimientos que ya han conquistado corazones. Tu próximo hallazgo está a solo un clic de distancia.
             </p>
           </header>
           <Fade>

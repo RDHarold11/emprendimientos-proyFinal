@@ -9,7 +9,7 @@ import { RiUserSettingsLine } from "react-icons/ri";
 import { useLogoutMutation } from "../slices/usersApiSlice";
 import { logout } from "../slices/authSlice";
 import { resetCart } from "../slices/cartSlice";
-import { FaStar } from 'react-icons/fa';
+import { FaStar } from "react-icons/fa";
 
 const Navbar = () => {
   const { userInfo: user } = useSelector((state) => state.auth);
@@ -54,26 +54,27 @@ const Navbar = () => {
 
           <div className="collapse navbar-collapse" id="navbarsFurni">
             <ul className="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
-              <li className="nav-item active">
-                <a className="nav-link" href="/home">
+              <li className="nav-item">
+                <Link className="nav-link" href="/home">
                   Inicio
-                </a>
+                </Link>
               </li>
-              <li>
+              <li className="nav-link">
                 <Link className="nav-link" to="/acercade">
                   Sobre Nosotros
                 </Link>
               </li>
-
-              {user && (
+              <li className="nav-link">
                 <Link className="nav-link" to="/ecommerce/home">
                   Comprar ya
                 </Link>
-              )}
+              </li>
               {!user && (
-                <Link to="/login" className="nav-link">
-                  Iniciar Sesión
-                </Link>
+                <li className="nav-link">
+                  <Link to="/login" className="nav-link">
+                    Iniciar Sesión
+                  </Link>
+                </li>
               )}
             </ul>
             <ul className="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
@@ -85,9 +86,9 @@ const Navbar = () => {
               </Link>
               <Link className="nav-link favorites" to="/wish">
                 <FaStar size={30} />
-                {cartItems.length > 0 && (
+                {/* {cartItems.length > 0 && (
                   <div>{cartItems.reduce((a, c) => a + c.qty, 0)}</div>
-                )}
+                )} */}
               </Link>
               {user?.isAdmin && (
                 <Link className="nav-link user" to="/admin">

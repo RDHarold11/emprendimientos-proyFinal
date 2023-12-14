@@ -45,68 +45,82 @@ const BestSellers = () => {
     <section className="bestSeller__container">
       <div className="container__ecommerce">
         <div className="ecommerce__header">
-          <h2>Los más vendidos</h2>
+          <h2>Lo más nuevo</h2>
         </div>
         <div className="filters">
           {/* Filtro por rating mínimo */}
-          <label>
-            Min Rating:
-            <input
-              type="number"
-              value={minRating}
-              min="0"
-              max="5"
-              onChange={(e) => setMinRating(Math.min(5, Math.max(0, e.target.value)))}
-            />
-          </label>
+          <div className="container__inputs">
+            <label>
+              Min Rating:
+              <input
+                type="number"
+                className="input__filter"
+                value={minRating}
+                min="0"
+                max="5"
+                onChange={(e) =>
+                  setMinRating(Math.min(5, Math.max(0, e.target.value)))
+                }
+              />
+            </label>
 
-          {/* Filtro por rating máximo */}
-          <label>
-            Max Rating:
-            <input
-              type="number"
-              value={maxRating}
-              min="0"
-              max="5"
-              onChange={(e) => setMaxRating(Math.min(5, Math.max(0, e.target.value)))}
-            />
-          </label>
+            {/* Filtro por rating máximo */}
+            <label>
+              Max Rating:
+              <input
+                type="number"
+                className="input__filter"
+                value={maxRating}
+                min="0"
+                max="5"
+                onChange={(e) =>
+                  setMaxRating(Math.min(5, Math.max(0, e.target.value)))
+                }
+              />
+            </label>
 
-          {/* Filtro por precio mínimo */}
-          <label>
-            Min Precio:
-            <input
-              type="number"
-              value={minPrice}
-              onChange={(e) => setMinPrice(e.target.value)}
-            />
-          </label>
+            {/* Filtro por precio mínimo */}
+            <label>
+              Min Precio:
+              <input
+                type="number"
+                className="input__filter"
+                value={minPrice}
+                onChange={(e) => setMinPrice(e.target.value)}
+              />
+            </label>
 
-          {/* Filtro por precio máximo */}
-          <label>
-            Max Precio:
-            <input
-              type="number"
-              value={maxPrice}
-              onChange={(e) => setMaxPrice(e.target.value)}
-            />
-          </label>
+            {/* Filtro por precio máximo */}
+            <label>
+              Max Precio:
+              <input
+                type="number"
+                className="input__filter"
+                value={maxPrice}
+                onChange={(e) => setMaxPrice(e.target.value)}
+              />
+            </label>
 
-          {/* Filtro por precio exacto */}
-          <label>
-            Precio Exacto:
-            <input
-              type="text"
-              value={exactPrice}
-              onChange={(e) => setExactPrice(e.target.value)}
-            />
-          </label>
+            {/* Filtro por precio exacto */}
+            <label>
+              Precio Exacto:
+              <input
+                type="text"
+                className="input__filter"
+                value={exactPrice}
+                onChange={(e) => setExactPrice(e.target.value)}
+              />
+            </label>
+          </div>
+          <div className="">
+            {/* <button onClick={applyFilters}>Aplicar Filtros</button> */}
 
-          {/* Botón para aplicar los filtros */}
-          <button onClick={applyFilters}>Aplicar Filtros</button>
-
-          {/* Botón para limpiar filtros */}
-          <button onClick={clearFilters}>Limpiar Filtros</button>
+            {/* Botón para limpiar filtros */}
+            <button className="btn__filter" onClick={clearFilters}>
+              Limpiar Filtros
+            </button>
+            {/* Botón para aplicar los filtros */}
+          </div>
         </div>
         <div className="ecommerce__flex">
           {filtersApplied && filteredData.length === 0 && (

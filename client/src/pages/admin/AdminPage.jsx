@@ -80,6 +80,8 @@ const AdminPage = () => {
     ],
   };
 
+  //Grafico Peticiones resueltas/incompletas
+
   useEffect(() => {
     handleDataOrdenes();
     handleDataUsers();

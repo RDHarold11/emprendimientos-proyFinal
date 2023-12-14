@@ -1,13 +1,17 @@
 import "./Pago.css";
 import { toast } from "sonner";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { savePaymentMethod } from "../../slices/cartSlice";
 import Header from "../../components/Header/Header";
 
+
 const Pago = () => {
   const [paymentMethod, setPaymentMethod] = useState("PayPal");
+
+  const cart = useSelector((state) => state.cart)
+  const {shippingAddress} = cart
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -16,6 +20,13 @@ const Pago = () => {
     navigate("/placeorder");
     toast.success("Método de pago agregado");
   };
+
+  useEffect(() => {
+    if(!shippingAddress){
+      navigate("/direccion")
+    }
+  }, [navigate, shippingAddress])
+
   return (
     <>
       <Header text="Método de pago" />
