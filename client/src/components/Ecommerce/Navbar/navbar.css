@@ -1,51 +1,124 @@
+/* navbar.css */
+
 .navbar__top h3 {
-  font-family: "Jost";
-  color: #333;
-  font-size: 50px;
+    font-family: "Jost";
+    color: #333;
+    font-size: 50px;
 }
+
 nav .container__ecommerce {
-  padding: 10px 0;
+    padding: 10px 0;
 }
+
 nav {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  background-color: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #fff;
 }
+
 .navbar__top input {
-  border: none;
-  border-bottom: 1px solid #333;
-  padding: 5px 8px;
+    border: none;
+    border-bottom: 1px solid #333;
+    padding: 10px;
+    /* Adjusted padding */
+    font-size: 16px;
+    /* Adjusted font size */
+    width: 300px;
+    /* Adjusted width */
 }
+
 .img__container-navbar {
-  width: 400px;
+    width: 200px;
+    /* Adjusted width */
 }
+
 .navbar__top img {
-  height: auto;
-  height: 140px !important;
-  max-width: 200px;
+    height: auto;
+    max-width: 140px;
+    /* Adjusted max-width */
 }
+
 .navbar__top {
-  display: flex;
-  margin: 0 auto;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
 }
+
 .input__navbar {
-  width: 100%;
-  outline: none;
+    width: 100%;
+    outline: none;
 }
+
 .input__container {
-  width: 300px;
-  margin: 0 auto;
+    width: 300px;
+    margin: 0 auto;
+    position: relative;
+    /* Added relative positioning */
 }
+
 .navbar__icons {
-  display: flex;
-  gap: 20px;
+    display: flex;
+    gap: 20px;
 }
+
 .navbar__icons .ecommerce__link {
-  font-size: 16px;
+    font-size: 16px;
 }
+
 .navbar__ecommerce {
-  border-bottom: 1px solid #e1e1e1;
+    border-bottom: 1px solid #e1e1e1;
+}
+
+
+/* Agregado para la ventana emergente de resultados de búsqueda */
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1001;
+    max-height: 300px;
+    /* Added max-height */
+    overflow-y: auto;
+    /* Added overflow-y */
+}
+
+.mini-card {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    /* Increased padding */
+    border-bottom: 1px solid #ccc;
+}
+
+.mini-card img {
+    width: 60px;
+    /* Increased width */
+    height: 60px;
+    /* Increased height */
+    margin-right: 12px;
+}
+
+.mini-card__content {
+    flex-grow: 1;
+}
+
+.mini-card h3 {
+    margin: 0;
+    font-size: 14px;
+    /* Adjusted font size */
+}
+
+.mini-card p {
+    margin: 0;
+    font-size: 12px;
+    /* Adjusted font size */
+    color: #777;
 }
