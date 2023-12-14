@@ -21,7 +21,7 @@ const Eco = () => {
               </div>
               <div>
                 <h4>Libre de petroleo</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>Los productos de Catalyst evitan el uso de derivados del petróleo, contribuyendo a la sostenibilidad, al reducir la dependencia de recursos no renovables y minimizando el impacto ambiental asociado con la extracción y procesamiento de petróleo.</p>
               </div>
             </div>
             <div className="eco__content">
@@ -33,7 +33,7 @@ const Eco = () => {
               </div>
               <div>
                 <h4>0 pruebas en animales</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>Nos comprometemos éticamente y exhortamos a nuestros socios a no realizar pruebas en animales, optando por métodos alternativos para el desarrollo y prueba de productos, asegurando así una práctica libre de crueldad animal.</p>
               </div>
             </div>
             <div className="eco__content">
@@ -45,7 +45,7 @@ const Eco = () => {
               </div>
               <div>
                 <h4>Libre de sulfato</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>La ausencia de sulfatos, como el lauril sulfato de sodio, en los productos de Catalyst significa que se evitan compuestos químicos perjudiciales para la salud y el medio ambiente, respaldando una opción más saludable y ecológica.</p>
               </div>
             </div>
             <div className="eco__content">
@@ -57,7 +57,7 @@ const Eco = () => {
               </div>
               <div>
                 <h4>100% vegano</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                <p>Todos los productos son completamente veganos, excluyendo ingredientes de origen animal o derivados, lo que refleja un compromiso ético y sostenible en la producción.</p>
               </div>
             </div>
           </div>

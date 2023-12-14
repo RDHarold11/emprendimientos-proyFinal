@@ -43,9 +43,9 @@ const Navbar = () => {
             <ul className="custom-navbar-nav nav__container">
               <div className="nav__links">
                 <li className="nav-item">
-                  <Link className="nav-link" href="/home">
+                  <a className="nav-link" href="/home">
                     Inicio
-                  </Link>
+                  </a>
                 </li>
                 <li className="nav-link">
                   <Link className="nav-link" to="/acercade">

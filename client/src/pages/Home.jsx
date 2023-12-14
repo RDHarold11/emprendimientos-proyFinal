@@ -45,10 +45,7 @@ const Home = () => {
               Descubre entre las publicaciones más recientes
             </h1>
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut
-              laboriosam voluptatibus quae culpa expedita quod eos aspernatur
-              facere debitis! Tempore eligendi totam iste? Facilis cum, quos et
-              commodi tempora inventore?
+            ¡Bienvenido a Catalyst! Explora las últimas creaciones de emprendedores en Publicaciones Más Recientes. Encuentra inspiración y productos únicos que cuentan historias de innovación. Únete a la comunidad que respalda el espíritu emprendedor que todos tenemos.
             </p>
           </div>
           <div className="cards__products-container">

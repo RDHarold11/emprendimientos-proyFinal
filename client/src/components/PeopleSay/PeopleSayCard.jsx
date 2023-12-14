@@ -2,31 +2,24 @@ import React from "react";
 import "./people.css";
 import { IoStarSharp } from "react-icons/io5";
 
-const PeopleSayCard = () => {
+const PeopleSayCard = ({ stars, content, name, location, avatar }) => {
   return (
     <div className="people__card">
       <header>
         <div>
           <div>
-            <IoStarSharp color="#ff9400" />
-            <IoStarSharp color="#ff9400" />
-            <IoStarSharp color="#ff9400" />
-            <IoStarSharp color="#ff9400" />
+            {Array.from({ length: stars }).map((_, index) => (
+              <IoStarSharp key={index} color="#ff9400" />
+            ))}
           </div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore
-            nisi culpa iusto ducimus illum debitis.
-          </p>
+          <p>{content}</p>
         </div>
       </header>
       <div className="people-card__content">
-        <img
-          src="https://cdn.icon-icons.com/icons2/3708/PNG/512/man_person_people_avatar_icon_230017.png"
-          alt=""
-        />
+        <img src={avatar} alt="" />
         <div>
-          <h5>Mike Hadson</h5>
-          <small>Dominican Republic</small>
+          <h5>{name}</h5>
+          <small>{location}</small>
         </div>
       </div>
     </div>
