@@ -1,0 +1,15 @@
+.eco__content {
+  display: flex;
+  align-items: flex-start;
+  width: 500px;
+  justify-content: center;
+  gap: 30px;
+}
+.eco__content h4 {
+  font-family: "Jost";
+  font-size: 20px;
+  line-height: 40px;
+}
+.eco .container__ecommerce {
+  max-width: 1600px;
+}

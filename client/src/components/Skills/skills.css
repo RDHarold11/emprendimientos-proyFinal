@@ -1,0 +1,37 @@
+.skills__section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 120px 20px;
+}
+.skills__container img {
+  width: 100%;
+  height: auto;
+}
+.skills__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.skills__container h2 {
+  color: #4e39bc;
+}
+
+.info__container {
+  display: flex;
+  align-items: center;
+  max-width: 600px;
+  justify-content: center;
+  gap: 30px;
+}
+.skills__container h4 {
+  max-width: 400px;
+}
+.skills__container .info {
+  padding: 30px 0;
+}
+.info__container h2 {
+  display: inline-block;
+}
